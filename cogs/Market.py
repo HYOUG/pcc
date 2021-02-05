@@ -13,6 +13,7 @@ class Market(commands.Cog):
 
     @commands.command()
     async def market(self, ctx):
+        """Display the market's offers"""
         offers = get_file("market")["offers"]
         items = get_file("items")
 
@@ -41,6 +42,7 @@ class Market(commands.Cog):
 
     @commands.command()
     async def buy(self, ctx, offer_num: int):
+        """Buy a market's offer specified by it's name"""
         market = get_file("market")
         if offer_num % 1 == 0 and 1 <= offer_num <= (len(market["offers"])):
             if market["offers"][offer_num - 1]["seller"] != ctx.author.id:
@@ -85,6 +87,7 @@ class Market(commands.Cog):
 
     @commands.command()
     async def sell(self, ctx, item_id: str, item_float: float, price: int):
+        """Create a market's offer usin the item ID, the item float and the price"""
         offer_ended = False
 
         def check_market(reaction, user):
@@ -119,21 +122,13 @@ class Market(commands.Cog):
                     for reaction in updt_confirmation.reactions:
                         async for reaction_user in reaction.users():
                             if reaction.emoji == "❌" and reaction_user.id == ctx.author.id:
-                                cancel = discord.Embed(color=0xE62020)
-                                cancel.set_author(name=f"⚖️ Market add")
-                                cancel.add_field(name="Cancelled", value=f":x: {ctx.author.mention}, the trade have been cancelled")
-                                cancel.set_footer(icon_url=ctx.author.avatar_url, text=f"{ctx.author.name} • {get_time()}")
-                                await confirmation.edit(embed=cancel)
+                                await confirmation.edit(embed=gen_error("trade_canceled"))
                                 offer_ended = True
                                 break
 
                             if reaction.emoji == "✅" and reaction_user.id == ctx.author.id:
                                 market = get_file("market")
-
-                                market["offers"].append(
-                                    {"seller": ctx.author.id, "id": item_id, "float": item_float,
-                                     "price": price})
-
+                                market["offers"].append({"seller": ctx.author.id, "id": item_id, "float": item_float, "price": price})
                                 inventories[id_key]["items"].remove(target_dic)
 
                                 market_file = open("market.json", "w")
@@ -157,13 +152,7 @@ class Market(commands.Cog):
                             break
 
                 except asyncio.TimeoutError:
-                    timeout = discord.Embed(color=0xE62020)
-                    timeout.set_author(name=f"⚖️ Market add")
-                    timeout.add_field(name="Timeout",
-                                      value=f":x: {ctx.author.mention}, the trade have been cancelled")
-                    timeout.set_footer(icon_url=ctx.author.avatar_url, text=f"{ctx.author.name} • {get_time()}")
-                    await confirmation.edit(embed=timeout)
-
+                    await confirmation.edit(embed=gen_error("trade_canceled", ctx))
             else:
                 await ctx.send(embed=gen_error("incorrect_value", ctx))
         else:
@@ -172,6 +161,7 @@ class Market(commands.Cog):
 
     @commands.command()
     async def remove_offer(self, ctx, offer_num: int):
+        """Remove one of yours market's offer"""
         market = get_file("market")
 
         if market["offers"][offer_num - 1]["seller"] == ctx.author.id:

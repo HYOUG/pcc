@@ -7,11 +7,10 @@ from json import dumps
 
 
 class Admin(commands.Cog):
-    """Commands : off, reboot, admin_give, admin_remove, admin_reset, admin_add_item"""
+    """Commands : admin_off, admin_reboot, admin_reload_cog, admin_give, admin_remove, admin_reset, admin_add_item, admin_skip"""
 
     def __init__(self, bot):
         self.bot = bot
-
 
     @commands.command(aliases = ["=off", "=shutdown"])
     @commands.check(is_bot_owner)
@@ -24,7 +23,7 @@ class Admin(commands.Cog):
         await ctx.send(embed=embed)
         await self.bot.logout()                                                     # logout the bot
         print("-"*85)                                                               # log system
-        print(red("Pop culture Collectibles logging out..."))                       # //
+        print(red("Pop culture Collectibles se deconnecte..."))                     # //
         print("-"*85 + "\n")                                                        # //
 
 
@@ -38,14 +37,14 @@ class Admin(commands.Cog):
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
         print("-"*85)                                                               # log system
-        print(red("Pop culture Collectibles rebooting..."))                         # //
+        print(red("Pop culture Collectibles se relance..."))                        # //
         print("-"*85 + "\n")                                                        # //
         system("python main.py")                                                    # re-launching the main script
 
 
     @commands.command(aliases = ["=reloadcog"])
     @commands.check(is_bot_owner)
-    async def admin_reload_cog(self, ctx, cog_name):
+    async def admin_reload_cog(self, ctx, cog_name: str):
         """Reload the specified cog"""
         embed = discord.Embed(color=admin_color)
         embed.set_author(name="🛠️ Admin")
@@ -71,7 +70,7 @@ class Admin(commands.Cog):
 
             embed = discord.Embed(color=admin_color)
             embed.set_author(name="🛠️ Admin")
-            embed.add_field(name="➕ Give (ADMIN)", value=f"`{item_id}:{item_float}` a été procuré avec succès à : {target.mention}")
+            embed.add_field(name="➕ Give (ADMIN)", value=f"`{ctx.author.mention}, {item_id}:{item_float}` a été procuré avec succès à : {target.mention}")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 
@@ -93,14 +92,14 @@ class Admin(commands.Cog):
 
             embed = discord.Embed(color=admin_color)
             embed.set_author(name="🛠️ Admin")
-            embed.add_field(name="➖ Remove (ADMIN)", value=f"`{item_id}:{item_float}` have been removed from {target.mention}'s inventory.")
+            embed.add_field(name="➖ Remove", value=f"{ctx.author.mention}, `{item_id}:{item_float}` have been removed from {target.mention}'s inventory.")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 
         except ValueError:
             embed = discord.Embed(color=error_color)
             embed.set_author(name="🛠️ Admin")
-            embed.add_field(name="➖ Remove (ADMIN)", value=f":x: `{item_id}:{item_float}` have not been founded in the {target.mention}'s inventory")
+            embed.add_field(name="➖ Remove", value=f"{ctx.author.mention}, `{item_id}:{item_float}` have not been founded in the {target.mention}'s inventory")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 
@@ -120,14 +119,14 @@ class Admin(commands.Cog):
 
         embed = discord.Embed(color=admin_color)
         embed.set_author(name="🛠️ Admin")
-        embed.add_field(name="♻️ Reset", value=f"The profile of {target.mention} have been reset.")
+        embed.add_field(name="♻️ Reset", value=f"{ctx.author.mention}, the profile of {target.mention} have been reset.")
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
 
 
     @commands.command(aliases=["=additem"])
     @commands.check(is_bot_owner)
-    async def admin_add_item(self, ctx, *item_infos):
+    async def admin_add_item(self, ctx, *item_infos: tuple):
         """Add a new item from the given item_infos"""
         items = get_file("items")
         item_infos = "".join(item_infos)
@@ -146,7 +145,7 @@ class Admin(commands.Cog):
 
     @commands.command(aliases=["=skip"])
     @commands.check(is_bot_owner)
-    async def admin_skip(self, ctx, target: discord.Member, category):
+    async def admin_skip(self, ctx, target: discord.Member, category: str):
         """Skip the target's category cooldown"""
         cooldowns = get_file("cooldowns")
 

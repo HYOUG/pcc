@@ -24,9 +24,9 @@ class Loops(commands.Cog):
         self.loop_num_backup = 0
         self.loop_num_stocks = 0
 
-
     @tasks.loop(minutes=20)
     async def calc_event(self):
+        """'Random calculation' event"""
         if randint(1, 5) == 1:
             a = randint(-10, 10)
             b = randint(-10, 10)
@@ -70,6 +70,7 @@ class Loops(commands.Cog):
 
     @tasks.loop(minutes=5)
     async def change_status(self):
+        """'Change status' loop"""
         movies = open("data/movies.txt", "r").read().split("\n")
         activity = discord.Activity(type=discord.ActivityType.watching, name=f"{choice(movies)} | =help")
         await self.bot.change_presence(status=discord.Status.online, activity=activity)
@@ -77,6 +78,7 @@ class Loops(commands.Cog):
 
     @tasks.loop(hours=2)
     async def save_data(self):
+        """'Save data and create backup' loop"""
         if self.loop_num_backup > 1:
             backup_folder = strftime("%d-%m-%Y_%H.%M.%S")
             mkdir(f"backup/{backup_folder}")
@@ -99,18 +101,21 @@ class Loops(commands.Cog):
 
     @tasks.loop(minutes=5)
     async def stocks_evolution(self):
-        stocks = get_file("stocks")
-        evolutions = []
-        for share_key in list(stocks.keys()):
-            evolution = randint(-100, 100)
-            evolutions.append(evolution)
-            stocks[share_key].append(stocks[share_key][-1] + evolution)
-            if stocks[share_key][-1] < 0:
-               stocks[share_key][-1] = 0 
-            if len(stocks[share_key]) >= 20:
-                stocks[share_key] = stocks[share_key][-20:]
-        update_file("stocks.json", stocks)
-        print(f"[{get_time()}] : {yellow('[STOCKS]')}")
+        """'Make the stocks evolve' loop"""
+        if self.loop_num_stocks > 1:
+            stocks = get_file("stocks")
+            evolutions = []
+            for share_key in list(stocks.keys()):
+                evolution = randint(-100, 100)
+                evolutions.append(evolution)
+                stocks[share_key].append(stocks[share_key][-1] + evolution)
+                if stocks[share_key][-1] < 0:
+                    stocks[share_key][-1] = 0 
+                if len(stocks[share_key]) >= 20:
+                    stocks[share_key] = stocks[share_key][-20:]
+            update_file("stocks.json", stocks)
+            print(f"[{get_time()}] : {yellow('[STOCKS]')}")
+        self.loop_num_stocks += 1
 
 
 def setup(client):

@@ -11,8 +11,10 @@ class Powers(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+
     @commands.command()
-    async def use(self, ctx, power):
+    async def use(self, ctx, power: str):
+        """Use one of yours powers"""
         author_key = str(ctx.author.id)
         inventories = get_file("inventories")
         if power in inventories[author_key]["powers"]:

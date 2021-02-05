@@ -1,3 +1,7 @@
+# My rules / exceptions
+data/bot.token.txt
+modifier.py
+  
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +131,15 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

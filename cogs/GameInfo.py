@@ -5,13 +5,14 @@ from chatEffects import *
 
 
 class GameInfo(commands.Cog):
-    """Commands : help, items, powers, players"""
+    """Commands : help, items, powers, players, statistics"""
 
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
-    async def help(self, ctx, command = "*"):
+    async def help(self, ctx, command: str = "*"):
+        """Give a general help or a specified one"""
         if command == "*":
             help_data = get_file("help")
             target = self.bot.get_user(ctx.author.id)
@@ -40,6 +41,7 @@ class GameInfo(commands.Cog):
 
     @commands.command()
     async def items(self, ctx):
+        """Display the list of all game items"""
         embed = discord.Embed(color=default_color)
         embed.set_author(name=f"📜 List of items")
         embed.add_field(name="List",
@@ -62,15 +64,15 @@ class GameInfo(commands.Cog):
 
         embed = discord.Embed(color=default_color)
         embed.add_field(name="Name (ID)", value="*")
-        embed.add_field(name="Tier",      value="*")
-        embed.add_field(name="From",      value="*")
+        embed.add_field(name="Tier", value="*")
+        embed.add_field(name="From", value="*")
 
         while not finished:
 
             while len(embed.fields[0].value) +                                                                     \
-                    len(f"{items[items_keys[item_index]]['name']} ({items_keys[item_index]})\n") <= 1024 and       \
-                    len(embed.fields[1].value) + len(f"*{items[items_keys[item_index]]['tier']}*\n") <= 1024 and   \
-                    len(embed.fields[2].value) + len(f"__{items[items_keys[item_index]]['from']}__\n") <= 1024:
+                  len(f"{items[items_keys[item_index]]['name']} ({items_keys[item_index]})\n") <= 1024 and         \
+                  len(embed.fields[1].value) + len(f"*{items[items_keys[item_index]]['tier']}*\n") <= 1024 and     \
+                  len(embed.fields[2].value) + len(f"__{items[items_keys[item_index]]['from']}__\n") <= 1024:
 
                 embed.set_author(name=f"📜 List of items | Page n°{page}")
                 name_column += f"**{items[items_keys[item_index]]['name']}** `{items_keys[item_index]}`\n"
@@ -80,8 +82,8 @@ class GameInfo(commands.Cog):
                 embed.clear_fields()
 
                 embed.add_field(name="Name (ID)", value=name_column)
-                embed.add_field(name="Tier",      value=tier_column)
-                embed.add_field(name="From",      value=from_column)
+                embed.add_field(name="Tier", value=tier_column)
+                embed.add_field(name="From", value=from_column)
                 embed = set_footer(embed, ctx)
 
                 if item_index == len(items_keys) - 1:
@@ -108,6 +110,7 @@ class GameInfo(commands.Cog):
 
     @commands.command()
     async def powers(self, ctx):
+        """Display the list of all game powers"""
         powers      = get_file("powers")
         name_column = ""
         id_column   = ""
@@ -130,6 +133,7 @@ class GameInfo(commands.Cog):
 
     @commands.command()
     async def players(self, ctx):
+        """Display the list of all game players"""
         inventories = get_file("inventories")
         players_field = ""
 
@@ -148,6 +152,7 @@ class GameInfo(commands.Cog):
 
     @commands.command(aliases=["stats"])
     async def statistics(self, ctx):
+        """Display some bot's statistics"""
         stats = get_file("stats")
         inventories = get_file("inventories")
 

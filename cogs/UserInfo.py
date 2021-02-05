@@ -10,17 +10,14 @@ class UserInfo(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-
     @commands.command(aliases=["inv"])
-    async def inventory(self, ctx, target=None):
+    async def inventory(self, ctx, target: discord.Member = None):
         """Display the target's inventory (the author if target is not specified)"""
         target_found, target = await target_parser(ctx, target)
-
         if target_found:
             if is_registered(target.id):
-
                 inventories = get_file("inventories")
-                items       = get_file("items")
+                items = get_file("items")
                 embed = discord.Embed(color=default_color)
                 embed.set_author(name=f"📦 {target.name}'s Inventory")
 
@@ -50,10 +47,9 @@ class UserInfo(commands.Cog):
                     embed.add_field(name="Power-Ups", value=powers_column, inline=False)
                 else:
                     embed.add_field(name="Power-Ups", value="`You have no power-ups`", inline=False)
-
+                    
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
-
             else:
                 await ctx.send(embed=gen_error("missing_player", ctx))
         else:
@@ -61,20 +57,17 @@ class UserInfo(commands.Cog):
 
 
     @commands.command(aliases=["bal"])
-    async def balance(self, ctx, target=None):
+    async def balance(self, ctx, target: discord.Member = None):
         """Display the target's balance (the author if target is not specified)"""
         target_found, target = await target_parser(ctx, target)
-
         if target_found:
             if is_registered(target.id):
-
                 inventories = get_file("inventories")
                 embed = discord.Embed(color=default_color)
                 embed.set_author(name=f"💰 {target.name}'s Balance")
                 embed.add_field(name="Bourse", value=f"`{inventories[str(target.id)]['balance']}` **PO** (pièces d'or)")
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
-
             else:
                 await ctx.send(embed=gen_error("missing_player", ctx))
         else:
@@ -82,13 +75,11 @@ class UserInfo(commands.Cog):
             
 
     @commands.command(aliases=["pts"])
-    async def points(self, ctx, target=None):
+    async def points(self, ctx, target: discord.Member = None):
         """Display the target's points (the author if target is not specified)"""
         target_found, target = await target_parser(ctx, target)
-
         if target_found:
             if is_registered(target.id):
-
                 inventories = get_file("inventories")
                 player_points = 0
                 for item in inventories[str(ctx.author.id)]["items"]:
@@ -98,7 +89,6 @@ class UserInfo(commands.Cog):
                 embed.add_field(name="Points", value=f"`{player_points}` points")
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
-
             else:
                 await ctx.send(embed=gen_error("missing_player", ctx))
         else:

@@ -12,9 +12,9 @@ class Trades(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-
     @commands.command()
     async def trade(self, ctx, trader_2: discord.Member):
+        """Initiate a trade with the specified user"""
         global last_input
         global trader_id
         global trader2_id
@@ -206,6 +206,7 @@ class Trades(commands.Cog):
 
     @commands.command()
     async def pay(self, ctx, target: discord.Member, pay_sum: int):
+        """Give to the specified user the specified sum of PO"""
         if is_registered(ctx.author.id) and is_registered(target.id):
             if target.id != ctx.author.id:
                 try:

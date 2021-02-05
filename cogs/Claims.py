@@ -12,7 +12,6 @@ class Claims(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-
     @commands.command()
     async def spin(self, ctx):
         """Claim the spin (30 min cooldown)"""
@@ -22,10 +21,6 @@ class Claims(commands.Cog):
 
             inventories = get_file("inventories")
             items = get_file("items")
-
-            embed = discord.Embed(color=default_color)
-            embed.set_author(name=f"🎰 {ctx.author.name}'s free spin")
-            embed = set_footer(embed, ctx)
 
             s_tier = []
             a_tier = []
@@ -44,7 +39,6 @@ class Claims(commands.Cog):
                     c_tier.append(key)
                 else:
                     d_tier.append(key)
-
             tiers = {"S": s_tier, "A": a_tier, "B": b_tier, "C": c_tier, "D": d_tier}
 
             reward_tier = choices(["S", "A", "B", "C", "D"], weights=[1, 10, 15, 40, 30], k=1)[0]
@@ -53,10 +47,12 @@ class Claims(commands.Cog):
             tier_points, float_multiplicator = get_points(reward_tier, reward_float)
             reward_points = tier_points * float_multiplicator
 
-            embed.add_field(
-                name=f"**{items[reward_key]['name']}** ({tier_points} x {float_multiplicator} = {reward_points} PTS)",
-                value=f"*{items[reward_key]['description']}* • __{items[reward_key]['from']}__",
-                inline=False)
+            embed = discord.Embed(color=default_color)
+            embed.set_author(name=f"🎰 {ctx.author.name}'s free spin")
+            embed = set_footer(embed, ctx)
+            embed.add_field(name=f"**{items[reward_key]['name']}** ({tier_points} x {float_multiplicator} = {reward_points} PTS)",
+                            value=f"*{items[reward_key]['description']}* • __{items[reward_key]['from']}__",
+                            inline=False)
             embed.add_field(name="Tier", value=f"`{items[reward_key]['tier']}`", inline=True)
             embed.add_field(name="Float", value=f"`{reward_float}`", inline=True)
             embed.add_field(name="ID", value=f"`{reward_key}`", inline=True)
@@ -64,8 +60,7 @@ class Claims(commands.Cog):
             embed.set_image(url=f"attachment://{reward_key}.png")
             await ctx.send(embed=embed, file=item_image)
 
-            inventories[str(ctx.author.id)]["items"].append({"id": reward_key, "float": reward_float,
-                                                             "points": reward_points})
+            inventories[str(ctx.author.id)]["items"].append({"id": reward_key, "float": reward_float, "points": reward_points})
             cooldowns[str(ctx.author.id)]["spin"] = time()
             update_file("cooldowns.json", cooldowns)
             update_file("inventories.json", inventories)

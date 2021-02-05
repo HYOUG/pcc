@@ -74,18 +74,11 @@ async def on_ready():                                                           
 bot.run(token)                                                                      # launch the bot
 
 
-# TODO
-"""
-trade, craft, tradeup, baltop, leaderboard, levels, shop, thumbnails for every actions
-manage  if       inv v
-fusionner if
-break boucle au-dessus
-admin commands give remove clear reset etc...
-add, suggest
-rates
-errors -> EN, dans un fichier
-fignoler les power ups
-commandes : get_points, powers
-rework help
-adapter par rapport au nouveau fichier list_items
+""" TODO
+Rework powers
+Rework command
+Add items (?)
+get_point command
+give item command
+Upgrade the README
 """

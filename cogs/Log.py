@@ -14,7 +14,6 @@ class Log(commands.Cog):
         self.deleteLog = yellow("[DELETE]")                                         # declare the log category 'delete'
         self.commandList = get_commands_list()                                           # get the 'commands list' 
 
-
     @commands.Cog.listener(name = "on_message")
     async def on_message(self, message):
         """'on_message' event handler"""

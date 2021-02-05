@@ -12,7 +12,8 @@ class Fun(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def flip(self, ctx, bet: int):
+    async def flip(self, ctx, bet: int = 10):
+        """Bet on the result of a coin fliped"""
         if bet % 1 == 0 and bet > 0:
             inventories = get_file("inventories")
             if bet <= inventories[str(ctx.author.id)]["balance"]:
@@ -43,7 +44,8 @@ class Fun(commands.Cog):
 
 
     @commands.command()
-    async def bet(self, ctx, bet: int, odd: int = 2):
+    async def bet(self, ctx, bet: int = 10, odd: int = 2):
+        """Bet a specified sum with specified odds"""
         if bet >= 1:
             inventories = get_file("inventories")
             if bet <= inventories[str(ctx.author.id)]["balance"]:

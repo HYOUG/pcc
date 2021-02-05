@@ -10,9 +10,9 @@ class Leaderboards(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-
     @commands.command(aliases=["baltop"])
     async def balancetop(self, ctx):
+        """Display the balances ranks"""
         inventories = get_file("inventories")
         balances = {}
 
@@ -39,6 +39,7 @@ class Leaderboards(commands.Cog):
 
     @commands.command(aliases=["ptop"])
     async def pointstop(self, ctx):
+        """Display the points ranks"""
         inventories = get_file("inventories")
         players_points = {}
 

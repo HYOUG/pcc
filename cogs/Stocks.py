@@ -7,14 +7,14 @@ from os import getcwd
 from chatEffects import *
 
 class Stocks(commands.Cog):
-    """Commands : stocks"""
+    """Commands : chart, stocks, invest"""
 
     def __init__(self, bot):
         self.bot = bot
 
-
     @commands.command(aliases=["charts"])
-    async def chart(self, ctx, share="*"):
+    async def chart(self, ctx, share: str = "*"):
+        """Display the specified share's chart specified or all of them"""
         stocks = get_file("stocks")
         if share in list(stocks.keys()):
             plt.plot(range(20), stocks[share])
@@ -51,8 +51,8 @@ class Stocks(commands.Cog):
             await ctx.send(embed=gen_error("invalid_synthax", ctx))
 
         
-    @commands.command(aliases=["stocks"])
-    async def shares(self, ctx):
+    @commands.command(aliases=["shares"])
+    async def stocks(self, ctx):
         stocks = get_file("stocks")
         shares = list(stocks.keys())
         embed = discord.Embed(color=default_color)
@@ -66,8 +66,8 @@ class Stocks(commands.Cog):
 
 
     @commands.command()
-    async def invest(self, ctx, share, qtty=1):
-        stocks      = get_file("stocks")
+    async def invest(self, ctx, share: str, qtty: int = 1):
+        stocks = get_file("stocks")
         inventories = get_file("inventories")
         if share in list(stocks.keys()):
             if 1 <= qtty <= 1000:
@@ -85,6 +85,7 @@ class Stocks(commands.Cog):
                 await ctx.send(embed=gen_error("invalid_synthax", ctx))
         else:
             await ctx.send(embed=gen_error("invalid_synthax", ctx))
+
 
 def setup(client):
     client.add_cog(Stocks(client))

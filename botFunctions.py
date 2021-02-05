@@ -22,11 +22,13 @@ def is_registered(user_id: str):
 
 
 def check1(msg):
+    """TODO DELETE (trade rework)"""
     global trader_id
     return str(msg.author.id) == str(trader_id)
 
 
 def check2(reaction, user):
+    """TODO DELETE (trade rework)"""
     global trader2_id
     return str(user.id) == trader2_id and str(reaction) == "✅"
 
@@ -45,7 +47,7 @@ def gen_error(error_id: str, ctx):
     return error
 
 
-def set_footer(embed, ctx):
+def set_footer(embed: Embed, ctx):
     """Set the discord.Embed's footer"""
     return embed.set_footer(icon_url=ctx.author.avatar_url, text=f"{ctx.author.display_name} • {get_time()}")
 
@@ -72,7 +74,7 @@ def get_points(item_tier: str, item_float: float):
     return tier_points, float_multiplicator
 
 
-async def target_parser(ctx, target):
+async def target_parser(ctx, target: str):
     """Return whether or not the 'target' is valid"""
     if target is None:
         target = ctx.author
@@ -86,30 +88,31 @@ async def target_parser(ctx, target):
     return (target_found, target)
 
 
-def load_cogs(bot, cog_name):
+def load_cogs(bot: commands.Bot, cog_name: str):
     """Load all coags"""
     bot.load_extension(f"cogs.{cog_name}")
 
 
-def unload_cog(bot, cog_name):
+def unload_cog(bot: commands.Bot, cog_name: str):
     """Unload a cog"""
     bot.unload_extension(f"cogs.{cog_name}")
 
 
-def reload_cog(bot, cog_name):
+def reload_cog(bot: commands.Bot, cog_name: str):
     """Reload a cog"""
     unload_cog(bot, cog_name)
     load_cogs(bot, cog_name)
 
 
-def is_protected(target_id):
+def is_protected(target_id: str):
     """Return whether or not the target is protected by a shield"""
     inventories = get_file("inventories")
     return inventories[target_id]["shield_active"]
 
 def get_commands_list():
-    """Return all of the commands and aliases list"""
+    """Return all of the commands and aliases in a list"""
     return open("data/commands.list.txt", "r").read().split(" ")
 
 def get_commands_dict():
+    """Return all of the commands and aliases in a dictionary"""
     return loads(open(f"data/commands.dict.json", "r", encoding="utf-8").read())

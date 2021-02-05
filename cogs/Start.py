@@ -12,6 +12,7 @@ class Start(commands.Cog):
 
     @commands.command()
     async def start(self, ctx):
+        """Create the author's game account"""
         if not is_registered(ctx.author.id):
 
             inventories = get_file("inventories")
