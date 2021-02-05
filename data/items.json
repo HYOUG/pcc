@@ -1,0 +1,723 @@
+{
+   "carapacev": {
+      "name": "Carapace Verte",
+      "from": "Mario Kart",
+      "description": "Un item plus ou moins aléatoire",
+      "tier": "D",
+      "image": "https://vignette.wikia.nocookie.net/mario/images/c/cf/MKWii-TripleCarapaceVerte.png/revision/latest?cb=20190531195958&path-prefix=fr"
+   },
+   "carapaceb": {
+      "name": "Carapace Bleue",
+      "from": "Mario Kart",
+      "description": "L'arme du faible",
+      "tier": "B+",
+      "image": "https://pbs.twimg.com/media/BnmN1EEIgAMBM0v.png"
+   },
+   "bulletbill": {
+      "name": "Bullet Bill",
+      "from": "Mario Kart",
+      "description": "C'est pas avec le corps qu'on tourne",
+      "tier": "C+",
+      "image": "https://vignette.wikia.nocookie.net/mario/images/6/6f/Bullet_Bill_-_New_Super_Mario_Bros.png/revision/latest?cb=20171019085520"
+   },
+   "mastersword": {
+      "name": "Master Sword",
+      "from": "The Legend of Zelda",
+      "description": "L'épée du héros",
+      "tier": "A+",
+      "image": "https://i.ya-webdesign.com/images/master-sword-png-8.png"
+   },
+   "ocarina": {
+      "name": "Ocarina",
+      "from": "The Legend of Zelda",
+      "description": "Un instrument très puissant",
+      "tier": "A-",
+      "image": "https://vignette.wikia.nocookie.net/zelda/images/b/bf/Ocarina_du_Temps_oot.png/revision/latest/scale-to-width-down/340?cb=20130314143703&path-prefix=fr"
+   },
+   "triforce": {
+      "name": "Triforce",
+      "from": "The Legend of Zelda",
+      "description": "Plus fort que les illuminatis",
+      "tier": "S",
+      "image": "https://static.wikia.nocookie.net/059e3d0c-0649-4b6b-88ce-b0b3eac7ab26"
+   },
+   "ring": {
+      "name": "Ring",
+      "from": "Sonic the Hedgehog",
+      "description": "Une pièce ? Un anneau ? Non, LES DEUX",
+      "tier": "D+",
+      "image": "https://i.dlpng.com/static/png/5786875-sonic-ring-png-110-images-in-collection-page-3-sonic-rings-png-444_300_preview.png"
+   },
+   "emeralds": {
+      "name": "Chaos Emeralds",
+      "from": "Sonic the Hedgehog",
+      "description": "Les power rangers mais... en émeraude",
+      "tier": "A-",
+      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ea231e53-e17c-4265-83b5-552457fc0505/d9qjhiq-e0ff7d31-b4c4-400f-9a7d-05c3585cdd7c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZWEyMzFlNTMtZTE3Yy00MjY1LTgzYjUtNTUyNDU3ZmMwNTA1XC9kOXFqaGlxLWUwZmY3ZDMxLWI0YzQtNDAwZi05YTdkLTA1YzM1ODVjZGQ3Yy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.t4CPkE4bdtv2na-oA4ipxyM6PT4-LJUK5qN-ia7EGts"
+   },
+   "lsaber": {
+      "name": "Sabre Laser de Luke",
+      "from": "Star Wars",
+      "description": "Le Fils",
+      "tier": "A-",
+      "image": "https://i.dlpng.com/static/png/6570978_preview.png"
+   },
+   "dsaber": {
+      "name": "Sabre Laser de Dark Vador",
+      "from": "Star Wars",
+      "description": "Le père",
+      "tier": "A+",
+      "image": "https://i.pinimg.com/originals/96/88/88/968888fdf0ab7ac98a9db9f04acffe5d.png"
+   },
+   "blaster": {
+      "name": "Blaster de Stormtrooper",
+      "from": "Star Wars",
+      "description": "not_aimbot.dll",
+      "tier": "D-",
+      "image": "https://i.pinimg.com/originals/92/6e/55/926e55e0f6870d1df438af9e9e4fd7b4.png"
+   },
+   "kyber": {
+      "name": "Crystaux Kyber",
+      "from": "Star Wars",
+      "description": "Le kit du petit Jedi(/Sith)",
+      "tier": "C",
+      "image": "https://vignette.wikia.nocookie.net/fr.starwars/images/5/5f/LightsaberCrystal-SWE.png/revision/latest/scale-to-width-down/340?cb=20161117103527"
+   },
+   "vador": {
+      "name": "Casque de Dark Vador",
+      "from": "Star Wars",
+      "description": "Une obscure force s'en échappe",
+      "tier": "S+",
+      "image": "https://images.partycity.eu.com/MASK/73/1/front/v2/fac/1.jpg"
+   },
+   "metalgear": {
+      "name": "Metal Gear",
+      "from": "Metal Gear Solid",
+      "description": "mobile nuclear launch platform",
+      "tier": "A-",
+      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e05af171-295b-4bf7-a76c-e2094c650e0b/d74ydcv-22ffa779-bd5f-4621-94c1-5a47dc173660.png/v1/fill/w_428,h_335,strp/metal_gear_rex_by_alexmicroheroes_d74ydcv-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0zMzUiLCJwYXRoIjoiXC9mXC9lMDVhZjE3MS0yOTViLTRiZjctYTc2Yy1lMjA5NGM2NTBlMGJcL2Q3NHlkY3YtMjJmZmE3NzktYmQ1Zi00NjIxLTk0YzEtNWE0N2RjMTczNjYwLnBuZyIsIndpZHRoIjoiPD00MjgifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ZS5oAA4090m-5M2LCsaGucqfYTPVfqP-4OjGCO7AebA"
+   },
+   "cardbox": {
+      "name": "Boîte en carton",
+      "from": "Metal Gear Solid",
+      "description": "|!|",
+      "tier": "C",
+      "image": "https://i.imgur.com/crZ0lBe.png"
+   },
+   "texture": {
+      "name": "Texture not found",
+      "from": "Garry's Mod",
+      "description": "#Description not founded#",
+      "tier": "D+",
+      "image": "https://i.kym-cdn.com/entries/icons/original/000/028/315/cover.jpg"
+   },
+   "dlore": {
+      "name": "AWP | Dragon Lore",
+      "from": "Counter-Strike Global Offensive",
+      "description": "Le légendaire dragon",
+      "tier": "A",
+      "image": "https://i.ya-webdesign.com/images/awp-dragon-lore-png-13.png"
+   },
+   "fserpent": {
+      "name": "AK-47 | Fire Serpent",
+      "from": "Counter-Strike Global Offensive",
+      "description": "Quetzacoatl 2.0",
+      "tier": "A",
+      "image": "https://pbs.twimg.com/media/DQJVrL6XUAAEAwD.png"
+   },
+   "sanddune": {
+      "name": "P250 | Sand Dune",
+      "from": "Counter-Strike Global Offensive",
+      "description": "Mème en espérant rien, on est déçu...",
+      "tier": "D-",
+      "image": "https://cdn.hellcase.com/730/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopujwezhz3MzbcDNG09GzkImemrmkMeuEzjwB7sMgjL_H8d6hilbs_0c5Ym6lI9WddVc2MgyB-FXtl7q6m9bi65jdplfl/360fx360f.png"
+   },
+   "karambit": {
+      "name": "Karambit | Fade",
+      "from": "Counter-Strike Global Offensive",
+      "description": "1K$ (USD) pixels",
+      "tier": "A-",
+      "image": "https://lh3.googleusercontent.com/proxy/qMhm9kt4Rjhbcu6gtDXPat2MWkvNo1s65OacGbFJ69Wp1maYY3Oz1nInyHs1a9Ew-byg3E7ShHgZNExrOwTXh65ytlfSt_5CXfFmI6rKtQ"
+   },
+   "chicken": {
+      "name": "Poulet",
+      "from": "Counter-Strike Global Offensive",
+      "description": "Chicken blocking the door",
+      "tier": "B+",
+      "image": "https://vignette.wikia.nocookie.net/cswikia/images/2/2a/Chicken_white_csgo.png/revision/latest/top-crop/width/360/height/360?cb=20151210074035"
+   },
+   "physgun": {
+      "name": "Physgun",
+      "from": "Half-Life",
+      "description": "Prop kill are not allowed !",
+      "tier": "B+",
+      "image": "https://www.pngkit.com/png/full/268-2688059_physics-gravity-gun-roblox.png"
+   },
+   "gravitygun": {
+      "name": "Gravity gun",
+      "from": "Half-Life",
+      "description": "Prop kill are not allowed !",
+      "tier": "B+",
+      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0f80ec07-d350-4500-9fbe-a61ccddbf410/dbspp6x-3e77513b-dd3e-49b0-a183-cb8687e725c7.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMGY4MGVjMDctZDM1MC00NTAwLTlmYmUtYTYxY2NkZGJmNDEwXC9kYnNwcDZ4LTNlNzc1MTNiLWRkM2UtNDliMC1hMTgzLWNiODY4N2U3MjVjNy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.2p6eFaHW034-bdUuk7U2KkCDwq30ZRce3-SvDH3E4gU"
+   },
+   "magnum": {
+      "name": ".357 Magnum",
+      "from": "Half-Life",
+      "description": "Alien's nightmare",
+      "tier": "C",
+      "image": "https://www.svencoop.com/manual/images/weapons/357-magnum.png"
+   },
+   "portalgun": {
+      "name": "Portal gun",
+      "from": "Portal",
+      "description": "Décrochez la lune !",
+      "tier": "A+",
+      "image": "https://lh3.googleusercontent.com/proxy/3nYoF-POBcmO2iCfVylP9Ujp78xVoyJdMQUGLKBkOpq_j4UsX3RIBpusMrnUCAPJMzsd_BjWPh7GhD49Bz7yTymboW79COwc5VLw7btJ6Qcb"
+   },
+   "cube": {
+      "name": "Cube de voyage lesté",
+      "from": "Portal",
+      "description": "<3",
+      "tier": "A-",
+      "image": "https://i1.theportalwiki.net/img/thumb/6/6b/Companion_Cube.png/180px-Companion_Cube.png"
+   },
+   "chapeau": {
+      "name": "Unusual Burning Team Captain",
+      "from": "Team Fortress 2",
+      "description": "C'est son prix qui est unusual",
+      "tier": "C+",
+      "image": "https://steamuserimages-a.akamaihd.net/ugc/3299195982091997493/77DA5D5C71D99DD81C560FF3581EF4B4D7008B5C/"
+   },
+   "rocket": {
+      "name": "Lance-Roquettes",
+      "from": "Team Fortress 2",
+      "description": "Un excellent moyen de transport",
+      "tier": "B+",
+      "image": "https://wiki.teamfortress.com/w/images/1/1d/Backpack_Rocket_Launcher.png"
+   },
+   "papillon": {
+      "name": "Couteau Papillon",
+      "from": "Team Fortress 2",
+      "description": "baaaaacckkk...STAB !",
+      "tier": "C+",
+      "image": "https://vignette.wikia.nocookie.net/deadliestfiction/images/5/5f/Butterfly_Knife.png/revision/latest/scale-to-width-down/340?cb=20150717153406"
+   },
+   "jtaxe": {
+      "name": "La Hache de Jack Torrance",
+      "from": "The Shining",
+      "description": "HERE'S JONHY !!",
+      "tier": "A",
+      "image": "https://i.pinimg.com/originals/ae/c3/1a/aec31a4292d5b9453a012dea06b73fbe.png"
+   },
+   "goldengun": {
+      "name": "Golden Gun",
+      "from": "James Bond",
+      "description": "One shot.",
+      "tier": "A+",
+      "image": "https://www.sideshow.com/storage/product-images/905324/the-golden-gun_james-bond_silo.png"
+   },
+   "anneau": {
+      "name": "L'anneau Unique",
+      "from": "Le Hobbit",
+      "description": "Le précieuuuuuuux",
+      "tier": "S",
+      "image": "https://i.insider.com/5c9df5a992c8864f68747cd4?width=1100&format=jpeg&auto=webp"
+   },
+   "arkenstone": {
+      "name": "L'Arkenstone",
+      "from": "Le Hobbit",
+      "description": "Le coeur de la montagne",
+      "tier": "B",
+      "image": "https://i.pinimg.com/originals/78/7f/bb/787fbb41ecc1280de3788de40d8083b1.jpg"
+   },
+   "lotus": {
+      "name": "Lotus Noir",
+      "from": "Magic the Gathering",
+      "description": "Vous avez remportez la partie.",
+      "tier": "B+",
+      "image": "https://static.cardmarket.com/img/1d76c17cd93916c2d26e9b42a62d44df/items/1/LEB/5092.jpg"
+   },
+   "dragonb": {
+      "name": "Dragon blanc aux yeux bleus",
+      "from": "Yu-Gi-Oh !",
+      "description": "Bur\u00c5\u00abaizu Howaito Doragon",
+      "tier": "B+",
+      "image": "https://i.imgur.com/FKC2qkg.png"
+   },
+   "journal1": {
+      "name": "Journal #1 de Stanford Pines",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "1/3",
+      "tier": "A-",
+      "image": "https://vignette.wikia.nocookie.net/gravityfalls/images/9/95/Journal_1_appearance.png/revision/latest?cb=20130723184258"
+   },
+   "journal2": {
+      "name": "Journal #2 de Stanford Pines",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "2/3",
+      "tier": "A-",
+      "image": "https://vignette.wikia.nocookie.net/gravityfalls/images/f/f6/Journal_2_appearance.png/revision/latest/scale-to-width-down/340?cb=20130415190539"
+   },
+   "journal3": {
+      "name": "Journal #3 de Stanford Pines",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "3/3",
+      "tier": "A-",
+      "image": "https://vignette.wikia.nocookie.net/gravityfalls/images/d/d4/Journal_3_appearance.png/revision/latest/scale-to-width-down/340?cb=20130226013334"
+   },
+   "journal4": {
+      "name": "=J0uRn4l_#4_de_5T4nford_P1n3s",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "4/////#",
+      "tier": "A+",
+      "image": "https://vignette.wikia.nocookie.net/gravityfalls/images/1/1e/Journal_4.png/revision/latest?cb=20191214162828"
+   },
+   "dice": {
+      "name": "Dé infini",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "Dungeons, Dungeons, and More Dungeons",
+      "tier": "B",
+      "image": "https://t1.rbxcdn.com/ba7de3493feb2564b2394904d137a6e2"
+   },
+   "portal": {
+      "name": "Interdimentional Portal",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "Le triangle va venir",
+      "tier": "A",
+      "image": "https://vignette.wikia.nocookie.net/gravityfalls/images/2/2b/S1e20_portal_open.png/revision/latest?cb=20130805001328"
+   },
+   "rickgun": {
+      "name": "Pisto-portail",
+      "from": "Rick & Morty",
+      "description": "Un accès vers une infinité de mondes",
+      "tier": "S-",
+      "image": "https://vignette.wikia.nocookie.net/rickandmorty/images/c/c5/S3e1_portal_gun.png/revision/latest?cb=20170731001039"
+   },
+   "meesix": {
+      "name": "Boîte à M. Larbin",
+      "from": "Rick & Morty",
+      "description": "Salut c'est moi M'sieur Larbin !",
+      "tier": "B+",
+      "image": "https://vignette.wikia.nocookie.net/rickandmorty/images/f/f7/Mr._Meeseeks_Box.png/revision/latest?cb=20160909153718"
+   },
+   "szechuan": {
+      "name": "Sauce Szechuan",
+      "from": "Rick et Morty",
+      "description": " I want that Mulan McNugget sauce, Morty. That's my series arc, Morty!",
+      "tier": "S-",
+      "image": "https://imgix.bustle.com/inverse/2f/dc/32/52/ebe6/4a98/afa6/6a8fb24ee4d3/szechuan-sauce-packet.png"
+   },
+   "spgem": {
+      "name": "Pierre de l'Espace",
+      "from": "Marvel",
+      "description": "Tesseract",
+      "tier": "A",
+      "image": "https://vignette.wikia.nocookie.net/marvelmovies/images/5/55/Avengers_Tesseract2012.PNG/revision/latest?cb=20131116232739"
+   },
+   "mgem": {
+      "name": "Pierre de l'Esprit",
+      "from": "Marvel",
+      "description": "Sceptre",
+      "tier": "A",
+      "image": "https://marvelcinematicuniversetheories.files.wordpress.com/2017/10/20e27-infinity-stones-power-gem-guardians-of-the-galaxy2b252812529.jpg?w=302&h=196"
+   },
+   "slgem": {
+      "name": "Pierre de l'Ame",
+      "from": "Marvel",
+      "description": "Le défi de Vormir",
+      "tier": "A",
+      "image": "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/2/24/SoulStone.jpg/revision/latest?cb=20180817153423"
+   },
+   "rlgem": {
+      "name": "Pierre de Réalité",
+      "from": "Marvel",
+      "description": "Éther",
+      "tier": "A",
+      "image": "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/b/b5/Aether_AAoU.png/revision/latest?cb=20170426225912"
+   },
+   "tmgem": {
+      "name": "Pierre du Temps",
+      "from": "Marvel",
+      "description": "L'oeil d'Agamotto",
+      "tier": "A",
+      "image": "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/1/19/AW_Trailer_2_pic_12.png/revision/latest?cb=20180316142613"
+   },
+   "pwgem": {
+      "name": "Pierre du Pouvoir",
+      "from": "Marvel",
+      "description": "Orbe",
+      "tier": "A",
+      "image": "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/7/7d/Guardians_Of_The_Galaxy_NOM0910_comp_v037.1043.jpg/revision/latest?cb=20140815032648"
+   },
+   "infgntltempty": {
+      "name": "Gant de l'infini (vide)",
+      "from": "Marvel",
+      "description": "Receptacles des pierres",
+      "tier": "B-",
+      "image": "https://boundingintocomics.com/wp-content/uploads/2017/11/Thanos-Infinity-Gauntlet.png"
+   },
+   "infgntltfull": {
+      "name": "Gant de l'infini (complété)",
+      "from": "Marvel",
+      "description": "I AM A GOD",
+      "tier": "S+",
+      "image": "https://pepsnews.com/wp-content/uploads/2019/04/avengers-4-endgame-google-easter-egg-thanos-snap-infintiy-gauntlet-stones-1119250.jpg"
+   },
+   "mjolnir": {
+      "name": "Mjölnir",
+      "from": "Marvel",
+      "description": "aka Boomerang nordique",
+      "tier": "A-",
+      "image": "https://qph.fs.quoracdn.net/main-qimg-8b15815670c50515ec68a4189fecb6c3.webp"
+   },
+   "dblanneau": {
+      "name": "Double anneau",
+      "from": "Marvel",
+      "description": "essentiel aux arts mystiques",
+      "tier": "C+",
+      "image": "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/a/ad/Sling_Ring_Disney_Channel_2.png/revision/latest?cb=20170212052831"
+   },
+   "reacteura": {
+      "name": "Réacteur ARC",
+      "from": "Marvel",
+      "description": "H34RTH.exe",
+      "tier": "B+",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/61L6u9N5W7L._AC_SY450_.jpg"
+   },
+   "strmbrkr": {
+      "name": "Stormbreaker",
+      "from": "Marvel",
+      "description": "Most Powerful weapon of Asgard",
+      "tier": "A",
+      "image": "https://lh3.googleusercontent.com/proxy/JvQI1UAzokH9Krq5wKMwSsbbcTRYzh3IDxkgplP0GwxZGVCi3e4nC8kIB-ZbLJ1agZYcLh5QixMQyP7kCvOzFjlZH3mjgNPyPO1gJfTn6EQI6QlEgUdW3Q"
+   },
+   "thorhammer": {
+      "name": "Marteau de Thor",
+      "from": "Marvel",
+      "description": "La puissabce d'Odin",
+      "tier": "A-",
+      "image": ""
+   },
+   "cptshield": {
+      "name": "Bouclier de Captain America",
+      "from": "Marvel",
+      "description": "I N C A S S A B L E",
+      "tier": "A+",
+      "image": "https://cdn.shopify.com/s/files/1/2468/0639/products/Captain_America_Shield_300x300.png?v=1540916343"
+   },
+   "batceinture": {
+      "name": "Bat-Ceinture",
+      "from": "DC comics",
+      "description": "Plein de bat-gadget",
+      "tier": "B+",
+      "image": "https://i2.wp.com/www.fteam.org/EDLB/wp-content/uploads/batman_utility_belt.jpg"
+   },
+   "smashball": {
+      "name": "Balle Smash",
+      "from": "Super Smash Bros",
+      "description": "just press B",
+      "tier": "B-",
+      "image": "https://vignette.wikia.nocookie.net/ssb/images/0/0a/Fakesmashball-0.png/revision/latest/top-crop/width/360/height/450?cb=20180927214938"
+   },
+   "lamescrt": {
+      "name": "Lame Secrète",
+      "from": "Assassin's Creed",
+      "description": "Un truc un peu malsain",
+      "tier": "C+",
+      "image": "https://image.jeuxvideo.com/medias-md/158936/1589355257-4952-card.jpg"
+   },
+   "pommeeden": {
+      "name": "Pomme d'Eden",
+      "from": "Assassin's Creed",
+      "description": "Vestiges des Isus (Issous)",
+      "tier": "A",
+      "image": "https://vignette.wikia.nocookie.net/assassinscreed/images/9/9a/UbiWorkshop_Pomme_d%27%C3%89den.png/revision/latest/top-crop/width/360/height/450?cb=20150427104523&path-prefix=fr"
+   },
+   "aidenphone": {
+      "name": "Téléphone d'Aiden Pierce",
+      "from": "Watch Dogs",
+      "description": "** Accès au CTos en cours...",
+      "tier": "C-",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRi-Dmvx2OslgCcf2IVXawqk3VUeiriUw-w9f5s3RKhHFwbi1Rk&usqp=CAU"
+   },
+   "deathnote": {
+      "name": "Death Note",
+      "from": "Death Note",
+      "description": "Le livre du dieu de la Mort",
+      "tier": "A",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Death_Note%2C_Book.svg/1200px-Death_Note%2C_Book.svg.png"
+   },
+   "oeildieu": {
+      "name": "L'Oeil de la Mort",
+      "from": "Death Note",
+      "description": "AHhHAHhahhhahAHH (musique religieuse)",
+      "tier": "D+",
+      "image": "https://pm1.narvii.com/6373/b9f67e9acfa27e55bc05ed5242b52635fa56f371_hq.jpg"
+   },
+   "allmight": {
+      "name": "Mèche d'All Might",
+      "from": "My Hero Academia",
+      "description": "ONE FOR ALL !",
+      "tier": "C",
+      "image": "https://vignette.wikia.nocookie.net/bokunoheroacademia/images/9/9a/One_For_All_Quirk.png/revision/latest?cb=20161116230609&path-prefix=fr"
+   },
+   "susaxe": {
+      "name": "Hache de Susie",
+      "from": "Deltarune",
+      "description": "I  G O N N A  K I L L",
+      "tier": "D+",
+      "image": "https://66.media.tumblr.com/131da2026b08618ab0992c7b12254557/tumblr_inline_pi93lkLWqd1tegiv4_250.png"
+   },
+   "pubgpan": {
+      "name": "Poèle",
+      "from": "Player Unknown Battlegrouns",
+      "description": "<bruit de balle ricochante>",
+      "tier": "C+",
+      "image": "https://ae01.alicdn.com/kf/HTB1dc0xbwDqK1RjSZSyq6yxEVXaL.jpg"
+   },
+   "raidenmk": {
+      "name": "Chapeau de Raiden",
+      "from": "Mortal Kombat",
+      "description": "FINISH HIM ! FATALITY !",
+      "tier": "C-",
+      "image": "https://i.pinimg.com/originals/ff/da/06/ffda06693f48dd68660c87aa4958f1d9.jpg"
+   },
+   "samusarmor": {
+      "name": "Armure de Samus",
+      "from": "Metroid",
+      "description": "Chozo's gift",
+      "tier": "B+",
+      "image": "https://vignette.wikia.nocookie.net/nintendo/images/0/09/Super_Smash_Bros._Ultimate_-_Character_Art_-_Samus.png/revision/latest?cb=20190710193153&path-prefix=en"
+   },
+   "bfg9k": {
+      "name": "BFG 9000",
+      "from": "Doom",
+      "description": "BIG F*CKING GUN !!!!",
+      "tier": "A-",
+      "image": "https://media.alienwarearena.com/media/a73f0f86114dcb87722cfc50be61a1ff.jpg"
+   },
+   "megahand": {
+      "name": "Méga Hand",
+      "from": "Méga Man",
+      "description": "Méga description",
+      "tier": "B+",
+      "image": "https://www.mondemul.me/wp-content/uploads/mondemul-Mega-Man-The-Wily-Wars.png"
+   },
+   "bullet": {
+      "name": "Balle",
+      "from": "Enter the Gungeon",
+      "description": "Tire des flingues",
+      "tier": "C",
+      "image": "https://gamepedia.cursecdn.com/enterthegungeon_gamepedia/6/65/Bullet_%28Gun%29.png?version=9f00c205b2e8c054a528099f4ce23165"
+   },
+   "akeyetg": {
+      "name": "AKEY-47",
+      "from": "Enter the Gungeon",
+      "description": "Débloquée et Chargée",
+      "tier": "C-",
+      "image": "https://vignette.wikia.nocookie.net/enter-the-gungeon/images/6/69/%D0%90%D0%9A%D0%BB%D1%8E%D1%8747.png/revision/latest?cb=20200208094603&path-prefix=ru"
+   },
+   "trmntrshtgn": {
+      "name": "Winchester du T-800",
+      "from": "Terminator",
+      "description": "Livré avec des roses",
+      "tier": "B+",
+      "image": "https://medias.spotern.com/spots/w640/7/7618-1532336916.jpg"
+   },
+   "gtajetpack": {
+      "name": "Jetpack caché",
+      "from": "Grand Theft Auto",
+      "description": "ALIEN-CHILIAD-BUNKER",
+      "tier": "B",
+      "image": "https://cs1.gtaall.eu/screenshots/d4861/2019-03/original/e1699224475d239156654aa9874f8182e1a28cb0/715266-gta-sa-2018-12-12-14-19-41-79-result.jpg"
+   },
+   "rambomchngn": {
+      "name": "M60E3",
+      "from": "Rambo",
+      "description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "tier": "B",
+      "image": "https://seenonceleb.com/wp-content/uploads/2019/06/the-machine-gun-M60VN-used-by-John-Rambo-Sylvester-Stallone-in-Rambo-II-Movie.jpg"
+   },
+   "claptrap": {
+      "name": "Claptrap",
+      "from": "Borderlands",
+      "description": "programmed with an overenthusiastic personality",
+      "tier": "B-",
+      "image": "https://static1.millenium.org/articles/5/34/55/55/@/1153065-miniature-claptrap-general-article_m-1.jpg"
+   },
+   "tardis": {
+      "name": "Tardis",
+      "from": "Docteur Who",
+      "description": "Docteur qui ?",
+      "tier": "A-",
+      "image": "https://www.thesun.co.uk/wp-content/uploads/2017/12/nintchdbpict000367331811.jpg"
+   },
+   "alienegg": {
+      "name": "Oeuf de Xenomorphe",
+      "from": "Alien",
+      "description": "-!- Not dangerous, you can go closer -!-",
+      "tier": "A",
+      "image": "https://lh3.googleusercontent.com/proxy/Ex5O3xLlPMsljf7_Uvw4AhW4CBbLkSiw4NUxdJOgxPdOVIz2NHYCd7X_OXgJGyEV4HQ2fYTAOPObZp22cIq03KMmvY_YO7xZNBHG8Q"
+   },
+   "capsule": {
+      "name": "Capsule",
+      "from": "Fallout",
+      "description": "[-30%] 0.99$ : 275 Caps !",
+      "tier": "B+",
+      "image": "https://vignette.wikia.nocookie.net/fallout/images/8/8d/Bottlecap_fo4.png/revision/latest/scale-to-width-down/340?cb=20180109003958"
+   },
+   "delorean": {
+      "name": "DeLorean DMC-12",
+      "from": "Retour vers le futur",
+      "description": "Nom de Zeus",
+      "tier": "A",
+      "image": "https://fifty-wp.s3.amazonaws.com/detours/uploads/2020/01/capture-decran-2020-01-25-a-224435.png"
+   },
+   "overboard": {
+      "name": "Overboard",
+      "from": "Retour vers le futur",
+      "description": "Trotinette - Guidon = Overboard",
+      "tier": "A-",
+      "image": "https://static.lpnt.fr/images/2014/03/06/56045714-3-jpg_2132572_660x281.JPG"
+   },
+   "protonpack": {
+      "name": "Proton Pack",
+      "from": "Ghostbusters",
+      "description": "Who you gonna call ?",
+      "tier": "B-",
+      "image": "https://vignette.wikia.nocookie.net/ghostbusters/images/5/56/Omnigb1.png/revision/latest?cb=20110630050958"
+   },
+   "piolet": {
+      "name": "Piolet",
+      "from": "Tomb Raider",
+      "description": "Outil/Arme",
+      "tier": "C",
+      "image": "https://www.journaldugeek.com/content/uploads/2018/06/shadow-of-the-tomb-raider-02.jpg"
+   },
+   "hadouken": {
+      "name": "Hadouken !",
+      "from": "Street Fighter",
+      "description": "Arrète de spammer cette merde [x1]",
+      "tier": "A",
+      "image": "https://vignette.wikia.nocookie.net/nintendo/images/9/9b/Ryu_Hadouken_sprite.png/revision/latest/scale-to-width-down/340?cb=20160213212450&path-prefix=en"
+   },
+   "shoryuken": {
+      "name": "Shoryuken !",
+      "from": "Street Fighter",
+      "description": "Arrète de spammer cette merde [x2]",
+      "tier": "B+",
+      "image": "https://lh3.googleusercontent.com/proxy/juo2oryplZVrudthqtfwYG5WUeoFhC8OSQ2qCAVkAHuIUb0hvhKZf9FPb8rIt2xbkwD3NeNUqWSuEAFemSbraqXjKoQF5HhrLjMBjZU4CfjAvTDPPSU3WO9o6rC2q4BcWG6QB3L4S0Ok"
+   },
+   "diamond": {
+      "name": "Diamond",
+      "from": "Minecraft",
+      "description": "Diamonds!",
+      "tier": "B",
+      "image": "https://vignette.wikia.nocookie.net/minecraft/images/e/ea/Diamond.png/revision/latest?cb=20170828173558&path-prefix=fr"
+   },
+   "pokeball": {
+      "name": "Pokéball",
+      "from": "Pokémon",
+      "description": "Gotcha",
+      "tier": "A+",
+      "image": "https://image.noelshack.com/fichiers-md/2015/07/1423868157-3697-card-communaute.png"
+   },
+   "pacgum": {
+      "name": "Super Pac Gum",
+      "from": "Pacman",
+      "description": "Miam",
+      "tier": "C+",
+      "image": ""
+   },
+   "barrel": {
+      "name": "DK Barrel",
+      "from": "Donkey Kong",
+      "description": "JUMP JUMP",
+      "tier": "C-",
+      "image": "https://www.raspberrypi.org/app/uploads/2019/10/donkey-kong-original.jpg"
+   },
+   "hammer": {
+      "name": "DK Hammer",
+      "from": "Donkey Kong",
+      "description": "Franchement, c'est mieux avec les items",
+      "tier": "B-",
+      "image": "https://i.ytimg.com/vi/e5UngF1YUhI/maxresdefault.jpg"
+   },
+   "neurolaser": {
+      "name": "Neurolaser",
+      "from": "Men in Black",
+      "description": "livré avec ces lunettes noirs",
+      "tier": "A-",
+      "image": "https://lh3.googleusercontent.com/proxy/9RPIXa2d1wZuzbZpkoO9S8wCKgsg5_Uf5t6n2UH85AHscHwYeO48HGSJ9os1fnsBbVNwIOI1_M4NfO4ZzxY1lq1cuxdX02BqJmfV-9Kq1RSst0bB432RUGYoT9lhcEdxtmnx3wZEMihhtKUGXQ7jyZL6ERg"
+   },
+   "piluler": {
+      "name": "Pilule Rouge",
+      "from": "Matrix",
+      "description": "Entering into the Matrix...",
+      "tier": "A-",
+      "image": "https://rmsnews.com/wp-content/uploads/2018/03/red-pill-blue-pill-matrix-1-e1520938747422.jpg"
+   },
+   "piluleb": {
+      "name": "Pilule Bleue",
+      "from": "Matrix",
+      "description": "Entering into the yeslife...",
+      "tier": "B",
+      "image": "https://rmsnews.com/wp-content/uploads/2018/03/red-pill-blue-pill-matrix-1-e1520938747422.jpg"
+   },
+   "stegrenade": {
+      "name": "Sainte Grenade",
+      "from": "Worms",
+      "description": "Explosion divine !",
+      "tier": "B+",
+      "image": "https://vignette.wikia.nocookie.net/worms/images/0/04/Holy_Grenade.png/revision/latest/scale-to-width-down/340?cb=20110430085240"
+   },
+   "godzilla": {
+      "name": "Godzilla",
+      "from": "Godzilla",
+      "description": "Kaiju !",
+      "tier": "B",
+      "image": "https://static.fnac-static.com/multimedia/Images/FD/Comete/118532/CCP_IMG_ORIGINAL/1540367.jpg"
+   },
+   "ironcoin": {
+      "name": "Pièce de fer",
+      "from": "Game of Thrones",
+      "description": "valar morghulis",
+      "tier": "C+",
+      "image": "https://i.etsystatic.com/5731757/r/il/abf757/2131460035/il_570xN.2131460035_exda.jpg"
+   },
+   "donut": {
+      "name": "Donut d'Homer",
+      "from": "Les Simpsons",
+      "description": "oh pinaise un donut",
+      "tier": "B-",
+      "image": "https://sergent-tobogo.com/wp-content/uploads/2014/07/eat-different1.png"
+   },
+   "dragonegg": {
+      "name": "Oeuf de Dragon",
+      "from": "Game of Thrones",
+      "description": "Drakaaris",
+      "tier": "B+",
+      "image": "https://fr.web.img3.acsta.net/r_1280_720/newsv7/17/07/21/15/42/0378810.jpg"
+   },
+   "ablette": {
+      "name": "Ablette",
+      "from": "The Witcher",
+      "description": "Bien plus qu'une simple monture",
+      "tier": "B+",
+      "image": "https://www.chevalannonce.com/photos-chevaux1/1/skibiscuit-3a4d14daa475a3a19a6f9e11812614c8.png"
+   },
+   "forge": {
+      "name": "Forge Stellaire",
+      "from": "Star Wars",
+      "description": "L'Oeuvre mortel des Rakatas",
+      "tier": "A",
+      "image": "https://i.ytimg.com/vi/iRgO1eDjAGs/maxresdefault.jpg"
+   },
+   "mask": {
+      "name": "Stone Mask",
+      "from": "JoJo's Bizarre",
+      "description": "This demonic mask has given me its unimaginable powers! —Aztec Chief, Prologue",
+      "tier": "A+",
+      "image": "https://vignette.wikia.nocookie.net/jjba/images/e/ed/Stonemask.png/revision/latest?cb=20170124055218"
+   }
+}

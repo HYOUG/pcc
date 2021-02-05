@@ -1,0 +1,46 @@
+{
+   "steal_random_item": {
+      "name": "Robber's gloves (player's item)",
+      "desc": "Steal a random item to the mentioned player, if none to a random player"
+   },
+   "steal_random_money": {
+      "name": "Robber's gloves (money)",
+      "desc": "Steal a random amount of money to the mentioned player, if none to a random player"
+   },
+   "reroll_float": {
+      "name": "Reroll Artefact",
+      "desc": "Reroll the float of a random item in your inventory"
+   },
+   "swap_money": {
+      "name": "Swap spell",
+      "desc": "Swap your balance with that of a random player"
+   },
+   "random_item": {
+      "name": "Mystery Box",
+      "desc": "Give you a random item, ignoring the classic probabilities"
+   },
+   "free_market_offer": {
+      "name": "Robber's gloves (market)",
+      "desc": "Steal a random offer from the market"
+   },
+   "shield": {
+      "name": "Magical shield ",
+      "desc": "Protect you from ennemies power-ups"
+   },
+   "-0.075": {
+      "name": "-0.075 Orb",
+      "desc": "Remove 0.075 to the float of a random item in your inventory"
+   },
+   "-0.025": {
+      "name": "-0.025 Orb",
+      "desc": "Remove 0.025 to the float of a random item in your inventory"
+   },
+   "-25%": {
+      "name": "-25% parchment",
+      "desc": "Remove 25% to the float of a random item in your inventory"
+   },
+   "-10%": {
+      "name": "-10% parchment",
+      "desc": "Remove 10% to the float of a random item in your inventory"
+   }
+}

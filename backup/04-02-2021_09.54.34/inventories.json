@@ -1,0 +1,54 @@
+{
+   "439024609405435906": {
+      "balance": 522,
+      "items": [
+         {
+            "id": "papillon",
+            "float": 0.267,
+            "points": 5
+         },
+         {
+            "id": "susaxe",
+            "float": 0.658,
+            "points": 1
+         },
+         {
+            "id": "kyber",
+            "float": 0.981,
+            "points": 5
+         },
+         {
+            "id": "susaxe",
+            "float": 0.919,
+            "points": 1
+         },
+         {
+            "id": "forge",
+            "float": 0.475,
+            "points": 25
+         },
+         {
+            "id": "fserpent",
+            "float": 0.7,
+            "points": 25
+         },
+         {
+            "id": "ironcoin",
+            "float": 0.561,
+            "points": 5
+         }
+      ],
+      "powers": [
+         "random_item",
+         "free_market_offer",
+         "-0.075"
+      ],
+      "shield_active": true
+   },
+   "792753703621885972": {
+      "balance": 110,
+      "items": [],
+      "powers": [],
+      "shield_active": false
+   }
+}
