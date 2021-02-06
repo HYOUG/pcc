@@ -12,7 +12,7 @@ class Log(commands.Cog):
         self.sendLog = yellow("[SEND]")                                             # declare the log category 'send'
         self.editLog = yellow("[EDIT]")                                             # declare the log category 'edit'
         self.deleteLog = yellow("[DELETE]")                                         # declare the log category 'delete'
-        self.commandList = get_commands_list()                                           # get the 'commands list' 
+        self.commandList = get_commands_list()                                      # get the 'commands list' 
 
     @commands.Cog.listener(name = "on_message")
     async def on_message(self, message):

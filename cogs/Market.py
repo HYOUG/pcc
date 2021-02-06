@@ -35,7 +35,7 @@ class Market(commands.Cog):
         embed.set_author(name=f"⚖️ Market")
         embed.add_field(name="Item (ID)", value=item_field)
         embed.add_field(name="Float • Tier", value=float_field)
-        embed.add_field(name="Price • Seller", value=price_field)
+        embed.add_field(name="Prix • Vendeur", value=price_field)
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
 
@@ -63,15 +63,15 @@ class Market(commands.Cog):
                     embed = discord.Embed(color=default_color)
                     embed.set_author(name=f"⚖️ Buy")
                     embed.add_field(name="Success",
-                                    value=f":white_check_mark: {ctx.author.mention}, you successfully bought **{items[item_bought['id']]['name']}** (`{item_bought['id']}`) : __{items[item_bought['id']]['tier']}__ for `{price}` PO (pièces d'or)")
+                                    value=f":white_check_mark: {ctx.author.mention}, vous avez acheté avec succès **{items[item_bought['id']]['name']}** (`{item_bought['id']}`) : __{items[item_bought['id']]['tier']}__ pour `{price}` PO (pièces d'or)")
                     embed = set_footer(embed, ctx)
                     await ctx.send(embed=embed)
 
                     embed = discord.Embed(color=default_color)
                     embed.set_author(name=f"📯 Notification")
                     embed.add_field(name="Success",
-                                    value=f":white_check_mark: {seller.mention}, you successfully sold **{items[item_bought['id']]['name']}** (`{item_bought['id']}`) to {ctx.author.mention} for `{price}` PO (pièces d'or)")
-                    embed.set_footer(icon_url=seller.avatar_url, text=f"{seller} • {get_time()}")
+                                    value=f":white_check_mark: {seller.mention}, vous avez vendu **{items[item_bought['id']]['name']}** (`{item_bought['id']}`) à {ctx.author.mention} pour `{price}` PO (pièces d'or)")
+                    embed = set_footer(embed, ctx)
                     await seller.send(embed=embed)
 
                     update_file("inventories.json", inventories)
@@ -104,10 +104,10 @@ class Market(commands.Cog):
 
                 embed = discord.Embed(color=default_color)
                 embed.set_author(name=f"⚖️ Sell")
-                embed.add_field(name="Offer",
-                                value=f"`{item_id}:{item_float}` for `{price}` PO (pièces d'or)")
+                embed.add_field(name="Offre",
+                                value=f"`{item_id}:{item_float}` pour `{price}` PO (pièces d'or)")
                 embed.add_field(name="Confirmation",
-                                value=f"{ctx.author.mention}, confirm your offer with :white_check_mark: or cancel it with :x:",
+                                value=f"{ctx.author.mention}, confirmez votre offre avec :white_check_mark: ou annulez la avec :x:",
                                 inline=False)
                 embed = set_footer(embed, ctx)
                 confirmation = await ctx.send(embed=embed)
@@ -140,8 +140,8 @@ class Market(commands.Cog):
 
                                 success = discord.Embed(color=default_color)
                                 success.set_author(name=f"⚖️ Market add")
-                                success.add_field(name="Success",
-                                                  value=f":white_check_mark: {ctx.author.mention}, you're offer have been created")
+                                success.add_field(name="Succès",
+                                                  value=f":white_check_mark: {ctx.author.mention}, votre offre a été créer")
                                 success.set_footer(icon_url=ctx.author.avatar_url,
                                                    text=f"{ctx.author.name} • {get_time()}")
                                 await confirmation.edit(embed=success)
@@ -178,7 +178,7 @@ class Market(commands.Cog):
             embed = discord.Embed(color=default_color)
             embed.set_author(name=f"⚖️ Market")
             embed.add_field(name="Remove offer",
-                            value=f":white_check_mark: {ctx.author.mention}, you successfully remove your offer for `{offer['id']}:{offer['float']}`.")
+                            value=f":white_check_mark: {ctx.author.mention}, vous avez retiré votre offre du marché : `{offer['id']}:{offer['float']}`.")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 

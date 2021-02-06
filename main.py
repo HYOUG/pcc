@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# script by Hugo "HYOUG" Junior
+# script by "HYOUG"
 
                                                                                     # importations :
 import discord                                                                      # discord : manage the bot's actions
@@ -74,11 +74,11 @@ async def on_ready():                                                           
 bot.run(token)                                                                      # launch the bot
 
 
-""" TODO
+"""TODO
 Rework powers
-Rework command
+Rework trade
 Add items (?)
-get_point command
 give item command
 Upgrade the README
+Francisation de l'UI
 """

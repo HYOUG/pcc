@@ -74,7 +74,7 @@ class UserInfo(commands.Cog):
             await ctx.send(embed=gen_error("invalid_synthax", ctx))
             
 
-    @commands.command(aliases=["pts"])
+    @commands.command(aliases=["pts", "score"])
     async def points(self, ctx, target: discord.Member = None):
         """Display the target's points (the author if target is not specified)"""
         target_found, target = await target_parser(ctx, target)

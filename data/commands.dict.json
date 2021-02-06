@@ -28,10 +28,14 @@
    "players": "players",
    "statistics": "statistics",
    "stats": "statistics",
+   "get_points": "get_points",
+   "get_score": "get_points",
    "balancetop": "balancetop",
    "baltop": "balancetop",
    "pointstop": "pointstop",
    "ptop": "pointstop",
+   "scoretop": "pointstop",
+   "stop": "pointstop",
    "market": "market",
    "buy": "buy",
    "sell": "sell",
@@ -40,8 +44,8 @@
    "start": "start",
    "chart": "chart",
    "charts": "chart",
-   "shares": "shares",
-   "stocks": "shares",
+   "stocks": "stocks",
+   "shares": "stocks",
    "invest": "invest",
    "trade": "trade",
    "give": "give",
@@ -51,5 +55,6 @@
    "balance": "balance",
    "bal": "balance",
    "points": "points",
-   "pts": "points"
+   "pts": "points",
+   "score": "points"
 }

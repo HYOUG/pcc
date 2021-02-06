@@ -82,7 +82,7 @@ class Claims(commands.Cog):
 
             embed = discord.Embed(color=default_color)
             embed.set_author(name=f"⌛ {ctx.author.name}'s Daily")
-            embed.add_field(name="Reward :", value=f":moneybag: +`{reward_sum}` | Your balance : "
+            embed.add_field(name="Récompense :", value=f":moneybag: +`{reward_sum}` | Votre bourse : "
                                                    f"`{inventories[id_key]['balance'] + reward_sum}` PO (pièces d'or)")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)

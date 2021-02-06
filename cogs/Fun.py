@@ -28,14 +28,14 @@ class Fun(commands.Cog):
                 if win:
                     inventories[str(ctx.author.id)]["balance"] += bet * 2
                     update_file("inventories.json", inventories)
-                    embed.add_field(name="Results",
-                                    value=f":trophy: You won : **+**`{bet * 2}` "
-                                          f"Your balance : `{inventories[str(ctx.author.id)]['balance']}` PO (pièces d'or)")
+                    embed.add_field(name="Resultats",
+                                    value=f":trophy: Vous avez gagné : **+**`{bet * 2}` "
+                                          f"Votre bourse : `{inventories[str(ctx.author.id)]['balance']}` PO (pièces d'or)")
                 else:
                     update_file("inventories.json", inventories)
                     embed.add_field(name="Results",
-                                    value=f":x: You have lost your bet : **-**`{bet}` "
-                                          f"Your balance : `{inventories[str(ctx.author.id)]['balance']}` PO (pièces d'or)")
+                                    value=f":x: Vous avez perdu votre mise : **-**`{bet}` "
+                                          f"Votre bourse : `{inventories[str(ctx.author.id)]['balance']}` PO (pièces d'or)")
                 await ctx.send(embed=embed)
             else:
                 await ctx.send(embed=gen_error("missing_money", ctx))

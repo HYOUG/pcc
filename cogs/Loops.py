@@ -40,10 +40,10 @@ class Loops(commands.Cog):
 
             embed = discord.Embed(color=admin_color)
             embed.set_author(name=f"⏱️ Random Event")
-            embed.add_field(name="Challenge", value=f"Be the first to solve this calculation to win a reward :\n```{calc} = ?```")
-            embed.set_footer(text=f"Random Event • {get_time()}")
+            embed.add_field(name="Challenge", value=f"Le premier à résoudre ce calcul avant 20 secondes remporte une récompense :\n```{calc} = ?```")
+            embed.set_footer(text=f"Random Event • {get_time()}", icon_url=self.bot.user.avater_url)
             random_event = await chosen_channel.send(embed=embed)
-            print(f"[{get_time()}] {yellow('[EVENT]')} {blue('Random Calc Event')} : {str(calc)} = {str(result)} {red('(' + chosen_channel.name + ')')}")
+            print(f"[{get_time()}] : {yellow('[EVENT]')} {blue('Random Calc Event')} : {str(calc)} = {str(result)} {red('(' + chosen_channel.name + ')')}")
 
             def check(msg):
                 return msg.channel == chosen_channel and int(msg.content) == result and is_registered(msg.author.id)
@@ -53,7 +53,7 @@ class Loops(commands.Cog):
             except asyncio.TimeoutError:
                 embed.clear_fields()
                 embed.add_field(name="Challenge", value=f"```{calc} = {result}```", inline=False)
-                embed.add_field(name="Timeout", value=":x: Nobody respond in the given time", inline=False)
+                embed.add_field(name="Timeout", value=":x: Personne n'a répondu avant la fin du timer (20 secs.)", inline=False)
                 await random_event.edit(embed=embed)
             else:
                 inventories = get_file("inventories")
@@ -64,7 +64,7 @@ class Loops(commands.Cog):
 
                 embed.clear_fields()
                 embed.add_field(name="Challenge", value=f"```{calc} = {result}```")
-                embed.add_field(name="Reward", value=f"{answer.author.mention} won the `{reward}` power-up for being the first", inline=False)
+                embed.add_field(name="Reward", value=f"{answer.author.mention} a remporté le power-up : `{reward}`", inline=False)
                 await random_event.edit(embed=embed)
 
 

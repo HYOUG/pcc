@@ -17,17 +17,15 @@ class Start(commands.Cog):
 
             inventories = get_file("inventories")
             cooldowns = get_file("cooldowns")
-
             cooldowns[str(ctx.author.id)] = {"daily": 0, "spin": 0}
             inventories[str(ctx.author.id)] = {"balance": 0, "items": [], "powers": [], "shares":{},"shield_active": False}
-
             update_file("cooldowns.json", cooldowns)
             update_file("inventories.json", inventories)
 
             embed = discord.Embed(color=default_color)
             embed.set_author(name=f"🏁 Start")
             embed.add_field(name="Start",
-                            value=f":white_check_mark: {ctx.author.mention}, your account have been created !")
+                            value=f":white_check_mark: {ctx.author.mention}, votre compte a été créer !")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 

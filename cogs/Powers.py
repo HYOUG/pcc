@@ -11,7 +11,6 @@ class Powers(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-
     @commands.command()
     async def use(self, ctx, power: str):
         """Use one of yours powers"""
@@ -31,8 +30,8 @@ class Powers(commands.Cog):
                     inventories[target]["items"].remove(target_item)
                     inventories[author_key]["items"].append(target_item)
                     embed.add_field(name=powers[power]["name"],
-                                    value=f"You successfully use **{powers[power]['name']}** on {self.bot.get_user(int(target)).mention} !\n"
-                                          f"You stole him/her : **{target_item['name']}** ({target_item.key}) : {target_item['float']}")
+                                    value=f"Vous avez utilisé **{powers[power]['name']}** sur {self.bot.get_user(int(target)).mention} !\n"
+                                          f"Vous lui avez volé : **{target_item['name']}** ({target_item.key}) : {target_item['float']}")
             
 
             elif power == "steal_random_money":
@@ -41,8 +40,8 @@ class Powers(commands.Cog):
                     inventories[target]["balance"] -= random_money
                     inventories[author_key]["balance"] += random_money
                     embed.add_field(name=powers[power]["name"],
-                                    value=f"You successfully use **{powers[power]['name']}** on {self.bot.get_user(int(target)).mention} !\n"
-                                          f"You stole him/her : `{random_money}` golden coin(s)")
+                                    value=f"Vous avez utilisé **{powers[power]['name']}** sur {self.bot.get_user(int(target)).mention} !\n"
+                                          f"Vous lui avez volé : `{random_money}` PO (pièces d'or)")
                 else:
                     pass
 
@@ -55,7 +54,7 @@ class Powers(commands.Cog):
                 tier_points, float_multiplicator = get_points(items[target_item["id"]]["tier"][0], float(target_item["float"]))
                 target_item["points"] = tier_points * float_multiplicator
                 inventories[str(ctx.author.id)]["items"].append(target_item)
-                embed.add_field(name=powers[power]["name"], value=f"You successfully use **{powers[power]['name']}** on **{target_item['name']}** !\nOld float : `{old_float}`\nNew float : `{target_item['float']}`")
+                embed.add_field(name=powers[power]["name"], value=f"Vous avez utilisé **{powers[power]['name']}** sur **{target_item['name']}** !\nAncien float : `{old_float}`\nNouveau float : `{target_item['float']}`")
 
             elif power == "swap_money":
                 if not inventories[target]["shield_active"]:
@@ -63,8 +62,8 @@ class Powers(commands.Cog):
                     inventories[author_key]["balance"] = inventories[target]["balance"]
                     inventories[target]["balance"] = temp
                     embed.add_field(name=powers[power]["name"],
-                                    value=f"You successfully use **{powers[power]['name']}** on {self.bot.get_user(int(target)).mention} !\n"
-                                          f"Now you got : `{inventories[author_key]['balance']}` PO (pièces d'or)\nHe/She got : `{inventories[target]['balance']}` PO (pièces d'or)")
+                                    value=f"Vous avez utilisé **{powers[power]['name']}** sur {self.bot.get_user(int(target)).mention} !\n"
+                                          f"Vous avez maintenant : `{inventories[author_key]['balance']}` PO (pièces d'or)\nIl/Elle a maintenant : `{inventories[target]['balance']}` PO (pièces d'or)")
                 else:
                     pass
 
@@ -77,8 +76,8 @@ class Powers(commands.Cog):
                 inventories[author_key]["items"].append(
                     {"id": item_key, "float": item_float, "points": item_points})
                 embed.add_field(name=powers[power]["name"],
-                                value=f"You successfully use **{powers[power]['name']}** !\n"
-                                      f"You won : **{items[item_key]['name']}** ({item_key}) : ``{item_float}`")
+                                value=f"Vous avez utilisé **{powers[power]['name']}** !\n"
+                                      f"Vous avez reçu : **{items[item_key]['name']}** ({item_key}) : ``{item_float}`")
 
             elif power == "free_market_offer":
                 market = get_file("market")
@@ -101,8 +100,8 @@ class Powers(commands.Cog):
                         inventories[author_key]["items"].append(target)
                         update_file("market.json", market)
                         embed.add_field(name=powers[power]["name"],
-                                        value=f"You successfully use **{powers[power]['name']}** !\n"
-                                              f"You stole the offer n°`{offer_number}` : **{items[target['id']]['name']}** ({target['id']}) `{target['float']}`")
+                                        value=f"Vous avez utilisé **{powers[power]['name']}** !\n"
+                                              f"Vous avez volé l'offre n°`{offer_number}` : **{items[target['id']]['name']}** ({target['id']}) `{target['float']}`")
                     else:
                         print("protected")
                 else:
@@ -112,11 +111,11 @@ class Powers(commands.Cog):
                 if not inventories[author_key]["shield_active"]:
                     inventories[author_key]["shield_active"] = True
                     embed.add_field(name=powers[power]["name"],
-                                    value=f"You successfully use **{powers[power]['name']}** !\n"
-                                          f"You are now protected from the next power-up against you")
+                                    value=f"Vous avez utilisé **{powers[power]['name']}** !\n"
+                                          f"Vous serez protégé du prochain power-up contre vous")
                 else:
                     embed.add_field(name=powers[power]["name"],
-                                    value=f"You are already protected by a shield !")
+                                    value=f"Vous êtes déjà protégé par un bouclier")
 
             elif power in ["-0.075", "-0.025"]:
                 if inventories[author_key]["items"] != []:
@@ -130,9 +129,9 @@ class Powers(commands.Cog):
                     target_item["points"] = tier_points * float_multiplicator
                     inventories[author_key]["items"].append(target_item)
                     embed.add_field(name=powers[power]["name"],
-                                    value=f"You successfully use **{powers[power]['name']}** !\n"
-                                          f"You've reduced the float of **{items[target_item['id']]['name']}** by `{power}` :\n"
-                                          f"Old float : `{old_float}`\nNew float : `{target_item['float']}`")
+                                    value=f"Vous avez utilisé le power-up **{powers[power]['name']}** !\n"
+                                          f"Vous avez réduit le float de **{items[target_item['id']]['name']}** :\n"
+                                          f"Ancien float : `{old_float}`\nNouveau float : `{target_item['float']}`")
                 else:
                     pass
 
@@ -150,9 +149,9 @@ class Powers(commands.Cog):
                 target_item["points"] = tier_points * float_multiplicator
                 inventories[author_key]["items"].append(target_item)
                 embed.add_field(name=powers[power]["name"],
-                                value=f"You successfully use **{powers[power]['name']}** !\n"
-                                      f"You've reduced the float of **{items[target_item['id']]['name']}** by `{power}` :\n"
-                                      f"Old float : `{old_float}`\nNew float : `{target_item['float']}`")
+                                value=f"Vous avez utilisé le power-up **{powers[power]['name']}** !\n"
+                                      f"Vous avez réduit le float de **{items[target_item['id']]['name']}** :\n"
+                                      f"Ancien float : `{old_float}`\nNouveau float : `{target_item['float']}`")
 
             inventories[author_key]["powers"].remove(power)
             update_file("inventories.json", inventories)

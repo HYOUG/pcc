@@ -31,13 +31,13 @@ class Leaderboards(commands.Cog):
 
         embed = discord.Embed(color=default_color)
         embed.set_author(name=f"💰 Balance Top")
-        embed.add_field(name="Players", value=player_field)
-        embed.add_field(name="Balance", value=amount_field)
+        embed.add_field(name="[#] Joueur", value=player_field)
+        embed.add_field(name="Bourse", value=amount_field)
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
 
 
-    @commands.command(aliases=["ptop"])
+    @commands.command(aliases=["ptop", "scoretop", "stop"])
     async def pointstop(self, ctx):
         """Display the points ranks"""
         inventories = get_file("inventories")
@@ -62,7 +62,7 @@ class Leaderboards(commands.Cog):
 
         embed = discord.Embed(color=default_color)
         embed.set_author(name=f"🏆 Points Top")
-        embed.add_field(name="[#] Players", value=player_field)
+        embed.add_field(name="[#] Joueur", value=player_field)
         embed.add_field(name="Points", value=points_field)
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
