@@ -8,7 +8,13 @@
    },
    "439024609405435906": {
       "balance": 177,
-      "items": [],
+      "items": [
+         {
+            "id": "blaster",
+            "float": 0.259,
+            "points": 1
+         }
+      ],
       "powers": [],
       "shares": {},
       "shield_active": false

@@ -200,8 +200,27 @@ class Trades(commands.Cog):
 
 
     @commands.command()
-    async def give(self, item_id: str, item_float: float):
-        pass
+    async def give(self, ctx, target: discord.Member, item_id: str, item_float: float):
+        """Give the specified item to the specified user"""
+        if is_registered(target.id):
+            inventories = get_file("inventories")
+            item_found = False
+            for item in inventories[str(target.id)]["items"]:
+                if item["id"] == item_id and item["float"] == item_float:
+                    item_found = True
+                    inventories[str(ctx.author.id)]["items"].append(item)
+                    inventories[str(target.id)]["items"].remove(item)
+                    break
+            if item_found:
+                embed = discord.Embed(color=default_color)
+                embed.set_author(name="🎁 Give")
+                embed.add_field(name="Transaction", value=f"{ctx.author.mention}, vous avez donné `{item_id}:{item_float}` à {target.mention}")
+                embed = set_footer(embed, ctx)
+                await ctx.send(embed=embed)
+            else:
+                await ctx.send(embed=gen_error("missing_item", ctx))
+        else:
+            await ctx.send(embed=gen_error("missing_player", ctx))
 
 
     @commands.command()

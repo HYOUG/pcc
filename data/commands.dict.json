@@ -29,7 +29,6 @@
    "statistics": "statistics",
    "stats": "statistics",
    "get_points": "get_points",
-   "get_score": "get_points",
    "balancetop": "balancetop",
    "baltop": "balancetop",
    "pointstop": "pointstop",

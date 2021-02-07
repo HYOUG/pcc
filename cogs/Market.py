@@ -142,8 +142,7 @@ class Market(commands.Cog):
                                 success.set_author(name=f"⚖️ Market add")
                                 success.add_field(name="Succès",
                                                   value=f":white_check_mark: {ctx.author.mention}, votre offre a été créer")
-                                success.set_footer(icon_url=ctx.author.avatar_url,
-                                                   text=f"{ctx.author.name} • {get_time()}")
+                                success = set_footer(success, ctx)
                                 await confirmation.edit(embed=success)
                                 offer_ended = True
                                 break

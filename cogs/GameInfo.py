@@ -173,8 +173,8 @@ class GameInfo(commands.Cog):
             for item in inventories[player]["items"]:
                 points_qtty += item["points"]
 
-        qtty_field = f"**argent** : `{money_qtty}` PO (pièces d'or)\n"             \
-                     f"**items** : `{items_qtty}` items\n"                        \
+        qtty_field = f"**argent** : `{money_qtty}` PO (pièces d'or)\n"  \
+                     f"**items** : `{items_qtty}` items\n"              \
                      f"**points** : `{points_qtty}` points"
 
         bot_field = f"nombre de **joueurs** : `{len(list(inventories.keys()))}`\n"         \

@@ -5,17 +5,17 @@ from discord.ext import commands
 from chatEffects import default_color, error_color, warning_color, admin_color
 
 
-def get_time():
+def get_time() -> str:
     """Return a formated version of the time"""
     return strftime("%H:%M:%S")
 
 
-def get_file(file: str):
+def get_file(file: str) -> dict:
     """Return the data from the JSON file desired"""
     return loads(open(f"data/{file}.json", "r", encoding="utf-8").read())
 
 
-def is_registered(user_id: str):
+def is_registered(user_id: str) -> bool:
     """Return if the specified id is registered in the players database"""
     inv = get_file("inventories")
     return str(user_id) in list(inv.keys())
@@ -33,12 +33,12 @@ def check2(reaction, user):
     return str(user.id) == trader2_id and str(reaction) == "✅"
 
 
-def is_bot_owner(ctx):
+def is_bot_owner(ctx) -> bool:
     """Return if the author from the context is the bot owner"""
     return ctx.author.id == int(open("data/owner.id.txt", "r").read())
 
 
-def gen_error(error_id: str, ctx):
+def gen_error(error_id: str, ctx) -> Embed:
     """Return a pre-made discord.Embed error message"""
     errors = get_file("errors")
     error = Embed(color=error_color)
@@ -47,19 +47,19 @@ def gen_error(error_id: str, ctx):
     return error
 
 
-def set_footer(embed: Embed, ctx):
+def set_footer(embed: Embed, ctx) -> Embed:
     """Set the discord.Embed's footer"""
     return embed.set_footer(icon_url=ctx.author.avatar_url, text=f"{ctx.author.display_name} • {get_time()}")
 
 
-def update_file(filename: str, variable_dict: dict):
+def update_file(filename: str, variable_dict: dict) -> None:
     """Update the given file with the given data"""
     file = open(f"data/{filename}", "w", encoding="utf-8")
     file.write(dumps(variable_dict, indent=3))
     file.close()
 
 
-def get_points(item_tier: str, item_float: float):
+def get_points(item_tier: str, item_float: float) -> tuple:
     """Return the 'tier_points' and the 'float_multiplicator' from the given item tier and item float"""
     points_scale = {"S": 100, "A": 25, "B": 10, "C": 5, "D": 1}
     tier_points = points_scale[item_tier]
@@ -71,10 +71,10 @@ def get_points(item_tier: str, item_float: float):
         float_multiplicator = 5
     elif 0.009 > item_float > 0.000:
         float_multiplicator = 10
-    return tier_points, float_multiplicator
+    return (tier_points, float_multiplicator)
 
 
-async def target_parser(ctx, target: str):
+async def target_parser(ctx, target: str) -> tuple:
     """Return whether or not the 'target' is valid"""
     if target is None:
         target = ctx.author
@@ -88,31 +88,31 @@ async def target_parser(ctx, target: str):
     return (target_found, target)
 
 
-def load_cogs(bot: commands.Bot, cog_name: str):
+def load_cogs(bot: commands.Bot, cog_name: str) -> None:
     """Load all coags"""
     bot.load_extension(f"cogs.{cog_name}")
 
 
-def unload_cog(bot: commands.Bot, cog_name: str):
+def unload_cog(bot: commands.Bot, cog_name: str) -> None:
     """Unload a cog"""
     bot.unload_extension(f"cogs.{cog_name}")
 
 
-def reload_cog(bot: commands.Bot, cog_name: str):
+def reload_cog(bot: commands.Bot, cog_name: str) -> None:
     """Reload a cog"""
     unload_cog(bot, cog_name)
     load_cogs(bot, cog_name)
 
 
-def is_protected(target_id: str):
+def is_protected(target_id: str) -> bool:
     """Return whether or not the target is protected by a shield"""
     inventories = get_file("inventories")
     return inventories[target_id]["shield_active"]
 
-def get_commands_list():
+def get_commands_list() -> list:
     """Return all of the commands and aliases in a list"""
     return open("data/commands.list.txt", "r").read().split(" ")
 
-def get_commands_dict():
+def get_commands_dict() -> dict:
     """Return all of the commands and aliases in a dictionary"""
     return loads(open(f"data/commands.dict.json", "r", encoding="utf-8").read())
