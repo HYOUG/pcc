@@ -18,7 +18,7 @@ class Admin(commands.Cog):
         """Shutdown the bot"""
         embed = discord.Embed(color=admin_color)
         embed.set_author(name="🛠️ Admin")
-        embed.add_field(name="🛑 Extinction", value=f"{ctx.author.mention}, Pop culture Collectibles va bientôt se déconnecter !")
+        embed.add_field(name="🔌 Extinction", value=f"{ctx.author.mention}, Pop culture Collectibles va bientôt se déconnecter !")
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
         await self.bot.logout()                                                     # logout the bot

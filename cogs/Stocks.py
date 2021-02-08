@@ -79,13 +79,18 @@ class Stocks(commands.Cog):
                         inventories[str(ctx.author.id)]["shares"][share] = qtty
                     update_file("stocks.json", stocks)
                     update_file("inventories.json", inventories)
+
+                    embed = discord.Embed(color=default_color)
+                    embed.set_author(name="📈 Investissement")
+                    embed.add_field(name="Achat", value=f"Vous avez acheté `{qtty}` action(s) `{share}`")
+                    embed= set_footer(embed, ctx)
+                    await ctx.send(embed=embed)
                 else:
-                    await ctx.send(embed=gen_error("invalid_synthax", ctx))
+                    await ctx.send(embed=gen_error("missing_money", ctx))
             else:
                 await ctx.send(embed=gen_error("invalid_synthax", ctx))
         else:
             await ctx.send(embed=gen_error("invalid_synthax", ctx))
-
 
 def setup(client):
     client.add_cog(Stocks(client))

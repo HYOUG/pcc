@@ -76,8 +76,10 @@ bot.run(token)                                                                  
 
 """TODO
 Rework powers
+Finish invest command
 Add items (?)
 give item command
 Upgrade the README
 get_points from item_id and item_float not item_tier
 """
+

@@ -23,10 +23,12 @@
       "shield_active": false
    },
    "439024609405435906": {
-      "balance": 177,
+      "balance": 57.3,
       "items": [],
       "powers": [],
-      "shares": {},
+      "shares": {
+         "or": 2
+      },
       "shield_active": false
    }
 }

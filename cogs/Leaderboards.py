@@ -30,7 +30,7 @@ class Leaderboards(commands.Cog):
             rank += 1
 
         embed = discord.Embed(color=default_color)
-        embed.set_author(name=f"💰 Balance Top")
+        embed.set_author(name=f"🏆 Balance Top")
         embed.add_field(name="[#] Joueur", value=player_field)
         embed.add_field(name="Bourse", value=amount_field)
         embed = set_footer(embed, ctx)

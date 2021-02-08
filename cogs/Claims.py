@@ -48,7 +48,7 @@ class Claims(commands.Cog):
             reward_points = tier_points * float_multiplicator
 
             embed = discord.Embed(color=default_color)
-            embed.set_author(name=f"🎰 {ctx.author.name}'s free spin")
+            embed.set_author(name=f"⌛ {ctx.author.name}'s free spin")
             embed = set_footer(embed, ctx)
             embed.add_field(name=f"**{items[reward_key]['name']}** ({tier_points} x {float_multiplicator} = {reward_points} PTS)",
                             value=f"*{items[reward_key]['description']}* • __{items[reward_key]['from']}__",
@@ -81,7 +81,7 @@ class Claims(commands.Cog):
             reward_sum = randint(1, 500)
 
             embed = discord.Embed(color=default_color)
-            embed.set_author(name=f"⌛ {ctx.author.name}'s Daily")
+            embed.set_author(name=f"📅 {ctx.author.name}'s Daily")
             embed.add_field(name="Récompense :", value=f":moneybag: +`{reward_sum}` | Votre bourse : "
                                                    f"`{inventories[id_key]['balance'] + reward_sum}` PO (pièces d'or)")
             embed = set_footer(embed, ctx)
