@@ -18,8 +18,10 @@ A simple **gacha-like discord bot** based on the Pop culture universe using the 
 3. Eventually, get help and the commands
    > =help
 
-## 🔧 Troubleshoot
+## 🔧 Troubleshoot and Feedbacks
 
-Contact me on discord at `HYOUG#3643`.
+Contact me on discord at `HYOUG#3643` or on twitter [`@HY0UG`](https://twitter.com/HY0UG).
 
-___
+## 📜 License 
+
+MIT (2020) License protected project.
