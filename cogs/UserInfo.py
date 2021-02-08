@@ -11,7 +11,7 @@ class UserInfo(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=["inv"])
-    async def inventory(self, ctx, target: discord.Member = None):
+    async def inventory(self, ctx, target: str = None):
         """Display the target's inventory (the author if target is not specified)"""
         target_found, target = await target_parser(ctx, target)
         if target_found:

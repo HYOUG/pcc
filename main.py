@@ -76,9 +76,8 @@ bot.run(token)                                                                  
 
 """TODO
 Rework powers
-Rework trade
 Add items (?)
 give item command
 Upgrade the README
-Francisation de l'UI
+get_points from item_id and item_float not item_tier
 """

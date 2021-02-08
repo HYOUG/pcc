@@ -23,9 +23,8 @@ class Start(commands.Cog):
             update_file("inventories.json", inventories)
 
             embed = discord.Embed(color=default_color)
-            embed.set_author(name=f"🏁 Start")
-            embed.add_field(name="Start",
-                            value=f":white_check_mark: {ctx.author.mention}, votre compte a été créer !")
+            embed.set_author(name=f"🚩 Start")
+            embed.add_field(name="Start", value=f":white_check_mark: {ctx.author.mention}, votre compte a été créer !")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 

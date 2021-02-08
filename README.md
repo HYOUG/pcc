@@ -20,6 +20,6 @@ A simple **gacha-like discord bot** based on the Pop culture universe using the 
 
 ## 🔧 Troubleshoot
 
-Contact me at `HYOUG#3643`.
+Contact me on discord at `HYOUG#3643`.
 
 ___

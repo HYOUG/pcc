@@ -1,20 +1,30 @@
 {
    "372021415752368128": {
       "balance": 1,
-      "items": [],
+      "items": [
+         {
+            "id": "mgem",
+            "float": 0.994,
+            "points": 25
+         },
+         {
+            "id": "blaster",
+            "float": 0.259,
+            "points": 1
+         },
+         {
+            "id": "blaster",
+            "float": 0.359,
+            "points": 1
+         }
+      ],
       "powers": [],
       "shares": {},
       "shield_active": false
    },
    "439024609405435906": {
       "balance": 177,
-      "items": [
-         {
-            "id": "blaster",
-            "float": 0.259,
-            "points": 1
-         }
-      ],
+      "items": [],
       "powers": [],
       "shares": {},
       "shield_active": false
