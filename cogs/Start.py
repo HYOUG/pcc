@@ -19,8 +19,8 @@ class Start(commands.Cog):
             cooldowns = get_file("cooldowns")
             cooldowns[str(ctx.author.id)] = {"daily": 0, "spin": 0}
             inventories[str(ctx.author.id)] = {"balance": 0, "items": [], "powers": [], "shares":{},"shield_active": False}
-            update_file("cooldowns.json", cooldowns)
-            update_file("inventories.json", inventories)
+            update_file("cooldowns", cooldowns)
+            update_file("inventories", inventories)
 
             embed = discord.Embed(color=default_color)
             embed.set_author(name=f"🚩 Start")

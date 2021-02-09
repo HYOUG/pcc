@@ -54,9 +54,9 @@ class Admin(commands.Cog):
         reload_cog(self.bot, cog_name)
 
 
-    @commands.command(aliases = ["=generate", "=gen"])
+    @commands.command(aliases = ["=give"])
     @commands.check(is_bot_owner)
-    async def admin_generate(self, ctx, target: discord.Member, item_id: str, item_float: float):
+    async def admin_give(self, ctx, target: discord.Member, item_id: str, item_float: float):
         """Generate the specified item (item_id, item_float) to the given member"""
         inventories = get_file("inventories")
         items = get_file("items")
@@ -64,9 +64,7 @@ class Admin(commands.Cog):
         if item_id in list(items.keys()):
 
             inventories[str(target.id)]["items"].append({"id": item_id, "float": item_float})
-            inventories_file = open("inventories.json", "w")
-            inventories_file.write(dumps(inventories, indent=3))
-            inventories_file.close()
+            update_file("inventories", inventories)
 
             embed = discord.Embed(color=admin_color)
             embed.set_author(name="🛠️ Admin")
@@ -77,6 +75,24 @@ class Admin(commands.Cog):
         else:
             await ctx.send(embed=gen_error("missing_item", ctx))
 
+    
+    @commands.command(aliases=["=credit"])
+    @commands.check(is_bot_owner)
+    async def admin_credit(self, ctx, target: discord.Member, sum: int):
+        if is_registered(target.id):
+            
+            inventories = get_file("inventories")
+            inventories[str(target.id)]["balance"] += sum
+            update_file("inventories", inventories)
+
+            embed = discord.Embed(color=admin_color)
+            embed.set_author(name="🛠️ Admin")
+            embed.add_field(name="💰 Credit (ADMIN)",
+                            value=f"{ctx.author.mention}, {target.mention} a été crédité de `{sum}` PO (pièces d'or)")
+            embed = set_footer(embed, ctx)
+            await ctx.send(embed=embed)
+
+
 
     @commands.command(aliases=["=remove"])
     @commands.check(is_bot_owner)
@@ -86,7 +102,7 @@ class Admin(commands.Cog):
         dic_target = {"id": item_id, "float": item_float}
         try:
             inventories[str(target.id)]["items"].remove(dic_target)
-            inventories_file = open("inventories.json", "w")
+            inventories_file = open("inventories", "w")
             inventories_file.write(dumps(inventories, indent=3))
             inventories_file.close()
 
@@ -114,8 +130,8 @@ class Admin(commands.Cog):
         cooldowns = get_file("cooldowns")
         del inventories[id_key]
         del cooldowns[id_key]
-        update_file("inventories.json", inventories)
-        update_file("cooldowns.json", cooldowns)
+        update_file("inventories", inventories)
+        update_file("cooldowns", cooldowns)
 
         embed = discord.Embed(color=admin_color)
         embed.set_author(name="🛠️ Admin")
@@ -132,7 +148,7 @@ class Admin(commands.Cog):
         item_infos = "".join(item_infos)
         item_id, item_name, item_from, item_desc, item_tier, item_image = item_infos.split(",")
         items[item_id] = {"name": item_name, "from": item_from, "description": item_desc, "tier": item_tier, "image": item_image}
-        items_file = open("list_items.json", "w", encoding="utf-8")
+        items_file = open("list_items", "w", encoding="utf-8")
         items_file.write(dumps(items, indent=3))
         items_file.close()
 
@@ -148,10 +164,9 @@ class Admin(commands.Cog):
     async def admin_skip(self, ctx, target: discord.Member, category: str):
         """Skip the target's category cooldown"""
         cooldowns = get_file("cooldowns")
-
         if category in list(cooldowns[str(target.id)].keys()):
-            cooldowns[str(target.id)][target] = 0
-            update_file("cooldowns.json", cooldowns)
+            cooldowns[str(target.id)][category] = 0
+            update_file("cooldowns", cooldowns)
             embed = discord.Embed(color=admin_color)
             embed.set_author(name="🛠️ Admin")
             embed.add_field(name="⏩ Cooldown skip", value=f"{ctx.author.mention}, le cooldown `{category}` de {target.mention} a été réinitialisé")
@@ -159,7 +174,6 @@ class Admin(commands.Cog):
             await ctx.send(embed=embed)
         else:
             await ctx.send(embed=gen_error("invalid_synthax", ctx))
-
 
 
 def setup(client):

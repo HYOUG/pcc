@@ -66,7 +66,7 @@ async def on_ready():                                                           
     f.write(" ".join(commands_list))                                                # //
     f.close()                                                                       # //
 
-    update_file("commands.dict.json", commands_dict)
+    update_file("commands.dict", commands_dict)
 
     bot.owner_id = open("data/owner.id.txt").read()
 
@@ -78,5 +78,13 @@ bot.run(token)                                                                  
 Rework powers
 Add items (?)
 get_points from item_id and item_float not item_tier
+sub-directories for more organisation and clarity :
+    - ./backups -> ./data/backups
+    - 'ressources' -> 'assets'
+    - ./ressources -> ./data/ressources
+    - suppression of boot.bat
+items commands columns fix
+PEP8 (PEP8.org)
+Update the help
 """
 

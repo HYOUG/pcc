@@ -60,7 +60,7 @@ class Loops(commands.Cog):
                 powers      = get_file("powers")
                 reward      = choice(list(powers.keys()))
                 inventories[str(answer.author.id)]["powers"].append(reward)
-                update_file("inventories.json", inventories)
+                update_file("inventories", inventories)
 
                 embed.clear_fields()
                 embed.add_field(name="Challenge", value=f"```{calc} = {result}```")
@@ -113,7 +113,7 @@ class Loops(commands.Cog):
                     stocks[share_key][-1] = 0 
                 if len(stocks[share_key]) >= 20:
                     stocks[share_key] = stocks[share_key][-20:]
-            update_file("stocks.json", stocks)
+            update_file("stocks", stocks)
             print(f"[{get_time()}] : {yellow('[STOCKS]')}")
         self.loop_num_stocks += 1
 

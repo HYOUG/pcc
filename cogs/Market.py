@@ -1,6 +1,7 @@
 import discord
 import asyncio
 from discord.ext import commands
+from discord.utils import get
 from botFunctions import *
 from chatEffects import *
 
@@ -33,7 +34,7 @@ class Market(commands.Cog):
 
         embed = discord.Embed(color=default_color)
         embed.set_author(name=f"⚖️ Market")
-        embed.add_field(name="Item (ID)", value=item_field)
+        embed.add_field(name="[#] Item (ID)", value=item_field)
         embed.add_field(name="Float • Tier", value=float_field)
         embed.add_field(name="Prix • Vendeur", value=price_field)
         embed = set_footer(embed, ctx)
@@ -74,8 +75,8 @@ class Market(commands.Cog):
                     embed = set_footer(embed, ctx)
                     await seller.send(embed=embed)
 
-                    update_file("inventories.json", inventories)
-                    update_file("market.json", market)
+                    update_file("inventories", inventories)
+                    update_file("market", market)
 
                 else:
                     await ctx.send(embed=gen_error("missing_money", ctx))
@@ -117,7 +118,7 @@ class Market(commands.Cog):
 
                 try:
                     await self.bot.wait_for("reaction_add", check=check_market, timeout=30.0)
-                    updt_confirmation = self.bot.get(self.bot.cached_messages, id=confirmation.id)
+                    updt_confirmation = get(self.bot.cached_messages, id=confirmation.id)
 
                     for reaction in updt_confirmation.reactions:
                         async for reaction_user in reaction.users():
@@ -131,17 +132,13 @@ class Market(commands.Cog):
                                 market["offers"].append({"seller": ctx.author.id, "id": item_id, "float": item_float, "price": price})
                                 inventories[id_key]["items"].remove(target_dic)
 
-                                market_file = open("market.json", "w")
-                                inventories_file = open("inventories.json", "w")
-                                market_file.write(dumps(market, indent=3))
-                                inventories_file.write(dumps(inventories, indent=3))
-                                market_file.close()
-                                inventories_file.close()
+                                update_file("inventories", inventories)
+                                update_file("market", market)
 
                                 success = discord.Embed(color=default_color)
                                 success.set_author(name=f"⚖️ Market add")
                                 success.add_field(name="Succès",
-                                                  value=f":white_check_mark: {ctx.author.mention}, votre offre a été créer")
+                                                  value=f":white_check_mark: {ctx.author.mention}, votre offre a été créée")
                                 success = set_footer(success, ctx)
                                 await confirmation.edit(embed=success)
                                 offer_ended = True
@@ -171,8 +168,8 @@ class Market(commands.Cog):
             del offer["price"]
             inventories[str(ctx.author.id)]["items"] += offer
 
-            update_file("market.json", market)
-            update_file("inventories.json", inventories)
+            update_file("market", market)
+            update_file("inventories", inventories)
 
             embed = discord.Embed(color=default_color)
             embed.set_author(name=f"⚖️ Market")

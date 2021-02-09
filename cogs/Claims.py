@@ -48,7 +48,7 @@ class Claims(commands.Cog):
             reward_points = tier_points * float_multiplicator
 
             embed = discord.Embed(color=default_color)
-            embed.set_author(name=f"⌛ {ctx.author.name}'s free spin")
+            embed.set_author(name=f"⌛ {ctx.author.name}'s Free spin")
             embed = set_footer(embed, ctx)
             embed.add_field(name=f"**{items[reward_key]['name']}** ({tier_points} x {float_multiplicator} = {reward_points} PTS)",
                             value=f"*{items[reward_key]['description']}* • __{items[reward_key]['from']}__",
@@ -62,8 +62,8 @@ class Claims(commands.Cog):
 
             inventories[str(ctx.author.id)]["items"].append({"id": reward_key, "float": reward_float, "points": reward_points})
             cooldowns[str(ctx.author.id)]["spin"] = time()
-            update_file("cooldowns.json", cooldowns)
-            update_file("inventories.json", inventories)
+            update_file("cooldowns", cooldowns)
+            update_file("inventories", inventories)
 
         else:
             await ctx.send(embed=gen_error("cooldown_spin", ctx))
@@ -89,8 +89,8 @@ class Claims(commands.Cog):
 
             cooldowns[id_key]["daily"] = time()
             inventories[id_key]["balance"] += reward_sum
-            update_file("cooldowns.json", cooldowns)
-            update_file("inventories.json", inventories)
+            update_file("cooldowns", cooldowns)
+            update_file("inventories", inventories)
 
         else:
             await ctx.send(embed=gen_error("cooldown_daily", ctx))

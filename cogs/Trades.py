@@ -157,7 +157,7 @@ class Trades(commands.Cog):
                             confimation_canceled = True
 
                     if not confimation_canceled:
-                        update_file("inventories.json", inventories)
+                        update_file("inventories", inventories)
                         embed.clear_fields()
                         embed.add_field(name="Conclusion", value=f":white_check_mark: L'échange a été effectué :\nVous avez reçu : {in_field}\n{target.mention} a reçu : {out_field}")
                         await trade.edit(embed=embed)
@@ -209,7 +209,7 @@ class Trades(commands.Cog):
 
                             inventories[str(ctx.author.id)]["balance"] -= pay_sum
                             inventories[str(target.id)]["balance"] += pay_sum
-                            update_file("inventories.json", inventories)
+                            update_file("inventories", inventories)
 
                             embed = discord.Embed(color=default_color)
                             embed.set_author(name=f"💳 Payment | {ctx.author.name} to {target.name}")

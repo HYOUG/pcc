@@ -48,7 +48,7 @@ class GameInfo(commands.Cog):
         embed.add_field(name="Informations",
                         value=f"✅ {ctx.author.mention}, la liste des items va vous être envoyée. "
                               f"La liste peut prendre du temps à se générer.\n\n"
-                              f":warning: À cause de la charte graphique il se peut que certaines colonnes"
+                              f":warning: À cause de la charte graphique il se peut que certaines colonnes "
                               f"soit décalées par rapport aux autres")
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)

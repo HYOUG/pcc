@@ -27,12 +27,12 @@ class Fun(commands.Cog):
 
                 if win:
                     inventories[str(ctx.author.id)]["balance"] += bet * 2
-                    update_file("inventories.json", inventories)
+                    update_file("inventories", inventories)
                     embed.add_field(name="Resultats",
                                     value=f":trophy: Vous avez gagné : **+**`{bet * 2}` "
                                           f"Votre bourse : `{inventories[str(ctx.author.id)]['balance']}` PO (pièces d'or)")
                 else:
-                    update_file("inventories.json", inventories)
+                    update_file("inventories", inventories)
                     embed.add_field(name="Results",
                                     value=f":x: Vous avez perdu votre mise : **-**`{bet}` "
                                           f"Votre bourse : `{inventories[str(ctx.author.id)]['balance']}` PO (pièces d'or)")
@@ -55,7 +55,7 @@ class Fun(commands.Cog):
                 else:
                     result_field = f"{ctx.author.mention}, vous avez perdu votre mise : **-**`{bet}`"
                     inventories[str(ctx.author.id)]["balance"] -= bet
-                update_file("inventories.json", inventories)
+                update_file("inventories", inventories)
                 embed = discord.Embed(color=default_color)
                 embed.set_author(name="🎰 Bet")
                 embed.add_field(name="Résultats", value=result_field)

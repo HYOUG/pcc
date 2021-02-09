@@ -57,7 +57,7 @@ class UserInfo(commands.Cog):
 
 
     @commands.command(aliases=["bal"])
-    async def balance(self, ctx, target: discord.Member = None):
+    async def balance(self, ctx, target: str = None):
         """Display the target's balance (the author if target is not specified)"""
         target_found, target = await target_parser(ctx, target)
         if target_found:
@@ -75,7 +75,7 @@ class UserInfo(commands.Cog):
             
 
     @commands.command(aliases=["pts", "score"])
-    async def points(self, ctx, target: discord.Member = None):
+    async def points(self, ctx, target: str = None):
         """Display the target's points (the author if target is not specified)"""
         target_found, target = await target_parser(ctx, target)
         if target_found:

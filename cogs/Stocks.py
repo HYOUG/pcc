@@ -77,8 +77,8 @@ class Stocks(commands.Cog):
                         inventories[str(ctx.author.id)]["shares"][share] += qtty
                     else:
                         inventories[str(ctx.author.id)]["shares"][share] = qtty
-                    update_file("stocks.json", stocks)
-                    update_file("inventories.json", inventories)
+                    update_file("stocks", stocks)
+                    update_file("inventories", inventories)
 
                     embed = discord.Embed(color=default_color)
                     embed.set_author(name="📈 Investissement")

@@ -1,6 +1,6 @@
 {
    "372021415752368128": {
-      "balance": 99999999101,
+      "balance": 100000000101,
       "items": [
          {
             "id": "mgem",
@@ -21,10 +21,6 @@
             "id": "akeyetg",
             "float": 0.382,
             "points": 5
-         },
-         {
-            "id": "sanddune",
-            "float": 0.037
          }
       ],
       "powers": [],
@@ -32,7 +28,7 @@
       "shield_active": false
    },
    "439024609405435906": {
-      "balance": 1223.7,
+      "balance": 223.7,
       "items": [
          {
             "id": "oeildieu",

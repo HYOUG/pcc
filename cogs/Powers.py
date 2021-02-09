@@ -98,7 +98,7 @@ class Powers(commands.Cog):
                         target["points"] = tier_points * float_multiplicator
                         target["float"] = float(target["float"])
                         inventories[author_key]["items"].append(target)
-                        update_file("market.json", market)
+                        update_file("market", market)
                         embed.add_field(name=powers[power]["name"],
                                         value=f"Vous avez utilisé **{powers[power]['name']}** !\n"
                                               f"Vous avez volé l'offre n°`{offer_number}` : **{items[target['id']]['name']}** ({target['id']}) `{target['float']}`")
@@ -154,7 +154,7 @@ class Powers(commands.Cog):
                                       f"Ancien float : `{old_float}`\nNouveau float : `{target_item['float']}`")
 
             inventories[author_key]["powers"].remove(power)
-            update_file("inventories.json", inventories)
+            update_file("inventories", inventories)
             await ctx.send(embed=embed)
 
         else:

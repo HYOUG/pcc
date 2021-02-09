@@ -4,6 +4,7 @@ from discord import Embed
 from discord.ext import commands
 from chatEffects import default_color, error_color, warning_color, admin_color
 
+"""Generics and usual bot's functions"""
 
 def get_time() -> str:
     """Return a formated version of the time"""
@@ -21,18 +22,6 @@ def is_registered(user_id: str) -> bool:
     return str(user_id) in list(inv.keys())
 
 
-def check1(msg):
-    """TODO DELETE (trade rework)"""
-    global trader_id
-    return str(msg.author.id) == str(trader_id)
-
-
-def check2(reaction, user):
-    """TODO DELETE (trade rework)"""
-    global trader2_id
-    return str(user.id) == trader2_id and str(reaction) == "✅"
-
-
 def is_bot_owner(ctx) -> bool:
     """Return if the author from the context is the bot owner"""
     return ctx.author.id == int(open("data/owner.id.txt", "r").read())
@@ -43,7 +32,7 @@ def gen_error(error_id: str, ctx) -> Embed:
     errors = get_file("errors")
     error = Embed(color=error_color)
     error.add_field(name="⚠️ " + errors[error_id]["title"], value=errors[error_id]['txt'])
-    error.set_footer(icon_url=ctx.author.avatar_url, text=f"{ctx.author.name} • {get_time()}")
+    error = set_footer(error, ctx)
     return error
 
 
@@ -54,7 +43,7 @@ def set_footer(embed: Embed, ctx) -> Embed:
 
 def update_file(filename: str, variable_dict: dict) -> None:
     """Update the given file with the given data"""
-    file = open(f"data/{filename}", "w", encoding="utf-8")
+    file = open(f"data/{filename}.json", "w", encoding="utf-8")
     file.write(dumps(variable_dict, indent=3))
     file.close()
 
