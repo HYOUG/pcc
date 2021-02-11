@@ -1,6 +1,6 @@
 # My rules / exceptions
-data/metadata/bot.token.txt
-data/metadata/owner.id.txt
+bot.token.txt
+owner.id.txt
   
 # Byte-compiled / optimized / DLL files
 __pycache__/
