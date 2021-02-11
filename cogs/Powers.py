@@ -1,12 +1,15 @@
 import discord
 from discord.ext import commands
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 from random import choice, uniform, randint
 
 
 class Powers(commands.Cog):
-    """Commands : use"""
+    """
+    Commands : 
+    - use
+    """
 
     def __init__(self, bot):
         self.bot = bot

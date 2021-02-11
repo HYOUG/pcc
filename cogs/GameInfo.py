@@ -1,12 +1,20 @@
 from os import name
 import discord
 from discord.ext import commands
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 
 
 class GameInfo(commands.Cog):
-    """Commands : help, items, powers, players, statistics, get_points"""
+    """
+    Commands : 
+    - help
+    - items
+    - powers
+    - players
+    - statistics
+    - get_points
+    """
 
     def __init__(self, bot):
         self.bot = bot
@@ -71,9 +79,9 @@ class GameInfo(commands.Cog):
         while not finished:
 
             while len(embed.fields[0].value) +                                                                     \
-                  len(f"{items[items_keys[item_index]]['name']} ({items_keys[item_index]})\n") <= 1024 and         \
-                  len(embed.fields[1].value) + len(f"*{items[items_keys[item_index]]['tier']}*\n") <= 1024 and     \
-                  len(embed.fields[2].value) + len(f"__{items[items_keys[item_index]]['from']}__\n") <= 1024:
+                  len(f"{items[items_keys[item_index]]['name']} ({items_keys[item_index]})\n") < 1024 and          \
+                  len(embed.fields[1].value) + len(f"*{items[items_keys[item_index]]['tier']}*\n") < 1024 and      \
+                  len(embed.fields[2].value) + len(f"__{items[items_keys[item_index]]['from']}__\n") < 1024:
 
                 embed.set_author(name=f"📜 Liste des items | Page n°{page}")
                 name_column += f"**{items[items_keys[item_index]]['name']}** `{items_keys[item_index]}`\n"
@@ -154,7 +162,7 @@ class GameInfo(commands.Cog):
     @commands.command(aliases=["stats"])
     async def statistics(self, ctx):
         """Display some bot's statistics"""
-        stats = get_file("stats")
+        stats = get_file("statistics")
         inventories = get_file("inventories")
 
         game_field = ""
@@ -166,6 +174,7 @@ class GameInfo(commands.Cog):
         money_qtty = 0
         points_qtty = 0
         items_qtty = 0
+        
         for player in inventories.keys():
             money_qtty += inventories[player]["balance"]
         for player in inventories.keys():
@@ -179,20 +188,21 @@ class GameInfo(commands.Cog):
 
         bot_field = f"nombre de **joueurs** : `{len(list(inventories.keys()))}`\n"         \
                     f"nombre de **servers** : `{len(self.bot.guilds)}`\n"                  \
-                    f"**ID** propriétaire : `{open('./data/owner.id.txt', 'r').read()}`\n" \
+                    f"**ID** propriétaire : `{open('data/metadata/owner.id.txt', 'r').read()}`\n" \
                     f"**latence** : `{self.bot.latency}` secs."
 
         embed = discord.Embed(color=default_color)
         embed.set_author(name=f"📊 Statistics")
         embed.add_field(name="Commandes", value=game_field, inline=False)
         embed.add_field(name="Volumes", value=qtty_field, inline=False)
-        embed.add_field(name="Bot",      value=bot_field,  inline=False)
+        embed.add_field(name="Bot", value=bot_field,  inline=False)
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
 
 
     @commands.command()
     async def get_points(self, ctx, item_id: str, item_float: float):
+        """Display the points (score) of the give item (ID, float)"""
         items = get_file("items")
         if item_id in list(items.keys()) and 0 <= item_float <= 1:
             item_tier = items[item_id]["tier"]

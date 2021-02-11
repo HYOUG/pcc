@@ -1,13 +1,17 @@
 import discord
 from discord.ext import commands
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 from random import choice, choices, randint, uniform
 from time import time
 
 
 class Claims(commands.Cog):
-    """Commands : spin, daily"""
+    """
+    Commands :
+    - spin
+    - daily
+    """
 
     def __init__(self, bot):
         self.bot = bot
@@ -56,7 +60,7 @@ class Claims(commands.Cog):
             embed.add_field(name="Tier", value=f"`{items[reward_key]['tier']}`", inline=True)
             embed.add_field(name="Float", value=f"`{reward_float}`", inline=True)
             embed.add_field(name="ID", value=f"`{reward_key}`", inline=True)
-            item_image = discord.File(f"ressources/{reward_key}.png", filename=f"{reward_key}.png")
+            item_image = discord.File(f"assets/{reward_key}.png", filename=f"{reward_key}.png")
             embed.set_image(url=f"attachment://{reward_key}.png")
             await ctx.send(embed=embed, file=item_image)
 

@@ -1,12 +1,16 @@
 import discord
 from discord.ext import commands
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 from random import choice, randint
 
 
 class Fun(commands.Cog):
-    """Commands : flip, bet"""
+    """
+    Commands : 
+    - flip
+    - bet
+    """
 
     def __init__(self, bot):
         self.bot = bot

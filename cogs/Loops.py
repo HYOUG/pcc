@@ -1,8 +1,8 @@
 import discord
 import asyncio
 from discord.ext import commands, tasks
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 from random import randint, choice
 from os import listdir, mkdir, getcwd
 from os.path import getsize
@@ -13,7 +13,12 @@ from random import randint
 
 
 class Loops(commands.Cog):
-    """Loops : calc_event, change_status, save_data"""
+    """
+    Loops : 
+    - calc_event
+    - change_status
+    - save_data
+    """
 
     def __init__(self, bot):
         self.bot = bot
@@ -71,7 +76,7 @@ class Loops(commands.Cog):
     @tasks.loop(minutes=5)
     async def change_status(self):
         """'Change status' loop"""
-        movies = open("data/movies.txt", "r").read().split("\n")
+        movies = open("data/metadata/movies.txt", "r").read().split("\n")
         activity = discord.Activity(type=discord.ActivityType.watching, name=f"{choice(movies)} | =help")
         await self.bot.change_presence(status=discord.Status.online, activity=activity)
 
@@ -101,7 +106,7 @@ class Loops(commands.Cog):
 
     @tasks.loop(minutes=5)
     async def stocks_evolution(self):
-        """'Make the stocks evolve' loop"""
+        """'Make the stocks evolve loop"""
         if self.loop_num_stocks > 1:
             stocks = get_file("stocks")
             evolutions = []

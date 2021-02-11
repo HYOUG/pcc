@@ -2,12 +2,18 @@ import discord
 import asyncio
 from discord.ext import commands
 from discord.utils import get
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 
 
 class Market(commands.Cog):
-    """Commands : market, buy, sell, remove_offer"""
+    """
+    Commands : 
+    - market
+    - buy
+    - sell
+    - remove_offer
+    """
 
     def __init__(self, bot):
         self.bot = bot
@@ -63,15 +69,15 @@ class Market(commands.Cog):
 
                     embed = discord.Embed(color=default_color)
                     embed.set_author(name=f"⚖️ Buy")
-                    embed.add_field(name="Success",
-                                    value=f":white_check_mark: {ctx.author.mention}, vous avez acheté avec succès **{items[item_bought['id']]['name']}** (`{item_bought['id']}`) : __{items[item_bought['id']]['tier']}__ pour `{price}` PO (pièces d'or)")
+                    embed.add_field(name="Achat",
+                                    value=f"{ctx.author.mention}, vous avez acheté avec succès **{items[item_bought['id']]['name']}** (`{item_bought['id']}`) pour `{price}` PO (pièces d'or) à {seller.mention}")
                     embed = set_footer(embed, ctx)
                     await ctx.send(embed=embed)
 
                     embed = discord.Embed(color=default_color)
                     embed.set_author(name=f"📯 Notification")
-                    embed.add_field(name="Success",
-                                    value=f":white_check_mark: {seller.mention}, vous avez vendu **{items[item_bought['id']]['name']}** (`{item_bought['id']}`) à {ctx.author.mention} pour `{price}` PO (pièces d'or)")
+                    embed.add_field(name="Vente",
+                                    value=f"{seller.mention}, vous avez vendu **{items[item_bought['id']]['name']}** à {ctx.author.mention} pour `{price}` PO (pièces d'or)")
                     embed = set_footer(embed, ctx)
                     await seller.send(embed=embed)
 
@@ -97,8 +103,9 @@ class Market(commands.Cog):
         id_key = str(ctx.author.id)
         inventories = get_file("inventories")
         items = get_file("items")
-        tier_points, multiplicator = get_points(items[item_id]["tier"][0], float(item_float))
-        target_dic = {"id": item_id, "float": float(item_float), "points": tier_points * multiplicator}
+        tier_points, multiplicator = get_points(items[item_id]["tier"][0], item_float)
+        item_points = tier_points * multiplicator
+        target_dic = {"id": item_id, "float": float(item_float), "points": item_points}
 
         if target_dic in inventories[id_key]["items"]:
             if 0 < price < 1000000000:
@@ -129,7 +136,7 @@ class Market(commands.Cog):
 
                             if reaction.emoji == "✅" and reaction_user.id == ctx.author.id:
                                 market = get_file("market")
-                                market["offers"].append({"seller": ctx.author.id, "id": item_id, "float": item_float, "price": price})
+                                market["offers"].append({"seller": ctx.author.id, "id": item_id, "float": item_float, "points":item_points, "price": price})
                                 inventories[id_key]["items"].remove(target_dic)
 
                                 update_file("inventories", inventories)
@@ -138,7 +145,7 @@ class Market(commands.Cog):
                                 success = discord.Embed(color=default_color)
                                 success.set_author(name=f"⚖️ Market add")
                                 success.add_field(name="Succès",
-                                                  value=f":white_check_mark: {ctx.author.mention}, votre offre a été créée")
+                                                  value=f"{ctx.author.mention}, votre offre a été créée")
                                 success = set_footer(success, ctx)
                                 await confirmation.edit(embed=success)
                                 offer_ended = True
@@ -174,7 +181,7 @@ class Market(commands.Cog):
             embed = discord.Embed(color=default_color)
             embed.set_author(name=f"⚖️ Market")
             embed.add_field(name="Remove offer",
-                            value=f":white_check_mark: {ctx.author.mention}, vous avez retiré votre offre du marché : `{offer['id']}:{offer['float']}`.")
+                            value=f"{ctx.author.mention}, vous avez retiré votre offre du marché : `{offer['id']}:{offer['float']}`.")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 

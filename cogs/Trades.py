@@ -2,19 +2,25 @@ import discord
 import asyncio
 from discord.ext import commands
 from discord.utils import get
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 from time import time
 
 
 class Trades(commands.Cog):
-    """Commands : trade, give, pay"""
+    """
+    Commands :
+    - trade
+    - give
+    - pay
+    """
 
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
     async def trade(self, ctx, target: discord.Member):
+        """Initiate a trade with the specified target"""
         if is_registered(target.id):
             if target.id != ctx.author.id:
                 embed = discord.Embed(color=default_color)
@@ -159,7 +165,7 @@ class Trades(commands.Cog):
                     if not confimation_canceled:
                         update_file("inventories", inventories)
                         embed.clear_fields()
-                        embed.add_field(name="Conclusion", value=f":white_check_mark: L'échange a été effectué :\nVous avez reçu : {in_field}\n{target.mention} a reçu : {out_field}")
+                        embed.add_field(name="Conclusion", value=f"L'échange a été effectué :\nVous avez reçu : {in_field}\n{target.mention} a reçu : {out_field}")
                         await trade.edit(embed=embed)
 
                     elif confimation_canceled:

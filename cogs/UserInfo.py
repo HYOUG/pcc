@@ -1,11 +1,16 @@
 import discord
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 from discord.ext import commands
 
 
 class UserInfo(commands.Cog):
-    """Commands : inventory, balance, points"""
+    """
+    Commands : 
+    - inventory
+    - balance
+    - points
+    """
 
     def __init__(self, bot):
         self.bot = bot

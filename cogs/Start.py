@@ -1,11 +1,14 @@
 import discord
 from discord.ext import commands
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 
 
 class Start(commands.Cog):
-    """Commands : start"""
+    """
+    Commands : 
+    - start
+    """
 
     def __init__(self, bot):
         self.bot = bot
@@ -24,7 +27,7 @@ class Start(commands.Cog):
 
             embed = discord.Embed(color=default_color)
             embed.set_author(name=f"🚩 Start")
-            embed.add_field(name="Start", value=f":white_check_mark: {ctx.author.mention}, votre compte a été créer !")
+            embed.add_field(name="Start", value=f"{ctx.author.mention}, votre compte a été créer !")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 

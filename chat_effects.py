@@ -1,6 +1,8 @@
 from colorama import Fore, init                                                     # the 'chat effects' are from the colorama module
-init(convert=True)                                                                  # set convert to True, avoiding, character display bugs
 
+"""Esthetic display functions (colors)"""
+
+init(convert=True)                                                                  # set convert to True, avoiding, character display bugs
 default_color = 0x4A86E8                                                            # embed 'default' color
 error_color = 0xFF4040                                                              # embed 'error' color
 warning_color = 0xEED202                                                            # embed 'warning' color

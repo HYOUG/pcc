@@ -1,9 +1,9 @@
 {
    "372021415752368128": {
-      "balance": 100000000101,
+      "balance": 99999999101,
       "items": [
          {
-            "id": "mgem",
+            "id": "mindgem",
             "float": 0.994,
             "points": 25
          },
@@ -18,9 +18,14 @@
             "points": 1
          },
          {
-            "id": "akeyetg",
+            "id": "akey47",
             "float": 0.382,
             "points": 5
+         },
+         {
+            "id": "sanddune",
+            "float": 0.037,
+            "points": 1000000
          }
       ],
       "powers": [],
@@ -28,12 +33,22 @@
       "shield_active": false
    },
    "439024609405435906": {
-      "balance": 223.7,
+      "balance": 1206.7,
       "items": [
          {
             "id": "oeildieu",
             "float": 0.359,
             "points": 1
+         },
+         {
+            "id": "ring",
+            "float": 0.614,
+            "points": 1
+         },
+         {
+            "id": "fireserpent",
+            "float": 0.957,
+            "points": 25
          }
       ],
       "powers": [],

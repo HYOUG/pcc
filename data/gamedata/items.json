@@ -1,0 +1,620 @@
+{
+   "carapacev": {
+      "name": "Carapace Verte",
+      "from": "Mario Kart",
+      "description": "Un item plus ou moins aléatoire",
+      "tier": "D"
+   },
+   "carapaceb": {
+      "name": "Carapace Bleue",
+      "from": "Mario Kart",
+      "description": "L'arme du faible",
+      "tier": "B+"
+   },
+   "bulletbill": {
+      "name": "Bullet Bill",
+      "from": "Mario Kart",
+      "description": "C'est pas avec le corps qu'on tourne",
+      "tier": "C+"
+   },
+   "mastersword": {
+      "name": "Master Sword",
+      "from": "The Legend of Zelda",
+      "description": "L'épée du héros",
+      "tier": "A+"
+   },
+   "ocarina": {
+      "name": "Ocarina",
+      "from": "The Legend of Zelda",
+      "description": "Un instrument três puissant",
+      "tier": "A-"
+   },
+   "triforce": {
+      "name": "Triforce",
+      "from": "The Legend of Zelda",
+      "description": "Plus fort que les illuminatis",
+      "tier": "S"
+   },
+   "ring": {
+      "name": "Ring",
+      "from": "Sonic the Hedgehog",
+      "description": "Une piêce ? Un anneau ? Non, LES DEUX",
+      "tier": "D+"
+   },
+   "emeralds": {
+      "name": "Chaos Emeralds",
+      "from": "Sonic the Hedgehog",
+      "description": "Les power rangers mais... en émeraude",
+      "tier": "A-"
+   },
+   "lukesaber": {
+      "name": "Sabre Laser de Luke",
+      "from": "Star Wars",
+      "description": "Le Fils",
+      "tier": "A-"
+   },
+   "darkvadorsaber": {
+      "name": "Sabre Laser de Dark Vador",
+      "from": "Star Wars",
+      "description": "Le pêre",
+      "tier": "A+"
+   },
+   "blaster": {
+      "name": "Blaster de Stormtrooper",
+      "from": "Star Wars",
+      "description": "not_aimbot.dll",
+      "tier": "D-"
+   },
+   "kyber": {
+      "name": "Crystaux Kyber",
+      "from": "Star Wars",
+      "description": "Le kit du petit Jedi(/Sith)",
+      "tier": "C"
+   },
+   "vador": {
+      "name": "Casque de Dark Vador",
+      "from": "Star Wars",
+      "description": "Une obscure force s'en échappe",
+      "tier": "S+"
+   },
+   "metalgear": {
+      "name": "Metal Gear",
+      "from": "Metal Gear Solid",
+      "description": "mobile nuclear launch platform",
+      "tier": "A-"
+   },
+   "cardbox": {
+      "name": "Boîte en carton",
+      "from": "Metal Gear Solid",
+      "description": "|!|",
+      "tier": "C"
+   },
+   "texture": {
+      "name": "Texture not found",
+      "from": "Garry's Mod",
+      "description": "#Description not founded#",
+      "tier": "D+"
+   },
+   "dlore": {
+      "name": "AWP | Dragon Lore",
+      "from": "Counter-Strike Global Offensive",
+      "description": "Le légendaire dragon",
+      "tier": "A"
+   },
+   "fireserpent": {
+      "name": "AK-47 | Fire Serpent",
+      "from": "Counter-Strike Global Offensive",
+      "description": "Quetzacoatl 2.0",
+      "tier": "A"
+   },
+   "sanddune": {
+      "name": "P250 | Sand Dune",
+      "from": "Counter-Strike Global Offensive",
+      "description": "Même en espérant rien, on est déçu...",
+      "tier": "D-"
+   },
+   "karambit": {
+      "name": "Karambit | Fade",
+      "from": "Counter-Strike Global Offensive",
+      "description": "1K$ (USD) pixels",
+      "tier": "A-"
+   },
+   "chicken": {
+      "name": "Poulet",
+      "from": "Counter-Strike Global Offensive",
+      "description": "Chicken blocking the door",
+      "tier": "B+"
+   },
+   "physgun": {
+      "name": "Physgun",
+      "from": "Half-Life",
+      "description": "Prop kill are not allowed !",
+      "tier": "B+"
+   },
+   "gravitygun": {
+      "name": "Gravity gun",
+      "from": "Half-Life",
+      "description": "Prop kill are not allowed !",
+      "tier": "B+"
+   },
+   "magnum": {
+      "name": ".357 Magnum",
+      "from": "Half-Life",
+      "description": "Alien's nightmare",
+      "tier": "C"
+   },
+   "portalgun": {
+      "name": "Portal gun",
+      "from": "Portal",
+      "description": "Décrochez la lune !",
+      "tier": "A+"
+   },
+   "cube": {
+      "name": "Cube de voyage lesté",
+      "from": "Portal",
+      "description": "<3",
+      "tier": "A-"
+   },
+   "tf2chapeau": {
+      "name": "Unusual Burning Team Captain",
+      "from": "Team Fortress 2",
+      "description": "C'est son prix qui est unusual",
+      "tier": "C+"
+   },
+   "rocket": {
+      "name": "Lance-Roquettes",
+      "from": "Team Fortress 2",
+      "description": "Un excellent moyen de transport",
+      "tier": "B+"
+   },
+   "papillon": {
+      "name": "Couteau Papillon",
+      "from": "Team Fortress 2",
+      "description": "baaaaacckkk...STAB !",
+      "tier": "C+"
+   },
+   "jackaxe": {
+      "name": "La Hache de Jack Torrance",
+      "from": "The Shining",
+      "description": "HERE'S JONHY !!",
+      "tier": "A"
+   },
+   "goldengun": {
+      "name": "Golden Gun",
+      "from": "James Bond",
+      "description": "One shot.",
+      "tier": "A+"
+   },
+   "anneau": {
+      "name": "L'anneau Unique",
+      "from": "Le Hobbit",
+      "description": "Le précieuuuuuuux",
+      "tier": "S"
+   },
+   "arkenstone": {
+      "name": "L'Arkenstone",
+      "from": "Le Hobbit",
+      "description": "Le coeur de la montagne",
+      "tier": "B"
+   },
+   "lotus": {
+      "name": "Lotus Noir",
+      "from": "Magic the Gathering",
+      "description": "Vous avez remportez la partie.",
+      "tier": "B+"
+   },
+   "dragonbleu": {
+      "name": "Dragon blanc aux yeux bleus",
+      "from": "Yu-Gi-Oh !",
+      "description": "Tu as activé ma carte piège Yu-gi !",
+      "tier": "B+"
+   },
+   "journal1": {
+      "name": "Journal #1 de Stanford Pines",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "1/3",
+      "tier": "A-"
+   },
+   "journal2": {
+      "name": "Journal #2 de Stanford Pines",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "2/3",
+      "tier": "A-"
+   },
+   "journal3": {
+      "name": "Journal #3 de Stanford Pines",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "3/3",
+      "tier": "A-"
+   },
+   "journal4": {
+      "name": "=J0uRn4l_#4_de_5T4nford_P1n3s",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "4/////#",
+      "tier": "A+"
+   },
+   "dice": {
+      "name": "Dé infini",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "Dungeons, Dungeons, and More Dungeons",
+      "tier": "B"
+   },
+   "portail": {
+      "name": "Interdimentional Portal",
+      "from": "Les souvenirs de Gravity Falls",
+      "description": "Le triangle va venir",
+      "tier": "A"
+   },
+   "rickgun": {
+      "name": "Pisto-portail",
+      "from": "Rick & Morty",
+      "description": "Un accês vers une infinité de mondes",
+      "tier": "S-"
+   },
+   "meesix": {
+      "name": "Boîte à M. Larbin",
+      "from": "Rick & Morty",
+      "description": "Salut c'est moi M'sieur Larbin !",
+      "tier": "B+"
+   },
+   "szechuan": {
+      "name": "Sauce Szechuan",
+      "from": "Rick et Morty",
+      "description": " I want that Mulan McNugget sauce, Morty. That's my series arc, Morty!",
+      "tier": "S-"
+   },
+   "spacegem": {
+      "name": "Pierre de l'Espace",
+      "from": "Marvel",
+      "description": "Tesseract",
+      "tier": "A"
+   },
+   "mindgem": {
+      "name": "Pierre de l'Esprit",
+      "from": "Marvel",
+      "description": "Sceptre",
+      "tier": "A"
+   },
+   "soulgem": {
+      "name": "Pierre de l'Ame",
+      "from": "Marvel",
+      "description": "Le défi de Vormir",
+      "tier": "A"
+   },
+   "realitygem": {
+      "name": "Pierre de Réalité",
+      "from": "Marvel",
+      "description": "Éther",
+      "tier": "A"
+   },
+   "timegem": {
+      "name": "Pierre du Temps",
+      "from": "Marvel",
+      "description": "L'oeil d'Agamotto",
+      "tier": "A"
+   },
+   "powergem": {
+      "name": "Pierre du Pouvoir",
+      "from": "Marvel",
+      "description": "Orbe",
+      "tier": "A"
+   },
+   "emptygauntlet": {
+      "name": "Gant de l'infini (vide)",
+      "from": "Marvel",
+      "description": "Receptacles des pierres",
+      "tier": "B-"
+   },
+   "fullgauntlet": {
+      "name": "Gant de l'infini (complété)",
+      "from": "Marvel",
+      "description": "I AM A GOD",
+      "tier": "S+"
+   },
+   "mjolnir": {
+      "name": "Mjölnir",
+      "from": "Marvel",
+      "description": "aka Boomerang nordique",
+      "tier": "A-"
+   },
+   "doubleanneau": {
+      "name": "Double anneau",
+      "from": "Marvel",
+      "description": "essentiel aux arts mystiques",
+      "tier": "C+"
+   },
+   "reacteurarc": {
+      "name": "Réacteur ARC",
+      "from": "Marvel",
+      "description": "H34RTH.exe",
+      "tier": "B+"
+   },
+   "stormbreaker": {
+      "name": "Stormbreaker",
+      "from": "Marvel",
+      "description": "Most Powerful weapon of Asgard",
+      "tier": "A"
+   },
+   "thorhammer": {
+      "name": "Marteau de Thor",
+      "from": "Marvel",
+      "description": "La puissabce d'Odin",
+      "tier": "A-"
+   },
+   "cptshield": {
+      "name": "Bouclier de Captain America",
+      "from": "Marvel",
+      "description": "I N C A S S A B L E",
+      "tier": "A+"
+   },
+   "batceinture": {
+      "name": "Bat-Ceinture",
+      "from": "DC comics",
+      "description": "Plein de bat-gadget",
+      "tier": "B+"
+   },
+   "smashball": {
+      "name": "Balle Smash",
+      "from": "Super Smash Bros",
+      "description": "just press B",
+      "tier": "B-"
+   },
+   "lamesecrete": {
+      "name": "Lame Secrête",
+      "from": "Assassin's Creed",
+      "description": "Un truc un peu malsain",
+      "tier": "C+"
+   },
+   "pommeeden": {
+      "name": "Pomme d'Eden",
+      "from": "Assassin's Creed",
+      "description": "Vestiges des Isus (Issous)",
+      "tier": "A"
+   },
+   "aidenphone": {
+      "name": "Téléphone d'Aiden Pierce",
+      "from": "Watch Dogs",
+      "description": "** Accês au CTos en cours...",
+      "tier": "C-"
+   },
+   "deathnote": {
+      "name": "Death Note",
+      "from": "Death Note",
+      "description": "Le livre du dieu de la Mort",
+      "tier": "A"
+   },
+   "oeildieu": {
+      "name": "L'Oeil de la Mort",
+      "from": "Death Note",
+      "description": "AHhHAHhahhhahAHH (musique religieuse)",
+      "tier": "D+"
+   },
+   "allmight": {
+      "name": "Mêche d'All Might",
+      "from": "My Hero Academia",
+      "description": "ONE FOR ALL !",
+      "tier": "C"
+   },
+   "susieaxe": {
+      "name": "Hache de Susie",
+      "from": "Deltarune",
+      "description": "I  G O N N A  K I L L",
+      "tier": "D+"
+   },
+   "pubgpan": {
+      "name": "Poêle",
+      "from": "Player Unknown Battlegrouns",
+      "description": "<bruit de balle ricochante>",
+      "tier": "C+"
+   },
+   "raidenhat": {
+      "name": "Chapeau de Raiden",
+      "from": "Mortal Kombat",
+      "description": "FINISH HIM ! FATALITY !",
+      "tier": "C-"
+   },
+   "samusarmor": {
+      "name": "Armure de Samus",
+      "from": "Metroid",
+      "description": "Chozo's gift",
+      "tier": "B+"
+   },
+   "bfg9k": {
+      "name": "BFG 9000",
+      "from": "Doom",
+      "description": "BIG F*CKING GUN !!!!",
+      "tier": "A-"
+   },
+   "megahand": {
+      "name": "Méga Hand",
+      "from": "Méga Man",
+      "description": "Méga description",
+      "tier": "B+"
+   },
+   "bullet": {
+      "name": "Balle",
+      "from": "Enter the Gungeon",
+      "description": "Tire des flingues",
+      "tier": "C"
+   },
+   "akey47": {
+      "name": "AKEY-47",
+      "from": "Enter the Gungeon",
+      "description": "Débloquée et Chargée",
+      "tier": "C-"
+   },
+   "winchester": {
+      "name": "Winchester du T-800",
+      "from": "Terminator",
+      "description": "Livré avec des roses",
+      "tier": "B+"
+   },
+   "jetpack": {
+      "name": "Jetpack caché",
+      "from": "Grand Theft Auto",
+      "description": "ALIEN-CHILIAD-BUNKER",
+      "tier": "B"
+   },
+   "machinegun": {
+      "name": "M60E3",
+      "from": "Rambo",
+      "description": "WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGH",
+      "tier": "B"
+   },
+   "claptrap": {
+      "name": "Claptrap",
+      "from": "Borderlands",
+      "description": "programmed with an overenthusiastic personality",
+      "tier": "B-"
+   },
+   "tardis": {
+      "name": "Tardis",
+      "from": "Docteur Who",
+      "description": "Docteur qui ?",
+      "tier": "A-"
+   },
+   "alienegg": {
+      "name": "Oeuf de Xenomorphe",
+      "from": "Alien",
+      "description": "-!- Not dangerous, you can go closer -!-",
+      "tier": "A"
+   },
+   "capsule": {
+      "name": "Capsule",
+      "from": "Fallout",
+      "description": "[-30%] 0.99$ : 275 Caps !",
+      "tier": "B+"
+   },
+   "delorean": {
+      "name": "DeLorean DMC-12",
+      "from": "Retour vers le futur",
+      "description": "Nom de Zeus",
+      "tier": "A"
+   },
+   "overboard": {
+      "name": "Overboard",
+      "from": "Retour vers le futur",
+      "description": "Trotinette - Guidon = Overboard",
+      "tier": "A-"
+   },
+   "protonpack": {
+      "name": "Proton Pack",
+      "from": "Ghostbusters",
+      "description": "Who you gonna call ?",
+      "tier": "B-"
+   },
+   "piolet": {
+      "name": "Piolet",
+      "from": "Tomb Raider",
+      "description": "Outil/Arme",
+      "tier": "C"
+   },
+   "hadouken": {
+      "name": "Hadouken !",
+      "from": "Street Fighter",
+      "description": "Arrête de spammer cette merde [x1]",
+      "tier": "A"
+   },
+   "shoryuken": {
+      "name": "Shoryuken !",
+      "from": "Street Fighter",
+      "description": "Arrête de spammer cette merde [x2]",
+      "tier": "B+"
+   },
+   "diamond": {
+      "name": "Diamond",
+      "from": "Minecraft",
+      "description": "Diamonds!",
+      "tier": "B"
+   },
+   "pokeball": {
+      "name": "Pokéball",
+      "from": "Pokémon",
+      "description": "Gotcha",
+      "tier": "A+"
+   },
+   "pacgum": {
+      "name": "Super Pac Gum",
+      "from": "Pacman",
+      "description": "Miam",
+      "tier": "C+"
+   },
+   "barrel": {
+      "name": "DK Barrel",
+      "from": "Donkey Kong",
+      "description": "JUMP JUMP",
+      "tier": "C-"
+   },
+   "hammer": {
+      "name": "DK Hammer",
+      "from": "Donkey Kong",
+      "description": "Franchement, c'est mieux avec les items",
+      "tier": "B-"
+   },
+   "neurolaser": {
+      "name": "Neurolaser",
+      "from": "Men in Black",
+      "description": "livré avec ces lunettes noirs",
+      "tier": "A-"
+   },
+   "piluler": {
+      "name": "Pilule Rouge",
+      "from": "Matrix",
+      "description": "Entering into the Matrix...",
+      "tier": "A-"
+   },
+   "piluleb": {
+      "name": "Pilule Bleue",
+      "from": "Matrix",
+      "description": "Entering into the yeslife...",
+      "tier": "B"
+   },
+   "stegrenade": {
+      "name": "Sainte Grenade",
+      "from": "Worms",
+      "description": "Explosion divine !",
+      "tier": "B+"
+   },
+   "godzilla": {
+      "name": "Godzilla",
+      "from": "Godzilla",
+      "description": "Kaiju !",
+      "tier": "B"
+   },
+   "ironcoin": {
+      "name": "Piêce de fer",
+      "from": "Game of Thrones",
+      "description": "valar morghulis",
+      "tier": "C+"
+   },
+   "donut": {
+      "name": "Donut d'Homer",
+      "from": "Les Simpsons",
+      "description": "oh pinaise un donut",
+      "tier": "B-"
+   },
+   "dragonegg": {
+      "name": "Oeuf de Dragon",
+      "from": "Game of Thrones",
+      "description": "Drakaaris",
+      "tier": "B+"
+   },
+   "ablette": {
+      "name": "Ablette",
+      "from": "The Witcher",
+      "description": "Bien plus qu'une simple monture",
+      "tier": "B+"
+   },
+   "forge": {
+      "name": "Forge Stellaire",
+      "from": "Star Wars",
+      "description": "L'Oeuvre mortel des Rakatas",
+      "tier": "A"
+   },
+   "mask": {
+      "name": "Stone Mask",
+      "from": "JoJo's Bizarre",
+      "description": "This demonic mask has given me its unimaginable powers! \u2014Aztec Chief, Prologue",
+      "tier": "A+"
+   }
+}

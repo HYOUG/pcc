@@ -2,7 +2,7 @@ from time import strftime
 from json import loads, dumps
 from discord import Embed
 from discord.ext import commands
-from chatEffects import default_color, error_color, warning_color, admin_color
+from chat_effects import default_color, error_color, warning_color, admin_color
 
 """Generics and usual bot's functions"""
 
@@ -11,9 +11,9 @@ def get_time() -> str:
     return strftime("%H:%M:%S")
 
 
-def get_file(file: str) -> dict:
+def get_file(filename: str) -> dict:
     """Return the data from the JSON file desired"""
-    return loads(open(f"data/{file}.json", "r", encoding="utf-8").read())
+    return loads(open(f"data/gamedata/{filename}.json", "r", encoding="utf-8").read())
 
 
 def is_registered(user_id: str) -> bool:
@@ -24,7 +24,7 @@ def is_registered(user_id: str) -> bool:
 
 def is_bot_owner(ctx) -> bool:
     """Return if the author from the context is the bot owner"""
-    return ctx.author.id == int(open("data/owner.id.txt", "r").read())
+    return ctx.author.id == int(open("data/metadata/owner.id.txt", "r").read())
 
 
 def gen_error(error_id: str, ctx) -> Embed:
@@ -43,15 +43,18 @@ def set_footer(embed: Embed, ctx) -> Embed:
 
 def update_file(filename: str, variable_dict: dict) -> None:
     """Update the given file with the given data"""
-    file = open(f"data/{filename}.json", "w", encoding="utf-8")
-    file.write(dumps(variable_dict, indent=3))
-    file.close()
+    try:
+        file = open(f"data/gamedata/{filename}.json", "w", encoding="utf-8")
+        file.write(dumps(variable_dict, indent=3))
+        file.close()
+    except TypeError:
+        print("TypeError")
 
 
 def get_points(item_tier: str, item_float: float) -> tuple:
     """Return the 'tier_points' and the 'float_multiplicator' from the given item tier and item float"""
-    points_scale = {"S": 100, "A": 25, "B": 10, "C": 5, "D": 1}
-    tier_points = points_scale[item_tier]
+    POINTS_SCALE = {"S": 100, "A": 25, "B": 10, "C": 5, "D": 1}
+    tier_points = POINTS_SCALE[item_tier]
     if 1.000 > item_float > 0.200:
         float_multiplicator = 1
     elif 0.199 > item_float > 0.100:
@@ -100,8 +103,12 @@ def is_protected(target_id: str) -> bool:
 
 def get_commands_list() -> list:
     """Return all of the commands and aliases in a list"""
-    return open("data/commands.list.txt", "r").read().split(" ")
+    return open("data/metadata/commands.list.txt", "r").read().split(" ")
 
 def get_commands_dict() -> dict:
     """Return all of the commands and aliases in a dictionary"""
-    return loads(open(f"data/commands.dict.json", "r", encoding="utf-8").read())
+    commands_dict = {}
+    f =  open(f"data/metadata/commands.dict.txt", "r", encoding="utf-8").read()
+    for command in f.split("\n"):
+        commands_dict[command.split(":")[0]] = command.split(":")[1]
+    return commands_dict            

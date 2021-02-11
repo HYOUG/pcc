@@ -2,12 +2,18 @@ import discord
 from discord.ext.commands.core import command
 import matplotlib.pyplot as plt
 from discord.ext import commands
-from botFunctions import *
+from bot_functions import *
 from os import getcwd
-from chatEffects import *
+from chat_effects import *
+
 
 class Stocks(commands.Cog):
-    """Commands : chart, stocks, invest"""
+    """
+    Commands : 
+    - chart
+    - stocks
+    - invest
+    """
 
     def __init__(self, bot):
         self.bot = bot
@@ -20,7 +26,7 @@ class Stocks(commands.Cog):
             plt.plot(range(20), stocks[share])
             plt.ylabel("valeur (PO)")
             plt.savefig("./data/chart.png")
-            chart = discord.File(f"data/chart.png", filename=f"chart.png")
+            chart = discord.File("assets/chart.png", filename=f"chart.png")
 
             embed = discord.Embed(color=default_color)
             embed.set_author(name=f"📈 Courbe : {share}")
@@ -53,6 +59,7 @@ class Stocks(commands.Cog):
         
     @commands.command(aliases=["shares"])
     async def stocks(self, ctx):
+        """List of all of the stocks avaibles"""
         stocks = get_file("stocks")
         shares = list(stocks.keys())
         embed = discord.Embed(color=default_color)
@@ -67,6 +74,7 @@ class Stocks(commands.Cog):
 
     @commands.command()
     async def invest(self, ctx, share: str, qtty: int = 1):
+        """Buy the speficied quantity of the specified share"""
         stocks = get_file("stocks")
         inventories = get_file("inventories")
         if share in list(stocks.keys()):
@@ -91,6 +99,7 @@ class Stocks(commands.Cog):
                 await ctx.send(embed=gen_error("invalid_synthax", ctx))
         else:
             await ctx.send(embed=gen_error("invalid_synthax", ctx))
+
 
 def setup(client):
     client.add_cog(Stocks(client))

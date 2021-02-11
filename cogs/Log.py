@@ -1,11 +1,16 @@
 from discord.ext import commands
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 from emoji import demojize
 
 
 class Log(commands.Cog):
-    """Listeners : on_message, on_message_edit, on_message_delete"""
+    """
+    Listeners : 
+    - on_message
+    - on_message_edit
+    - on_message_delete
+    """
 
     def __init__(self, bot):
         self.bot = bot

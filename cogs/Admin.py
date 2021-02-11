@@ -1,13 +1,23 @@
 import discord
 from os import system
 from discord.ext import commands
-from botFunctions import *
-from chatEffects import *
+from bot_functions import *
+from chat_effects import *
 from json import dumps
 
 
 class Admin(commands.Cog):
-    """Commands : admin_off, admin_reboot, admin_reload_cog, admin_give, admin_remove, admin_reset, admin_add_item, admin_skip"""
+    """
+    Commands : 
+    - admin_off
+    - admin_reboot
+    - admin_reload_cog,
+    - admin_give,
+    - admin_remove,
+    - admin_reset,
+    - admin_add_item,
+    - admin_skip
+    """
 
     def __init__(self, bot):
         self.bot = bot
@@ -68,7 +78,7 @@ class Admin(commands.Cog):
 
             embed = discord.Embed(color=admin_color)
             embed.set_author(name="🛠️ Admin")
-            embed.add_field(name="➕ Give (ADMIN)", value=f"`{ctx.author.mention}, {item_id}:{item_float}` a été procuré avec succès à : {target.mention}")
+            embed.add_field(name="➕ Give", value=f"{ctx.author.mention}, `{item_id}:{item_float}` a été procuré avec succès à : {target.mention}")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 
@@ -78,7 +88,8 @@ class Admin(commands.Cog):
     
     @commands.command(aliases=["=credit"])
     @commands.check(is_bot_owner)
-    async def admin_credit(self, ctx, target: discord.Member, sum: int):
+    async def admin_credit(self, ctx, target: discord.Member, sum: int = 100):
+        """Credit the specified sum of the specified sum"""
         if is_registered(target.id):
             
             inventories = get_file("inventories")
@@ -87,7 +98,7 @@ class Admin(commands.Cog):
 
             embed = discord.Embed(color=admin_color)
             embed.set_author(name="🛠️ Admin")
-            embed.add_field(name="💰 Credit (ADMIN)",
+            embed.add_field(name="💰 Credit",
                             value=f"{ctx.author.mention}, {target.mention} a été crédité de `{sum}` PO (pièces d'or)")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
@@ -102,9 +113,7 @@ class Admin(commands.Cog):
         dic_target = {"id": item_id, "float": item_float}
         try:
             inventories[str(target.id)]["items"].remove(dic_target)
-            inventories_file = open("inventories", "w")
-            inventories_file.write(dumps(inventories, indent=3))
-            inventories_file.close()
+            update_file("inventories", inventories)
 
             embed = discord.Embed(color=admin_color)
             embed.set_author(name="🛠️ Admin")
@@ -148,9 +157,7 @@ class Admin(commands.Cog):
         item_infos = "".join(item_infos)
         item_id, item_name, item_from, item_desc, item_tier, item_image = item_infos.split(",")
         items[item_id] = {"name": item_name, "from": item_from, "description": item_desc, "tier": item_tier, "image": item_image}
-        items_file = open("list_items", "w", encoding="utf-8")
-        items_file.write(dumps(items, indent=3))
-        items_file.close()
+        update_file("items", items)
 
         embed = discord.Embed(color=admin_color)
         embed.set_author(name="🛠️ Admin")
