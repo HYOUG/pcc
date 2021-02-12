@@ -1,10 +1,9 @@
 import discord
-from discord.ext.commands.core import command
+from discord.ext import commands
+from modules.bot_functions import *
+from modules.chat_effects import *
 import matplotlib.pyplot as plt
 from discord.ext import commands
-from bot_functions import *
-from os import getcwd
-from chat_effects import *
 
 
 class Stocks(commands.Cog):

@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 # script by "HYOUG"
 
-"""Main script of the PopCultureCollectibles project : run the bot"""
+"""Main script of the PopCultureCollectibles project"""
 
 import discord                                                                      # discord : manage the bot's actions
 from os import listdir, chdir, path, system                                         # os : manage env. and files
 from discord.ext import commands                                                    # discord.ext : load cogs
-from bot_functions import *                                                         # bot_functions : usuals bot's functions
-from chat_effects import *                                                          # chat effects : create color effects on displayed text
+from modules.bot_functions import *                                                 # bot_functions : usuals bot's functions
+from modules.chat_effects import *                                                  # chat effects : create color effects on displayed text
 
 abspath = path.abspath(__file__)                                                    # set the working directory to the main's one
 dname = path.dirname(abspath)                                                       # //
@@ -68,14 +68,14 @@ async def on_ready():                                                           
         f.close()                                                                   # //
 
         f = open("data/metadata/commands.dict.txt", "w")                            # tell the cogs the 'commands dict' by a file, no other way found at the moment
-        for command_key in list(commands_dict.keys()):                              # //
-            f.write(f"{command_key}:{commands_dict[command_key]}\n")                # //
+        commands_str = [f"{key}:{value}" for (key, value) in commands_dict.items()] # //
+        f.write("\n".join(commands_dict))                                           # //
         f.close()                                                                   # //
 
         bot.owner_id = open("data/metadata/owner.id.txt", "r").read()               # get the owner's ID by reading the 'owner.id.txt' file
 
 
-bot.run(token)                                                                      # eun the bot
+bot.run(token)                                                                      # run the bot
 
 
 """
@@ -86,5 +86,7 @@ TODO
 - items commands columns fix
 - PEP8 (PEP8.org)
 - Update the help
+- Errors handling
+- Get rif of commands.dict and commands.list
 """
 

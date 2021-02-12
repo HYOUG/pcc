@@ -26,6 +26,11 @@
             "id": "sanddune",
             "float": 0.037,
             "points": 1000000
+         },
+         {
+            "id": "soulgem",
+            "float": 0.271,
+            "points": 25
          }
       ],
       "powers": [],
@@ -33,7 +38,7 @@
       "shield_active": false
    },
    "439024609405435906": {
-      "balance": 1206.7,
+      "balance": 70626.7,
       "items": [
          {
             "id": "oeildieu",
@@ -49,6 +54,11 @@
             "id": "fireserpent",
             "float": 0.957,
             "points": 25
+         },
+         {
+            "id": "smashball",
+            "float": 0.709,
+            "points": 10
          }
       ],
       "powers": [],

@@ -1,12 +1,12 @@
 import discord
 import asyncio
 from discord.ext import commands, tasks
-from bot_functions import *
-from chat_effects import *
+from modules.bot_functions import *
+from modules.chat_effects import *
 from random import randint, choice
 from os import listdir, mkdir, getcwd
 from os.path import getsize
-from time import strftime, sleep
+from time import strftime
 from shutil import copyfile
 from hurry.filesize import size
 from random import randint

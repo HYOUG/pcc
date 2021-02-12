@@ -1,7 +1,7 @@
 import discord
-from bot_functions import *
-from chat_effects import *
 from discord.ext import commands
+from modules.bot_functions import *
+from modules.chat_effects import *
 
 
 class UserInfo(commands.Cog):

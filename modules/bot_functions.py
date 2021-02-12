@@ -2,7 +2,7 @@ from time import strftime
 from json import loads, dumps
 from discord import Embed
 from discord.ext import commands
-from chat_effects import default_color, error_color, warning_color, admin_color
+from modules.chat_effects import default_color, error_color, warning_color, admin_color
 
 """Generics and usual bot's functions"""
 

@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
-from bot_functions import *
-from chat_effects import *
+from modules.bot_functions import *
+from modules.chat_effects import *
 from random import choice, uniform, randint
 
 

@@ -1,8 +1,8 @@
-from os import name
 import discord
 from discord.ext import commands
-from bot_functions import *
-from chat_effects import *
+from modules.bot_functions import *
+from modules.chat_effects import *
+from os import name
 
 
 class GameInfo(commands.Cog):

@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
-from bot_functions import *
-from chat_effects import *
+from modules.bot_functions import *
+from modules.chat_effects import *
 from random import choice, choices, randint, uniform
 from time import time
 
@@ -55,7 +55,7 @@ class Claims(commands.Cog):
             embed.set_author(name=f"⌛ {ctx.author.name}'s Free spin")
             embed = set_footer(embed, ctx)
             embed.add_field(name=f"**{items[reward_key]['name']}** ({tier_points} x {float_multiplicator} = {reward_points} PTS)",
-                            value=f"*{items[reward_key]['description']}* • __{items[reward_key]['from']}__",
+                            value=f"*{items[reward_key]['description']}*  •  __{items[reward_key]['from']}__",
                             inline=False)
             embed.add_field(name="Tier", value=f"`{items[reward_key]['tier']}`", inline=True)
             embed.add_field(name="Float", value=f"`{reward_float}`", inline=True)
