@@ -22,25 +22,22 @@ class GameInfo(commands.Cog):
     @commands.command()
     async def help(self, ctx, command: str = "*"):
         """Give a general help or a specified one"""
-        if command == "*":
-            help_data = get_file("help")
-            target = self.bot.get_user(ctx.author.id)
-
+        if command == "*" or command in get_commands_list():
             embed = discord.Embed(color=default_color)
             embed.set_author(name=f"❔ Aide")
-            for help_line in help_data.keys():
-                embed.add_field(name=f"🔹 {help_data[help_line]['title']}", value=help_data[help_line]["desc"], inline=False)
-            embed = set_footer(embed, ctx)
-            await target.send(embed=embed)
 
-        elif command in get_commands_list():
-            help_data = get_file("help")
-            target = self.bot.get_user(ctx.author.id)
-            commands_dict = get_commands_dict()
+            if command == "*":
+                help_data = get_file("help")
+                target = self.bot.get_user(ctx.author.id)
+                for help_line in help_data.keys():
+                    embed.add_field(name=f"🔹 {help_data[help_line]['title']}", value=help_data[help_line]["desc"], inline=False)
 
-            embed = discord.Embed(color=default_color)
-            embed.set_author(name=f"❔ Aide")
-            embed.add_field(name=f"🔹 {help_data[commands_dict[command]]['title']}", value=help_data[commands_dict[command]]['desc'])
+            elif command in get_commands_list():
+                help_data = get_file("help")
+                target = self.bot.get_user(ctx.author.id)
+                commands_dict = get_commands_dict()
+                embed.add_field(name=f"🔹 {help_data[commands_dict[command]]['title']}", value=help_data[commands_dict[command]]['desc'])
+
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 
@@ -131,7 +128,7 @@ class GameInfo(commands.Cog):
             desc_column += f"*{power[1]['desc']}*\n"
 
         embed = discord.Embed(color=default_color)
-        embed.set_author(name="⚡ Liste des pouvoirs")
+        embed.set_author(name="⚡ Liste des power-ups")
         embed.add_field(name="Nom", value=f"**{name_column}**")
         embed.add_field(name="ID", value=f"*{id_column}*")
         embed.add_field(name="Description", value=f"{desc_column}")
@@ -192,7 +189,7 @@ class GameInfo(commands.Cog):
                     f"**latence** : `{self.bot.latency}` secs."
 
         embed = discord.Embed(color=default_color)
-        embed.set_author(name=f"📊 Statistics")
+        embed.set_author(name=f"📊 Statistiques")
         embed.add_field(name="Commandes", value=game_field, inline=False)
         embed.add_field(name="Volumes", value=qtty_field, inline=False)
         embed.add_field(name="Bot", value=bot_field,  inline=False)

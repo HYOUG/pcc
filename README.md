@@ -10,12 +10,12 @@ A simple **gacha-like discord bot** based on the Pop culture universe using the 
 
 ## 📦 Install and Play
 
-1. Invite the bot onto your server with this [**link**](https://discord.com/api/oauth2/authorize?client_id=718073137610227753&permissions=0&scope=bot).
+* Invite the bot onto your server with this [**link**](https://discord.com/api/oauth2/authorize?client_id=718073137610227753&permissions=522304&scope=bot).
 
-2. Create your game account
+* Create your game account :
    > =start
 
-3. Eventually, get help and the commands
+* Eventually, get help and the commands :
    > =help
 
 ## 🔧 Troubleshoot and Feedbacks

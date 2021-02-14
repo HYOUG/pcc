@@ -22,7 +22,7 @@ class Powers(commands.Cog):
         if power in inventories[author_key]["powers"]:
             powers = get_file("powers")
             embed = discord.Embed(color=default_color)
-            embed.set_author(name="⚡️ Power")
+            embed.set_author(name="⚡️ Power-up")
             embed = set_footer(embed, ctx)
 
             target = choice(list(inventories.keys()))

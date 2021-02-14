@@ -46,6 +46,7 @@ charts:chart
 stocks:stocks
 shares:stocks
 invest:invest
+cashout:cashout
 trade:trade
 give:give
 pay:pay

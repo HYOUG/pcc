@@ -14,10 +14,10 @@ class Log(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.sendLog = yellow("[SEND]")                                             # declare the log category 'send'
-        self.editLog = yellow("[EDIT]")                                             # declare the log category 'edit'
-        self.deleteLog = yellow("[DELETE]")                                         # declare the log category 'delete'
-        self.commandList = get_commands_list()                                      # get the 'commands list' 
+        self.sendLog = yellow("[SEND]")                                             # generate the log categories
+        self.editLog = yellow("[EDIT]")
+        self.deleteLog = yellow("[DELETE]")
+        self.commandList = get_commands_list()                                      # get the 'commands list' to filter messages
 
     @commands.Cog.listener(name = "on_message")
     async def on_message(self, message):

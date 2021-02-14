@@ -12,6 +12,7 @@ class Stocks(commands.Cog):
     - chart
     - stocks
     - invest
+    - cashout
     """
 
     def __init__(self, bot):
@@ -21,37 +22,31 @@ class Stocks(commands.Cog):
     async def chart(self, ctx, share: str = "*"):
         """Display the specified share's chart specified or all of them"""
         stocks = get_file("stocks")
-        if share in list(stocks.keys()):
-            plt.plot(range(20), stocks[share])
+        embed = discord.Embed(color=default_color)
+
+        if share in list(stocks.keys()) or share == "*":
+            if share in list(stocks.keys()):
+                plt.plot(range(20), stocks[share])
+                embed.set_author(name=f"📈 Courbe : {share}")
+                embed.add_field(name="Valeur", value=f"**{share}** : `{stocks[share][-1]}`")
+
+            elif share == "*":
+                values_field = ""
+                for share_key in list(stocks.keys()):
+                    plt.plot(range(20), stocks[share_key])
+                    values_field += f"**{share_key}** : `{stocks[share_key][-1]}` PO\n"
+                embed.set_author(name=f"📈 Courbes")
+                embed.add_field(name="Valeurs", value=values_field)
+
+            plt.grid(True)
             plt.ylabel("valeur (PO)")
-            plt.savefig("./data/chart.png")
+            plt.savefig("./assets/chart.png")
+
             chart = discord.File("assets/chart.png", filename=f"chart.png")
-
-            embed = discord.Embed(color=default_color)
-            embed.set_author(name=f"📈 Courbe : {share}")
-            embed.add_field(name="Valeur", value=f"**{share}** : `{stocks[share][-1]}`")
             embed.set_image(url="attachment://chart.png")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed, file=chart)
             plt.clf()
-
-        elif share == "*":
-            values_field = ""
-            for share_key in list(stocks.keys()):
-                plt.plot(range(20), stocks[share_key])
-                values_field += f"**{share_key}** : `{stocks[share_key][-1]}` PO\n"
-            plt.ylabel("valeur (PO)")
-            plt.savefig("./data/chart.png")
-            chart = discord.File(f"data/chart.png", filename=f"chart.png")
-
-            embed = discord.Embed(color=default_color)
-            embed.set_author(name=f"📈 Courbes")
-            embed.add_field(name="Valeurs", value=values_field)
-            embed.set_image(url="attachment://chart.png")
-            embed = set_footer(embed, ctx)
-            await ctx.send(embed=embed, file=chart)
-            plt.clf()
-
         else:
             await ctx.send(embed=gen_error("invalid_synthax", ctx))
 
@@ -72,12 +67,12 @@ class Stocks(commands.Cog):
 
 
     @commands.command()
-    async def invest(self, ctx, share: str, qtty: int = 1):
+    async def invest(self, ctx, share: str = "or", qtty: int = 1):
         """Buy the speficied quantity of the specified share"""
         stocks = get_file("stocks")
-        inventories = get_file("inventories")
         if share in list(stocks.keys()):
             if 1 <= qtty <= 1000:
+                inventories = get_file("inventories")
                 if inventories[str(ctx.author.id)]["balance"] >= qtty * (stocks[share][-1] * 1.05):
                     inventories[str(ctx.author.id)]["balance"] -= qtty * (stocks[share][-1] * 1.05)
                     if share in list(inventories[str(ctx.author.id)]["shares"].keys()):
@@ -90,7 +85,7 @@ class Stocks(commands.Cog):
                     embed = discord.Embed(color=default_color)
                     embed.set_author(name="📈 Investissement")
                     embed.add_field(name="Achat", value=f"Vous avez acheté `{qtty}` action(s) `{share}`")
-                    embed= set_footer(embed, ctx)
+                    embed = set_footer(embed, ctx)
                     await ctx.send(embed=embed)
                 else:
                     await ctx.send(embed=gen_error("missing_money", ctx))
@@ -98,6 +93,31 @@ class Stocks(commands.Cog):
                 await ctx.send(embed=gen_error("invalid_synthax", ctx))
         else:
             await ctx.send(embed=gen_error("invalid_synthax", ctx))
+
+    
+    @commands.command()
+    async def cashout(self, ctx, share: str = "or", qtty: int = 1):
+        """Sell back the specified quantity of the specified share"""
+        inventories = get_file("inventories")
+        if share in list(inventories[str(ctx.author.id)]["shares"].keys()):
+            if qtty <= inventories[str(ctx.author.id)]["shares"][share]:
+                stocks = get_file("stocks")
+                inventories[str(ctx.author.id)]["shares"][share] -= qtty
+                inventories[str(ctx.author.id)]["balance"] += qtty * stocks[share][-1]
+                if inventories[str(ctx.author.id)]["shares"][share] == 0:
+                   del inventories[str(ctx.author.id)]["shares"][share]
+                update_file("inventories", inventories)
+
+                embed = discord.Embed(color=default_color)
+                embed.set_author(name="📈 Retrait")
+                embed.add_field(name="Vente",
+                                value=f"Vous avez vendu `{qtty}` action(s) `{share}` pour `{qtty * stocks[share][-1]}` (pièces d'or)")
+                embed = set_footer(embed, ctx)
+                await ctx.send(embed=embed)
+            else:
+                await ctx.send(embed=gen_error("incorrect_value", ctx))
+        else:
+            await ctx.send(embed=gen_error("missing_share", ctx))
 
 
 def setup(client):

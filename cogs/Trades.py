@@ -192,7 +192,7 @@ class Trades(commands.Cog):
                     break
             if item_found:
                 embed = discord.Embed(color=default_color)
-                embed.set_author(name="🎁 Give")
+                embed.set_author(name="🎁 Don")
                 embed.add_field(name="Transaction", value=f"{ctx.author.mention}, vous avez donné `{item_id}:{item_float}` à {target.mention}")
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
@@ -218,8 +218,8 @@ class Trades(commands.Cog):
                             update_file("inventories", inventories)
 
                             embed = discord.Embed(color=default_color)
-                            embed.set_author(name=f"💳 Payment | {ctx.author.name} to {target.name}")
-                            embed.add_field(name="Payment",
+                            embed.set_author(name=f"💳 Paiement | {ctx.author.name} to {target.name}")
+                            embed.add_field(name="Transaction",
                                             value=f"{ctx.author.mention} : -`{pay_sum}` ({inventories[str(ctx.author.id)]['balance']})\n"
                                                   f"{target.mention} : +`{pay_sum}` ({inventories[str(target.id)]['balance']})")
                             embed = set_footer(embed, ctx)

@@ -32,9 +32,9 @@ class Admin(commands.Cog):
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
         await self.bot.logout()                                                     # logout the bot
-        print("-"*85)                                                               # log system
+        print("-" * 50)                                                             # log system
         print(red("Pop culture Collectibles se deconnecte..."))                     # //
-        print("-"*85 + "\n")                                                        # //
+        print("-" * 50 + "\n")                                                      # //
 
 
     @commands.command(aliases = ["=reboot", "=reload"])
@@ -46,9 +46,9 @@ class Admin(commands.Cog):
         embed.add_field(name="🔁 Reboot", value=f"{ctx.author.mention}, Pop culture Collectibles va bientôt se reboot !")
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
-        print("-"*85)                                                               # log system
+        print("-" * 50)                                                             # log system
         print(red("Pop culture Collectibles se relance..."))                        # //
-        print("-"*85 + "\n")                                                        # //
+        print("-" * 50 + "\n")                                                      # //
         system("python main.py")                                                    # re-launching the main script
 
 
@@ -70,18 +70,14 @@ class Admin(commands.Cog):
         """Generate the specified item (item_id, item_float) to the given member"""
         inventories = get_file("inventories")
         items = get_file("items")
-
         if item_id in list(items.keys()):
-
             inventories[str(target.id)]["items"].append({"id": item_id, "float": item_float})
             update_file("inventories", inventories)
-
             embed = discord.Embed(color=admin_color)
             embed.set_author(name="🛠️ Admin")
             embed.add_field(name="➕ Give", value=f"{ctx.author.mention}, `{item_id}:{item_float}` a été procuré avec succès à : {target.mention}")
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
-
         else:
             await ctx.send(embed=gen_error("missing_item", ctx))
 
@@ -114,7 +110,6 @@ class Admin(commands.Cog):
         try:
             inventories[str(target.id)]["items"].remove(dic_target)
             update_file("inventories", inventories)
-
             embed = discord.Embed(color=admin_color)
             embed.set_author(name="🛠️ Admin")
             embed.add_field(name="➖ Remove", value=f"{ctx.author.mention}, `{item_id}:{item_float}` have been removed from {target.mention}'s inventory.")
@@ -133,12 +128,10 @@ class Admin(commands.Cog):
     @commands.check(is_bot_owner)
     async def admin_reset(self, ctx, target: discord.Member):
         """Reset the account of the given user"""
-        id_key = str(target.id)
-
         inventories = get_file("inventories")
         cooldowns = get_file("cooldowns")
-        del inventories[id_key]
-        del cooldowns[id_key]
+        del inventories[str(target.id)]
+        del cooldowns[str(target.id)]
         update_file("inventories", inventories)
         update_file("cooldowns", cooldowns)
 
@@ -168,7 +161,7 @@ class Admin(commands.Cog):
 
     @commands.command(aliases=["=skip"])
     @commands.check(is_bot_owner)
-    async def admin_skip(self, ctx, target: discord.Member, category: str):
+    async def admin_skip(self, ctx, target: discord.Member, category: str = "spin"):
         """Skip the target's category cooldown"""
         cooldowns = get_file("cooldowns")
         if category in list(cooldowns[str(target.id)].keys()):

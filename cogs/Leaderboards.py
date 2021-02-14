@@ -19,22 +19,21 @@ class Leaderboards(commands.Cog):
         """Display the balances ranks"""
         inventories = get_file("inventories")
         balances = {}
-
         for player in inventories.keys():
             balances[player] = inventories[player]["balance"]
 
         baltop = sorted(balances.items(), key=lambda x: x[1], reverse=True)
-
         player_field = ""
         amount_field = ""
         rank = 1
+
         for player in baltop:
             player_field += f"`#{rank}` <@{player[0]}>\n"
             amount_field += f"`{player[1]}`\n"
             rank += 1
 
         embed = discord.Embed(color=default_color)
-        embed.set_author(name=f"🏆 Balance Top")
+        embed.set_author(name=f"🏆 Classement des bourses")
         embed.add_field(name="[#] Joueur", value=player_field)
         embed.add_field(name="Bourse", value=amount_field)
         embed = set_footer(embed, ctx)
@@ -65,7 +64,7 @@ class Leaderboards(commands.Cog):
             rank += 1
 
         embed = discord.Embed(color=default_color)
-        embed.set_author(name=f"🏆 Points Top")
+        embed.set_author(name=f"🏆 Classement des points")
         embed.add_field(name="[#] Joueur", value=player_field)
         embed.add_field(name="Points", value=points_field)
         embed = set_footer(embed, ctx)

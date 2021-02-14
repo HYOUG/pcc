@@ -24,7 +24,7 @@ class UserInfo(commands.Cog):
                 inventories = get_file("inventories")
                 items = get_file("items")
                 embed = discord.Embed(color=default_color)
-                embed.set_author(name=f"📦 {target.name}'s Inventory")
+                embed.set_author(name=f"📦 Inventaire de {target.name}")
 
                 if inventories[str(target.id)]["items"]:
                     name_column  = ""
@@ -69,7 +69,7 @@ class UserInfo(commands.Cog):
             if is_registered(target.id):
                 inventories = get_file("inventories")
                 embed = discord.Embed(color=default_color)
-                embed.set_author(name=f"💰 {target.name}'s Balance")
+                embed.set_author(name=f"💰 Bourse de {target.name}")
                 embed.add_field(name="Bourse", value=f"`{inventories[str(target.id)]['balance']}` **PO** (pièces d'or)")
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
@@ -90,7 +90,7 @@ class UserInfo(commands.Cog):
                 for item in inventories[str(ctx.author.id)]["items"]:
                     player_points += item["points"]
                 embed = discord.Embed(color=default_color)
-                embed.set_author(name=f"⭐ {target.name}'s points")
+                embed.set_author(name=f"⭐ Points de {target.name}")
                 embed.add_field(name="Points", value=f"`{player_points}` points")
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)

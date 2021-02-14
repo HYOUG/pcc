@@ -44,7 +44,7 @@ class Loops(commands.Cog):
             chosen_channel = choice(chosen_guild.text_channels)
 
             embed = discord.Embed(color=admin_color)
-            embed.set_author(name=f"⏱️ Random Event")
+            embed.set_author(name=f"⏱️ Évènement aléatoire")
             embed.add_field(name="Challenge", value=f"Le premier à résoudre ce calcul avant 20 secondes remporte une récompense :\n```{calc} = ?```")
             embed.set_footer(text=f"Random Event • {get_time()}", icon_url=self.bot.user.avater_url)
             random_event = await chosen_channel.send(embed=embed)
@@ -62,8 +62,8 @@ class Loops(commands.Cog):
                 await random_event.edit(embed=embed)
             else:
                 inventories = get_file("inventories")
-                powers      = get_file("powers")
-                reward      = choice(list(powers.keys()))
+                powers = get_file("powers")
+                reward = choice(list(powers.keys()))
                 inventories[str(answer.author.id)]["powers"].append(reward)
                 update_file("inventories", inventories)
 

@@ -26,7 +26,7 @@ class Fun(commands.Cog):
                 win = choice([True, False])
 
                 embed = discord.Embed(color=default_color)
-                embed.set_author(name="🎲 Coin flip")
+                embed.set_author(name="🎲 Pile ou face")
                 embed = set_footer(embed, ctx)
 
                 if win:
@@ -61,7 +61,7 @@ class Fun(commands.Cog):
                     inventories[str(ctx.author.id)]["balance"] -= bet
                 update_file("inventories", inventories)
                 embed = discord.Embed(color=default_color)
-                embed.set_author(name="🎰 Bet")
+                embed.set_author(name="🎰 Pari")
                 embed.add_field(name="Résultats", value=result_field)
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
