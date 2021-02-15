@@ -24,4 +24,4 @@ Contact me on discord at `HYOUG#3643` or on twitter [`@HY0UG`](https://twitter.c
 
 ## 📜 License 
 
-MIT (2020) License protected project.
+MIT (2021) License protected project.
