@@ -3,10 +3,10 @@ from colorama import Fore, init                                                 
 """Esthetic display functions (colors)"""
 
 init(convert=True)                                                                  # set convert to True, avoiding, character display bugs
-default_color = 0x4A86E8                                                            # embed 'default' color
-error_color = 0xFF4040                                                              # embed 'error' color
-warning_color = 0xEED202                                                            # embed 'warning' color
-admin_color = 0x00B054                                                              # embed 'admin' color
+default_color = 0x4A86E8                                                            # embed colors : default, error, warding and admin
+error_color = 0xFF4040
+warning_color = 0xEED202
+admin_color = 0x00B054
 
 
 def red(text: str):                                                                 # func. that gen. a 'red' color

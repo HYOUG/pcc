@@ -43,8 +43,8 @@ class Claims(commands.Cog):
                     c_tier.append(key)
                 else:
                     d_tier.append(key)
+                    
             tiers = {"S": s_tier, "A": a_tier, "B": b_tier, "C": c_tier, "D": d_tier}
-
             reward_tier = choices(["S", "A", "B", "C", "D"], weights=[1, 10, 15, 40, 30], k=1)[0]
             reward_key = choice(tiers[reward_tier])
             reward_float = round(uniform(0, 1), 3)
@@ -70,7 +70,7 @@ class Claims(commands.Cog):
             update_file("inventories", inventories)
 
         else:
-            await ctx.send(embed=gen_error("cooldown_spin", ctx))
+            await gen_error("cooldown_spin", ctx)
 
 
     @commands.command()
@@ -97,7 +97,7 @@ class Claims(commands.Cog):
             update_file("inventories", inventories)
 
         else:
-            await ctx.send(embed=gen_error("cooldown_daily", ctx))
+            await gen_error("cooldown_daily", ctx)
 
 
 def setup(client):

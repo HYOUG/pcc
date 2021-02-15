@@ -64,6 +64,11 @@
             "id": "akey47",
             "float": 0.489,
             "points": 5
+         },
+         {
+            "id": "blaster",
+            "float": 0.443,
+            "points": 1
          }
       ],
       "powers": [],

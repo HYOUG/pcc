@@ -42,7 +42,7 @@ class UserInfo(commands.Cog):
                     embed.add_field(name = "Tier",           value=tier_column)
                     embed.add_field(name = "Float • Points", value=float_column)
                 else:
-                    embed.add_field(name = "Inventory",      value="`You have no items`", inline=False)
+                    embed.add_field(name = "Inventory",      value="`Vous n'avez pas d'items'`", inline=False)
 
                 if inventories[str(target.id)]["powers"]:
                     powers = get_file("powers")
@@ -51,14 +51,22 @@ class UserInfo(commands.Cog):
                         powers_column += f"• **{powers[power]['name']}** `{power}`\n"
                     embed.add_field(name="Power-Ups", value=powers_column, inline=False)
                 else:
-                    embed.add_field(name="Power-Ups", value="`You have no power-ups`", inline=False)
-                    
+                    embed.add_field(name="Power-Ups", value="`Vous n'avez pas de power-ups`", inline=False)
+
+                if inventories[str(ctx.author.id)]["shares"]:
+                    share_column = ""
+                    for key in inventories[str(ctx.author.id)]["shares"].keys():
+                        share_column += f"• $**{key.upper()}** : `{inventories[str(ctx.author.id)]['shares'][key]}`\n"
+                    embed.add_field(name="Actions", value=share_column, inline=False)
+                else:
+                    embed.add_field(name="Actions • Quantité", value="Vous n'avez pas d'actions")
+
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
             else:
-                await ctx.send(embed=gen_error("missing_player", ctx))
+                await gen_error("missing_player", ctx)
         else:
-            await ctx.send(embed=gen_error("invalid_synthax", ctx))
+            await gen_error("invalid_synthax", ctx)
 
 
     @commands.command(aliases=["bal"])
@@ -74,9 +82,9 @@ class UserInfo(commands.Cog):
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
             else:
-                await ctx.send(embed=gen_error("missing_player", ctx))
+                await gen_error("missing_player", ctx)
         else:
-            await ctx.send(embed=gen_error("invalid_synthax", ctx))
+            await gen_error("invalid_synthax", ctx)
             
 
     @commands.command(aliases=["pts", "score"])
@@ -95,9 +103,9 @@ class UserInfo(commands.Cog):
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
             else:
-                await ctx.send(embed=gen_error("missing_player", ctx))
+                await gen_error("missing_player", ctx)
         else:
-            await ctx.send(embed=gen_error("invalid_synthax", ctx))
+            await gen_error("invalid_synthax", ctx)
 
 
 def setup(client):

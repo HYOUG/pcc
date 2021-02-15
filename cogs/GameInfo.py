@@ -20,29 +20,37 @@ class GameInfo(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def help(self, ctx, command: str = "*"):
+    async def help(self, ctx, target: str = "*"):
         """Give a general help or a specified one"""
-        if command == "*" or command in get_commands_list():
+        help = get_file("help_draft")
+        if target == "*" or target in get_commands_list() or target in help.keys():
+            
+
             embed = discord.Embed(color=default_color)
             embed.set_author(name=f"❔ Aide")
 
-            if command == "*":
-                help_data = get_file("help")
-                target = self.bot.get_user(ctx.author.id)
-                for help_line in help_data.keys():
-                    embed.add_field(name=f"🔹 {help_data[help_line]['title']}", value=help_data[help_line]["desc"], inline=False)
+            if target == "*":
+                catergory_field = ""
+                for key in help.keys():
+                    catergory_field += f"• **{key}**\n"
+                embed.add_field(name="Synthaxe", value="`=help (catégorie)`")
+                embed.add_field(name="Catégories", value=catergory_field, inline=False)
 
-            elif command in get_commands_list():
-                help_data = get_file("help")
+            elif target in help.keys():
+                for command in help[target].items():
+                    embed.add_field(name=f"🔹 {command[0]}",
+                                    value=f"*{command[1]}*")
+
+            elif target in get_commands_list():
                 target = self.bot.get_user(ctx.author.id)
                 commands_dict = get_commands_dict()
-                embed.add_field(name=f"🔹 {help_data[commands_dict[command]]['title']}", value=help_data[commands_dict[command]]['desc'])
+                embed.add_field(name=f"🔹 {help[commands_dict[target]]['title']}", value=help[commands_dict[target]]['desc'])
 
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 
         else:
-            await ctx.send(embed=gen_error("invalid_synthax", ctx))
+            await gen_error("invalid_synthax", ctx)
 
 
     @commands.command()
@@ -201,7 +209,7 @@ class GameInfo(commands.Cog):
     async def get_points(self, ctx, item_id: str, item_float: float):
         """Display the points (score) of the give item (ID, float)"""
         items = get_file("items")
-        if item_id in list(items.keys()) and 0 <= item_float <= 1:
+        if item_id in items and 0 <= item_float <= 1:
             item_tier = items[item_id]["tier"]
             tier_points, float_multiplicator = get_points(item_tier, item_float)
             embed = discord.Embed(color=default_color)
@@ -213,7 +221,7 @@ class GameInfo(commands.Cog):
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
         else:
-            await ctx.send(embed=gen_error("invalid_synthax", ctx))
+            await gen_error("invalid_synthax", ctx)
 
 
 

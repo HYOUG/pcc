@@ -32,7 +32,7 @@ class Start(commands.Cog):
             await ctx.send(embed=embed)
 
         else:
-            await ctx.send(embed=gen_error("account_existing", ctx))
+            await gen_error("account_existing", ctx)
 
 
 def setup(client):

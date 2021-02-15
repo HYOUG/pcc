@@ -42,9 +42,9 @@ class Fun(commands.Cog):
                                           f"Votre bourse : `{inventories[str(ctx.author.id)]['balance']}` PO (pièces d'or)")
                 await ctx.send(embed=embed)
             else:
-                await ctx.send(embed=gen_error("missing_money", ctx))
+                await gen_error("missing_money", ctx)
         else:
-            await ctx.send(embed=gen_error("incorrect_value", ctx))
+            await gen_error("incorrect_value", ctx)
 
 
     @commands.command()
@@ -66,9 +66,9 @@ class Fun(commands.Cog):
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
             else:
-                await ctx.send(embed=gen_error("missing_money", ctx))
+                await gen_error("missing_money", ctx)
         else:
-            await ctx.send(embed=gen_error("incorrect_value"))
+            await gen_error("incorrect_value")
             
 
 def setup(client):

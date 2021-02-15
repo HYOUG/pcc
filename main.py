@@ -81,7 +81,10 @@ TODO
 - Update the help
 - Errors handling
 - Get rid of commands.dict and commands.list
-- Cashout shares
 - Rework errors meaning
-- Display shares into the inventory
+- create a pagination system for the embed's character limts (inventory, market)
+- catégories de commandes (long help short help)
+- add images to README
+- create a requirements.txt and look for other standarts, examples, badges (?)
+- packs and box
 """

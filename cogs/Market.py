@@ -85,11 +85,11 @@ class Market(commands.Cog):
                     update_file("market", market)
 
                 else:
-                    await ctx.send(embed=gen_error("missing_money", ctx))
+                    await gen_error("missing_money", ctx)
             else:
-                await ctx.send(embed=gen_error("self_trade", ctx))
+                await gen_error("self_trade", ctx)
         else:
-            await ctx.send(embed=gen_error("incorrect_value", ctx))
+            await gen_error("incorrect_value", ctx)
 
 
     @commands.command()
@@ -157,9 +157,9 @@ class Market(commands.Cog):
                 except asyncio.TimeoutError:
                     await confirmation.edit(embed=gen_error("trade_canceled", ctx))
             else:
-                await ctx.send(embed=gen_error("incorrect_value", ctx))
+                await gen_error("incorrect_value", ctx)
         else:
-            await ctx.send(embed=gen_error("missing_item", ctx))
+            await gen_error("missing_item", ctx)
 
 
     @commands.command()
@@ -186,7 +186,7 @@ class Market(commands.Cog):
             await ctx.send(embed=embed)
 
         else:
-            ctx.send(embed=gen_error("missing_permissions", ctx))
+            gen_error("missing_permissions", ctx)
 
 
 def setup(client):

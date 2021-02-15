@@ -173,9 +173,9 @@ class Trades(commands.Cog):
                 elif trade_canceled:
                     await trade.edit(embed=gen_error("trade_canceled", ctx))
             else:
-                await ctx.send(embed=gen_error("self_trade", ctx))
+                await gen_error("self_trade", ctx)
         else:
-            await ctx.send(embed=gen_error("missing_player", ctx))
+            await gen_error("missing_player", ctx)
 
 
     @commands.command()
@@ -197,9 +197,9 @@ class Trades(commands.Cog):
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
             else:
-                await ctx.send(embed=gen_error("missing_item", ctx))
+                await gen_error("missing_item", ctx)
         else:
-            await ctx.send(embed=gen_error("missing_player", ctx))
+            await gen_error("missing_player", ctx)
 
 
     @commands.command()
@@ -225,15 +225,15 @@ class Trades(commands.Cog):
                             embed = set_footer(embed, ctx)
                             await ctx.send(embed=embed)
                         else:
-                            await ctx.send(embed=gen_error("missin_money", ctx))
+                            await gen_error("missin_money", ctx)
                     else:
-                        await ctx.send(embed=gen_error("incorrect_value", ctx))
+                        await gen_error("incorrect_value", ctx)
                 except ValueError:
-                    await ctx.send(embed=gen_error("incorrect_value", ctx))
+                    await gen_error("incorrect_value", ctx)
             else:
-                await ctx.send(embed=gen_error("self_trade", ctx))
+                await gen_error("self_trade", ctx)
         else:
-            await ctx.send(embed=gen_error("missing_account", ctx))
+            await gen_error("missing_account", ctx)
 
 
 def setup(client):

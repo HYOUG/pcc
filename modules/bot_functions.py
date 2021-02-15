@@ -18,8 +18,8 @@ def get_file(filename: str) -> dict:
 
 def is_registered(user_id: str) -> bool:
     """Return if the specified id is registered in the players database"""
-    inv = get_file("inventories")
-    return str(user_id) in list(inv.keys())
+    inventories = get_file("inventories")
+    return str(user_id) in inventories
 
 
 def is_bot_owner(ctx) -> bool:
@@ -27,13 +27,13 @@ def is_bot_owner(ctx) -> bool:
     return ctx.author.id == int(open("data/metadata/owner.id.txt", "r").read())
 
 
-def gen_error(error_id: str, ctx) -> Embed:
+async def gen_error(error_id: str, ctx) -> Embed:
     """Return a pre-made discord.Embed error message"""
     errors = get_file("errors")
     error = Embed(color=error_color)
     error.add_field(name="⚠️ " + errors[error_id]["title"], value=errors[error_id]['txt'])
     error = set_footer(error, ctx)
-    return error
+    await ctx.send(error)
 
 
 def set_footer(embed: Embed, ctx) -> Embed:

@@ -95,7 +95,7 @@
       "title": "players",
       "desc": "Affiche tous les joueurs du jeu"
    },
-  "user": {
+  "use": {
       "title": "use (power up) [@cible]",
       "desc": "Utilise le jeu spécifié"
    }

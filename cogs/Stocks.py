@@ -24,15 +24,15 @@ class Stocks(commands.Cog):
         stocks = get_file("stocks")
         embed = discord.Embed(color=default_color)
 
-        if share in list(stocks.keys()) or share == "*":
-            if share in list(stocks.keys()):
+        if share in stocks.keys or share == "*":
+            if share in stocks:
                 plt.plot(range(20), stocks[share])
                 embed.set_author(name=f"📈 Courbe : {share}")
                 embed.add_field(name="Valeur", value=f"**{share}** : `{stocks[share][-1]}`")
 
             elif share == "*":
                 values_field = ""
-                for share_key in list(stocks.keys()):
+                for share_key in stocks:
                     plt.plot(range(20), stocks[share_key])
                     values_field += f"**{share_key}** : `{stocks[share_key][-1]}` PO\n"
                 embed.set_author(name=f"📈 Courbes")
@@ -48,7 +48,7 @@ class Stocks(commands.Cog):
             await ctx.send(embed=embed, file=chart)
             plt.clf()
         else:
-            await ctx.send(embed=gen_error("invalid_synthax", ctx))
+            await gen_error("invalid_synthax", ctx)
 
         
     @commands.command(aliases=["shares"])
@@ -70,12 +70,12 @@ class Stocks(commands.Cog):
     async def invest(self, ctx, share: str = "or", qtty: int = 1):
         """Buy the speficied quantity of the specified share"""
         stocks = get_file("stocks")
-        if share in list(stocks.keys()):
+        if share in stocks:
             if 1 <= qtty <= 1000:
                 inventories = get_file("inventories")
                 if inventories[str(ctx.author.id)]["balance"] >= qtty * (stocks[share][-1] * 1.05):
                     inventories[str(ctx.author.id)]["balance"] -= qtty * (stocks[share][-1] * 1.05)
-                    if share in list(inventories[str(ctx.author.id)]["shares"].keys()):
+                    if share in inventories[str(ctx.author.id)]["shares"]:
                         inventories[str(ctx.author.id)]["shares"][share] += qtty
                     else:
                         inventories[str(ctx.author.id)]["shares"][share] = qtty
@@ -88,18 +88,18 @@ class Stocks(commands.Cog):
                     embed = set_footer(embed, ctx)
                     await ctx.send(embed=embed)
                 else:
-                    await ctx.send(embed=gen_error("missing_money", ctx))
+                    await gen_error("missing_money", ctx)
             else:
-                await ctx.send(embed=gen_error("invalid_synthax", ctx))
+                await gen_error("invalid_synthax", ctx)
         else:
-            await ctx.send(embed=gen_error("invalid_synthax", ctx))
+            await gen_error("invalid_synthax", ctx)
 
     
     @commands.command()
     async def cashout(self, ctx, share: str = "or", qtty: int = 1):
         """Sell back the specified quantity of the specified share"""
         inventories = get_file("inventories")
-        if share in list(inventories[str(ctx.author.id)]["shares"].keys()):
+        if share in inventories[str(ctx.author.id)]["shares"]:
             if qtty <= inventories[str(ctx.author.id)]["shares"][share]:
                 stocks = get_file("stocks")
                 inventories[str(ctx.author.id)]["shares"][share] -= qtty
@@ -115,9 +115,9 @@ class Stocks(commands.Cog):
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)
             else:
-                await ctx.send(embed=gen_error("incorrect_value", ctx))
+                await gen_error("incorrect_value", ctx)
         else:
-            await ctx.send(embed=gen_error("missing_share", ctx))
+            await gen_error("missing_share", ctx)
 
 
 def setup(client):

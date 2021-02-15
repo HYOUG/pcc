@@ -46,7 +46,7 @@ class Leaderboards(commands.Cog):
         inventories = get_file("inventories")
         players_points = {}
 
-        for player in list(inventories.items()):
+        for player in inventories.items():
             player_points = 0
             for item in player[1]["items"]:
                 player_points += item["points"]
