@@ -1,5 +1,9 @@
 # Bot's token
 bot.token.txt
+
+# Backups
+backup/*
+!backup/.gitkeep
   
 # Byte-compiled
 __pycache__/

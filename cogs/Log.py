@@ -14,7 +14,7 @@ class Log(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.sendLog = yellow("[SEND]")                                             # generate the log categories
+        self.sendLog = yellow("[SEND]")                                             # generate the colored log categories
         self.editLog = yellow("[EDIT]")
         self.deleteLog = yellow("[DELETE]")
         self.commandList = get_commands_list()                                      # get the 'commands list' to filter messages

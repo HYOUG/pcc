@@ -193,6 +193,21 @@
     {
       "title": "credit (@utilisateur) (somme)",
       "desc": "Augmente la bourse de l'utilisateur spécifié de la somme spécifiée"
+    },
+    "reset":
+    {
+      "title": "reset (@utilisateur)",
+      "desc": "Supprime le compte de l'utilisateur spécifié"
+    },
+    "additem":
+    {
+      "title": "additem (*infos items)",
+      "desc": "Ajoute l'item spécifié au jeu"
+    },
+    "skip":
+    {
+      "title": "skip (@utilisateur) (cooldown)",
+      "desc": "Passe le cooldown spécifié de l'utilisateur spécifié"
     }
   }
 }
