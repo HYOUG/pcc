@@ -60,7 +60,7 @@ class Admin(commands.Cog):
         """Reload the specified cog"""
         embed = discord.Embed(color=admin_color)
         embed.set_author(name="🛠️ Admin")
-        embed.add_field(name="🔁 Reloading cog", value=f"{ctx.author.mention}, le cog **{cog_name}** va bientôt se reload")
+        embed.add_field(name="🔁 Reloading cog", value=f"{ctx.author.mention}, le cog **{cog_name}** va bientôt se redémarrer")
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
         reload_cog(self.bot, cog_name)

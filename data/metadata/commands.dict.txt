@@ -10,8 +10,6 @@ admin_give:admin_give
 =give:admin_give
 admin_credit:admin_credit
 =credit:admin_credit
-admin_remove:admin_remove
-=remove:admin_remove
 admin_reset:admin_reset
 =reset:admin_reset
 admin_add_item:admin_add_item

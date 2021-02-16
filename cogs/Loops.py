@@ -76,8 +76,16 @@ class Loops(commands.Cog):
     @tasks.loop(minutes=5)
     async def change_status(self):
         """Change status loop"""
-        movies = open("data/metadata/movies.txt", "r").read().split("\n")
-        activity = discord.Activity(type=discord.ActivityType.watching, name=f"{choice(movies)} | =help")
+        presences = open("data/metadata/presences.txt", "r").read().split("\n")
+        presence = choice(presences)
+        presence_type = presence.split(" ")[0]
+        presence_name = " ".join(presence.split(" ")[1:])
+        ACTIVITY_TYPES = {
+            "movie": discord.ActivityType.watching,
+            "game": discord.ActivityType.playing,
+            "song": discord.ActivityType.listening 
+        }
+        activity = discord.Activity(type=ACTIVITY_TYPES[presence_type], name=f"{presence_name} | =help")
         await self.bot.change_presence(status=discord.Status.online, activity=activity)
 
 
