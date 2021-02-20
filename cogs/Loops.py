@@ -44,7 +44,7 @@ class Loops(commands.Cog):
             chosen_channel = choice(chosen_guild.text_channels)
 
             embed = discord.Embed(color=admin_color)
-            embed.set_author(name=f"⏱️ Évènement aléatoire")
+            embed.set_author(name="⏱️ Évènement aléatoire")
             embed.add_field(name="Challenge", value=f"Le premier à résoudre ce calcul avant 20 secondes remporte une récompense :\n```{calc} = ?```")
             embed.set_footer(text=f"Random Event • {get_time()}", icon_url=self.bot.user.avater_url)
             random_event = await chosen_channel.send(embed=embed)

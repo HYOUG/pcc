@@ -3,8 +3,7 @@
 # script by "HYOUG"
 
 """Main script of the PopCultureCollectibles project"""
-
-import discord                                                                      
+                                                                    
 from os import listdir, chdir, path, system
 from discord.ext import commands
 from modules.bot_functions import *
@@ -23,14 +22,12 @@ bot = commands.Bot(command_prefix="=",
                    case_insensitive=True)
 bot.remove_command("help")
 
-commands_list = []                                                                  # variables
-commands_dict = {}
-bot_is_ready = False
-
 
 @bot.event
 async def on_ready():                                                               # on_ready event
-    global bot_is_ready
+    commands_list = []                                                              # local variables
+    commands_dict = {}
+    bot_is_ready = False
     if not bot_is_ready:                                                            # check if the bot have been ran once
         bot_is_ready = True
         
@@ -46,10 +43,10 @@ async def on_ready():                                                           
                 cog_methods = cog.get_commands() + cog.get_listeners()
                 for method in cog_methods:
                     if isinstance(method, commands.Command):
-                        commands_list.append(method.name)
+                        commands_list.append(f"={method.name}")
                         commands_dict[method.name] = method.name
                         for aliases in method.aliases:
-                            commands_list.append(aliases)
+                            commands_list.append(f"={aliases}")
                             commands_dict[aliases] = method.name
                 print(yellow(filename[:-3]), end="")
                 print(" " + "-"*(37 - len(filename[:-3])) + blue('[READY]'))
@@ -57,7 +54,8 @@ async def on_ready():                                                           
         print("Commands log :\n")
 
         f = open("data/metadata/commands.list.txt", "w")                            # tell the cogs the 'commands list' by a file, no other way found at the moment
-        f.write(" ".join(commands_list))
+        commands_list += ["+in", "-in", "+out", "-out"]
+        f.write("\n".join(commands_list))
         f.close()                                                                   
 
         f = open("data/metadata/commands.dict.txt", "w")                            # tell the cogs the 'commands dict' by a file, no other way found at the moment
@@ -66,6 +64,12 @@ async def on_ready():                                                           
         f.close()
 
         bot.owner_id = open("data/metadata/owner.id.txt", "r").read()               # get the owner's ID by reading the 'owner.id.txt' file
+
+
+@bot.event
+async def on_message(message):                                                      # on_message event
+    pass                                                                            # delete/edit the default function to prevent the bot
+                                                                                    # to process messages from here instand of the cog listener
 
 
 bot.run(token)                                                                      # run the bot
@@ -87,4 +91,6 @@ TODO
 - add images to README
 - create a requirements.txt and look for other standarts, examples, badges (?)
 - packs and box
+- 'ragequit' command :)
+- help examples
 """

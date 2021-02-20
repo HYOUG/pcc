@@ -4,6 +4,9 @@ bot.token.txt
 # Backups
 backup/*
 !backup/.gitkeep
+
+# Tests / Drafts
+draft.py
   
 # Byte-compiled
 __pycache__/

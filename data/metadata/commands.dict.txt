@@ -1,3 +1,7 @@
+start:start
+delete_account:delete_account
+delete account:delete_account
+ragequit:delete_account
 admin_off:admin_off
 =off:admin_off
 =shutdown:admin_off
@@ -38,7 +42,6 @@ buy:buy
 sell:sell
 remove_offer:remove_offer
 use:use
-start:start
 chart:chart
 charts:chart
 stocks:stocks

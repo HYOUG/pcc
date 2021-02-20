@@ -33,7 +33,7 @@ class Leaderboards(commands.Cog):
             rank += 1
 
         embed = discord.Embed(color=default_color)
-        embed.set_author(name=f"🏆 Classement des bourses")
+        embed.set_author(name="🏆 Classement des bourses")
         embed.add_field(name="[#] Joueur", value=player_field)
         embed.add_field(name="Bourse", value=amount_field)
         embed = set_footer(embed, ctx)
@@ -64,7 +64,7 @@ class Leaderboards(commands.Cog):
             rank += 1
 
         embed = discord.Embed(color=default_color)
-        embed.set_author(name=f"🏆 Classement des points")
+        embed.set_author(name="🏆 Classement des points")
         embed.add_field(name="[#] Joueur", value=player_field)
         embed.add_field(name="Points", value=points_field)
         embed = set_footer(embed, ctx)

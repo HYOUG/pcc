@@ -7,10 +7,6 @@
       "name": "Dé de relance",
       "desc": "Redéfini aléatoirement le float de l'item spécifié"
    },
-   "random_item": {
-      "name": "Mysterieuse Boîte",
-      "desc": "Génère un item aléatoirement avec de meilleur probabilitées que le spin"
-   },
    "shield": {
       "name": "Bouclier enchanté",
       "desc": "Vous protège du prochain power-up contre vous"

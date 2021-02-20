@@ -22,12 +22,12 @@ def is_registered(user_id: str) -> bool:
     return str(user_id) in inventories
 
 
-def is_bot_owner(ctx) -> bool:
+def is_bot_owner(ctx: commands.Context) -> bool:
     """Return if the author from the context is the bot owner"""
     return ctx.author.id == int(open("data/metadata/owner.id.txt", "r").read())
 
 
-async def gen_error(error_id: str, ctx) -> Embed:
+async def gen_error(error_id: str, ctx: commands.Context) -> Embed:
     """Return a pre-made discord.Embed error message"""
     errors = get_file("errors")
     error = Embed(color=error_color)
@@ -36,7 +36,7 @@ async def gen_error(error_id: str, ctx) -> Embed:
     await ctx.send(error)
 
 
-def set_footer(embed: Embed, ctx) -> Embed:
+def set_footer(embed: Embed, ctx: commands.Context) -> Embed:
     """Set the discord.Embed's footer"""
     return embed.set_footer(icon_url=ctx.author.avatar_url, text=f"{ctx.author.display_name} • {get_time()}")
 
@@ -66,7 +66,7 @@ def get_points(item_tier: str, item_float: float) -> tuple:
     return (tier_points, float_multiplicator)
 
 
-async def target_parser(ctx, target: str) -> tuple:
+async def target_parser(ctx: commands.Context, target: str) -> tuple:
     """Return whether or not the 'target' is valid"""
     if target is None:
         target = ctx.author
@@ -103,7 +103,7 @@ def is_protected(target_id: str) -> bool:
 
 def get_commands_list() -> list:
     """Return all of the commands and aliases in a list"""
-    return open("data/metadata/commands.list.txt", "r").read().split(" ")
+    return open("data/metadata/commands.list.txt", "r").read().split("\n")
 
 def get_commands_dict() -> dict:
     """Return all of the commands and aliases in a dictionary"""

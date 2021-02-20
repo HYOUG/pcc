@@ -151,7 +151,6 @@ song Blinded by the lights
 song Lose Yourself
 song Not Afraid
 song Damdamdeo
-song Gucci Gang
 song D.A.N.C.E.
 song Hit the road Jack
 song Dimanche
@@ -165,4 +164,3 @@ song I Need a Dollar
 song Come as you are
 song Crabe Rave
 song Elévation
-song Gotaga

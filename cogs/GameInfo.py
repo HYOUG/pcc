@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 from modules.bot_functions import *
 from modules.chat_effects import *
-from os import name
 
 
 class GameInfo(commands.Cog):
@@ -25,9 +24,8 @@ class GameInfo(commands.Cog):
         help = get_file("help_draft")
         if target == "*" or target in get_commands_list() or target in help.keys():
             
-
             embed = discord.Embed(color=default_color)
-            embed.set_author(name=f"❔ Aide")
+            embed.set_author(name="❔ Aide")
 
             if target == "*":
                 catergory_field = ""
@@ -57,12 +55,12 @@ class GameInfo(commands.Cog):
     async def items(self, ctx):
         """Display the list of all game items"""
         embed = discord.Embed(color=default_color)
-        embed.set_author(name=f"📜 Liste des items")
+        embed.set_author(name="📜 Liste des items")
         embed.add_field(name="Informations",
-                        value=f"✅ {ctx.author.mention}, la liste des items va vous être envoyée. "
-                              f"La liste peut prendre du temps à se générer.\n\n"
-                              f":warning: À cause de la charte graphique il se peut que certaines colonnes "
-                              f"soit décalées par rapport aux autres")
+                        value=f"{ctx.author.mention}, la liste des items va vous être envoyée en DM. "
+                               "La liste peut prendre du temps à se générer.\n\n"
+                               ":warning: À cause de la charte graphique il se peut que certaines colonnes "
+                               "soit décalées par rapport aux autres")
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
 
@@ -89,9 +87,9 @@ class GameInfo(commands.Cog):
                   len(embed.fields[2].value) + len(f"__{items[items_keys[item_index]]['from']}__\n") < 1024:
 
                 embed.set_author(name=f"📜 Liste des items | Page n°{page}")
-                name_column += f"**{items[items_keys[item_index]]['name']}** `{items_keys[item_index]}`\n"
-                tier_column += f"*{items[items_keys[item_index]]['tier']}*\n"
-                from_column += f"__{items[items_keys[item_index]]['from']}__\n"
+                name_column += f"**{items[items_keys[item_index]]['name']}** ({items_keys[item_index]})\n"
+                tier_column += f"***{items[items_keys[item_index]]['tier']}***\n"
+                from_column += f"**__{items[items_keys[item_index]]['from']}__**\n"
 
                 embed.clear_fields()
 
@@ -158,7 +156,7 @@ class GameInfo(commands.Cog):
             players_field = "🍂 `Il n'y pas encore encore de joueurs...` 🕸️"
 
         embed = discord.Embed(color=default_color)
-        embed.set_author(name=f"👥 Liste des joueurs")
+        embed.set_author(name="👥 Liste des joueurs")
         embed.add_field(name="Players", value=players_field)
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
@@ -197,7 +195,7 @@ class GameInfo(commands.Cog):
                     f"**latence** : `{self.bot.latency}` secs."
 
         embed = discord.Embed(color=default_color)
-        embed.set_author(name=f"📊 Statistiques")
+        embed.set_author(name="📊 Statistiques")
         embed.add_field(name="Commandes", value=game_field, inline=False)
         embed.add_field(name="Volumes", value=qtty_field, inline=False)
         embed.add_field(name="Bot", value=bot_field,  inline=False)
