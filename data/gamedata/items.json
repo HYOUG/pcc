@@ -47,14 +47,14 @@
       "description": "Les power rangers mais... en émeraude",
       "tier": "A-"
    },
-   "lukesaber": {
-      "name": "Sabre Laser de Luke",
+   "lssaber": {
+      "name": "Sabre Laser: Luke",
       "from": "Star Wars",
       "description": "Le Fils",
       "tier": "A-"
    },
-   "darkvadorsaber": {
-      "name": "Sabre Laser de Dark Vador",
+   "dvsaber": {
+      "name": "Sabre Laser: Vador",
       "from": "Star Wars",
       "description": "Le pêre",
       "tier": "A+"
@@ -156,7 +156,7 @@
       "tier": "A-"
    },
    "tf2chapeau": {
-      "name": "Unusual Burning Team Captain",
+      "name": "Chapeau brûlant TF2",
       "from": "Team Fortress 2",
       "description": "C'est son prix qui est unusual",
       "tier": "C+"

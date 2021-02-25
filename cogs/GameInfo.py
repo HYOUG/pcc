@@ -56,11 +56,18 @@ class GameInfo(commands.Cog):
         """Display the list of all game items"""
         embed = discord.Embed(color=default_color)
         embed.set_author(name="📜 Liste des items")
-        embed.add_field(name="Informations",
-                        value=f"{ctx.author.mention}, la liste des items va vous être envoyée en DM. "
-                               "La liste peut prendre du temps à se générer.\n\n"
-                               ":warning: À cause de la charte graphique il se peut que certaines colonnes "
-                               "soit décalées par rapport aux autres")
+
+        if isinstance(ctx.message.channel.type, discord.ChannelType.text):
+            info_field = f"{ctx.author.mention}, la liste des items va vous être envoyée en DM. "        \
+                         "La liste peut prendre du temps à se générer.\n\n"                              \
+                         ":warning: À cause de la charte graphique il se peut que certaines colonnes "   \
+                         "soit décalées par rapport aux autres"
+        
+        else:
+            info_field = f":warning: {ctx.author.mention}, à cause de la charte graphique il se peut que certaines colonnes "   \
+                         "soit décalées par rapport aux autres"
+
+        embed.add_field(name="Informations", value=info_field)
         embed = set_footer(embed, ctx)
         await ctx.send(embed=embed)
 
