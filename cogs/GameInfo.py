@@ -25,25 +25,26 @@ class GameInfo(commands.Cog):
         if target == "*" or target in get_commands_list() or target in help.keys():
             
             embed = discord.Embed(color=default_color)
-            embed.set_author(name="❔ Aide")
+            author_value = "❔ Aide"
 
             if target == "*":
-                catergory_field = ""
                 for key in help.keys():
-                    catergory_field += f"• **{key}**\n"
-                embed.add_field(name="Synthaxe", value="`=help (catégorie)`")
-                embed.add_field(name="Catégories", value=catergory_field, inline=False)
+                    embed.add_field(name=help[key]["display_name"], value=f"`=help {key}`", inline=True)
 
             elif target in help.keys():
-                for command in help[target].items():
-                    embed.add_field(name=f"🔹 {command[0]}",
-                                    value=f"*{command[1]}*")
+                author_value += f" | {help[target]['display_name']}"
+                help_lines = list(help[target].keys())
+                help_lines.remove("display_name")
+                print(help_lines)
+                for key in help_lines:
+                    embed.add_field(name=f"🔹 {help[target][key]['title']}", value=f"{help[target][key]['desc']}", inline=False)
 
             elif target in get_commands_list():
                 target = self.bot.get_user(ctx.author.id)
                 commands_dict = get_commands_dict()
                 embed.add_field(name=f"🔹 {help[commands_dict[target]]['title']}", value=help[commands_dict[target]]['desc'])
-
+                
+            embed.set_author(name=author_value)
             embed = set_footer(embed, ctx)
             await ctx.send(embed=embed)
 
@@ -57,7 +58,7 @@ class GameInfo(commands.Cog):
         embed = discord.Embed(color=default_color)
         embed.set_author(name="📜 Liste des items")
 
-        if isinstance(ctx.message.channel.type, discord.ChannelType.text):
+        if ctx.message.channel.type == discord.ChannelType.text:
             info_field = f"{ctx.author.mention}, la liste des items va vous être envoyée en DM. "        \
                          "La liste peut prendre du temps à se générer.\n\n"                              \
                          ":warning: À cause de la charte graphique il se peut que certaines colonnes "   \
@@ -75,8 +76,7 @@ class GameInfo(commands.Cog):
         tier_column = ""
         from_column = ""
 
-        items = get_file("items")
-        items_keys = list(items.keys())
+        items = dict(sorted(get_file("items").items(), key = lambda item: item[1]["name"]))
         item_index = 0
         page = 1
         finished = False
@@ -85,18 +85,17 @@ class GameInfo(commands.Cog):
         embed.add_field(name="Nom (ID)", value="*")
         embed.add_field(name="Tier", value="*")
         embed.add_field(name="Source", value="*")
-
-        while not finished:
-
-            while len(embed.fields[0].value) +                                                                     \
-                  len(f"{items[items_keys[item_index]]['name']} ({items_keys[item_index]})\n") < 1024 and          \
-                  len(embed.fields[1].value) + len(f"*{items[items_keys[item_index]]['tier']}*\n") < 1024 and      \
-                  len(embed.fields[2].value) + len(f"__{items[items_keys[item_index]]['from']}__\n") < 1024:
-
+        
+        for item_key in list(items.keys()):
+            if len(embed) <= 6000 and                                                                         \
+               len(embed.fields[0].value) + len(f"**{items[item_key]['name']}** ({item_key})\n") < 1024 and   \
+               len(embed.fields[1].value) + len(f"***{items[item_key]['tier']}***\n") < 1024 and              \
+               len(embed.fields[2].value) + len(f"**__{items[item_key]['from']}__**\n") < 1024:
+                   
                 embed.set_author(name=f"📜 Liste des items | Page n°{page}")
-                name_column += f"**{items[items_keys[item_index]]['name']}** ({items_keys[item_index]})\n"
-                tier_column += f"***{items[items_keys[item_index]]['tier']}***\n"
-                from_column += f"**__{items[items_keys[item_index]]['from']}__**\n"
+                name_column += f"**{items[item_key]['name']}** ({item_key})\n"
+                tier_column += f"***{items[item_key]['tier']}***\n"
+                from_column += f"**__{items[item_key]['from']}__**\n"
 
                 embed.clear_fields()
 
@@ -104,27 +103,21 @@ class GameInfo(commands.Cog):
                 embed.add_field(name="Tier", value=tier_column)
                 embed.add_field(name="Source", value=from_column)
                 embed = set_footer(embed, ctx)
+                   
+            else:
+                await ctx.author.send(embed=embed)
+                
+                embed.clear_fields()
+                embed.add_field(name="Name (ID)", value="*")
+                embed.add_field(name="Tier", value="*")
+                embed.add_field(name="Source", value="*")
 
-                if item_index == len(items_keys) - 1:
-                    finished = True
-                    await ctx.author.send(embed=embed)
-                item_index += 1
-
-            await ctx.author.send(embed=embed)
-            embed.clear_fields()
-
-            embed.add_field(name="Name (ID)", value="*")
-            embed.add_field(name="Tier", value="*")
-            embed.add_field(name="Source", value="*")
-
-            name_column = ""
-            tier_column = ""
-            from_column = ""
-
-            if item_index == len(items_keys) - 1:
-                finished = True
-
-            page += 1
+                name_column = ""
+                tier_column = ""
+                from_column = ""
+                page += 1
+                
+        await ctx.author.send(embed=embed)
 
 
     @commands.command()

@@ -24,7 +24,7 @@ class Trades(commands.Cog):
         if is_registered(target.id):
             if target.id != ctx.author.id:
                 embed = discord.Embed(color=default_color)
-                embed.set_author(name=f"⚖️ Échange entre {ctx.author.name} et {target.name}")
+                embed.set_author(name=f"💱 Échange entre {ctx.author.name} et {target.name}")
                 embed.add_field(name="Initialisation", value=f"Vous avez initialisé un échange avec {target.mention} avec succès")
                 embed.add_field(name="📥 IN - Items que vous receverez", value="`Vide`", inline=False)
                 embed.add_field(name=f"📤 OUT - Items que {target.name} recevera", value="`Vide`", inline=False)

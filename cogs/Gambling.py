@@ -5,7 +5,7 @@ from modules.chat_effects import *
 from random import choice, randint
 
 
-class Fun(commands.Cog):
+class Gambling(commands.Cog):
     """
     Commands : 
     - flip
@@ -72,4 +72,4 @@ class Fun(commands.Cog):
             
 
 def setup(client):
-    client.add_cog(Fun(client))
+    client.add_cog(Gambling(client))

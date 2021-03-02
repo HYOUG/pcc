@@ -60,6 +60,7 @@ class Loops(commands.Cog):
                 embed.add_field(name="Challenge", value=f"```{calc} = {result}```", inline=False)
                 embed.add_field(name="Timeout", value=":x: Personne n'a répondu avant la fin du timer (20 secs.)", inline=False)
                 await random_event.edit(embed=embed)
+                await random_event.delete(delay=300.0)
             else:
                 inventories = get_file("inventories")
                 powers = get_file("powers")
@@ -71,6 +72,7 @@ class Loops(commands.Cog):
                 embed.add_field(name="Challenge", value=f"```{calc} = {result}```")
                 embed.add_field(name="Reward", value=f"{answer.author.mention} a remporté le power-up : `{reward}`", inline=False)
                 await random_event.edit(embed=embed)
+                await random_event.delete(delay=300.0)
 
 
     @tasks.loop(minutes=5)

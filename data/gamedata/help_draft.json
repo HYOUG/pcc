@@ -1,7 +1,7 @@
 {
   "game":
   {
-    "display_name": "Game", 
+    "display_name": "🕹️ Game", 
     "goals": 
     {
       "title": "Buts",
@@ -30,6 +30,7 @@
   },
   "claims": 
   {
+    "display_name": "⌛ Claims",
     "spin": 
     {
       "title": "spin",
@@ -43,6 +44,7 @@
   },
   "user_info":
   {
+    "display_name": "👥 Info. utilisateur",
     "inventory": 
     {
       "title": "inventory [@utilisateur] | alias: inv",
@@ -61,6 +63,7 @@
   },
   "leaderboards":
   {
+    "display_name": "🏆 Classements",
     "balancetop": 
     {
       "title": "balancetop | alias: baltop",
@@ -74,6 +77,7 @@
   },
   "game_info":
   {
+    "display_name": "📜 Info. jeu",
     "items": 
     {
       "title": "items",
@@ -92,6 +96,7 @@
   },
   "market":
   {
+    "display_name": "⚖️ Marché",
     "market": 
     {
       "title": "market",
@@ -115,6 +120,7 @@
   },
   "trade":
   {
+    "display_name": "💱 Échanges",
     "trade": 
     {
       "title": "trade (@utilisateur)",
@@ -133,6 +139,7 @@
   },
   "stocks": 
   {
+    "display_name": "📈 Actions",
     "chart": 
     {
       "title": "chart [action]",
@@ -154,8 +161,9 @@
       "desc": "Vends la quantité spécifiée de l'action spécifiée"
     }
   },
-  "fun": 
+  "gambling": 
   {
+    "display_name": "🎲 Paris",
     "flip": 
     {
       "title": "flip (mise)",
@@ -169,6 +177,7 @@
   },
   "admin":
   {
+    "display_name": "🛠️ Admin.",
     "off": 
     {
       "title": "off",

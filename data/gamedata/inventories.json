@@ -76,5 +76,13 @@
          "or": 4
       },
       "shield_active": false
+   },
+   "384721168948527104": {
+      "balance": 0,
+      "items": [],
+      "packs": {},
+      "powers": [],
+      "shares": {},
+      "shield_active": false
    }
 }

@@ -443,8 +443,8 @@
       "description": "Débloquée et Chargée",
       "tier": "C-"
    },
-   "winchester": {
-      "name": "Winchester du T-800",
+   "shotgun": {
+      "name": "Shotgun du T-800",
       "from": "Terminator",
       "description": "Livré avec des roses",
       "tier": "B+"

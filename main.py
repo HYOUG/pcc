@@ -80,7 +80,6 @@ TODO
 - Rework powers
 - Add items (?)
 - get_points from item_id and item_float not item_tier
-- items commands columns fix
 - PEP8 (PEP8.org)
 - Update the help
 - Errors handling
@@ -93,4 +92,6 @@ TODO
 - packs and box
 - 'ragequit' command :)
 - help examples
+- remove/change stocks (?)
+- finish check_embed()
 """

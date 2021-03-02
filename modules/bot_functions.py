@@ -33,7 +33,7 @@ async def gen_error(error_id: str, ctx: commands.Context) -> Embed:
     error = Embed(color=error_color)
     error.add_field(name="⚠️ " + errors[error_id]["title"], value=errors[error_id]['txt'])
     error = set_footer(error, ctx)
-    await ctx.send(error)
+    await ctx.send(embed=error)
 
 
 def set_footer(embed: Embed, ctx: commands.Context) -> Embed:
@@ -111,4 +111,19 @@ def get_commands_dict() -> dict:
     f =  open(f"data/metadata/commands.dict.txt", "r", encoding="utf-8").read()
     for command in f.split("\n"):
         commands_dict[command.split(":")[0]] = command.split(":")[1]
-    return commands_dict            
+    return commands_dict
+
+def check_embed(embed: Embed) -> bool:
+    """Return whether or not the embed is valid or not"""
+    if len(embed) <= 6000:
+        if hasattr(embed, "title"):
+            if len(embed.title) <= 256:
+                pass
+            else:
+                return False
+        if len(embed.fields) <= 25:
+            for field in embed.fields:
+                if len(field.name) <= 69420:
+                    pass
+        
+        
