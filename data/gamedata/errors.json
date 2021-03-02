@@ -13,6 +13,6 @@
   "timeout": {"title": "Timeout", "txt": "Le processus en cours a timeout, vous avez mis trop de temps à y répondre"},
   "self_trade": {"title": "Auto-Trade", "txt": "Vous avez tentez de faire une action impossible : réaliser un échange avec soi-même"},
   "trade_error": {"title": "Erreur échange", "txt": "Une erreur s'est produite dans le processus de trade"},
-  "trade_canceled": {"title": "Échange annulé", "txt": "Le trade a été annulé volontairement par un utilisateur ou à cause d'un timeout"},
+  "canceled": {"title": "Annulation", "txt": "Le processus a été annulé volontairement par un utilisateur"},
   "incorrect_value": {"title": "Valeur incorrecte", "txt": "La valeur que vous avez saisie est invalide"}
 }

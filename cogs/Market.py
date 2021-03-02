@@ -130,7 +130,7 @@ class Market(commands.Cog):
                     for reaction in updt_confirmation.reactions:
                         async for reaction_user in reaction.users():
                             if reaction.emoji == "❌" and reaction_user.id == ctx.author.id:
-                                await confirmation.edit(embed=gen_error("trade_canceled"))
+                                await gen_error("canceled", ctx)
                                 offer_ended = True
                                 break
 
@@ -155,7 +155,7 @@ class Market(commands.Cog):
                             break
 
                 except asyncio.TimeoutError:
-                    await confirmation.edit(embed=gen_error("trade_canceled", ctx))
+                    await gen_error("canceled", ctx)
             else:
                 await gen_error("incorrect_value", ctx)
         else:
@@ -186,7 +186,7 @@ class Market(commands.Cog):
             await ctx.send(embed=embed)
 
         else:
-            gen_error("missing_permissions", ctx)
+            await gen_error("missing_permissions", ctx)
 
 
 def setup(client):

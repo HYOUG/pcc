@@ -37,47 +37,15 @@
       "shares": {},
       "shield_active": false
    },
-   "439024609405435906": {
-      "balance": 69582.95,
-      "items": [
-         {
-            "id": "oeildieu",
-            "float": 0.359,
-            "points": 1
-         },
-         {
-            "id": "ring",
-            "float": 0.614,
-            "points": 1
-         },
-         {
-            "id": "fireserpent",
-            "float": 0.957,
-            "points": 25
-         },
-         {
-            "id": "smashball",
-            "float": 0.709,
-            "points": 10
-         },
-         {
-            "id": "akey47",
-            "float": 0.489,
-            "points": 5
-         },
-         {
-            "id": "blaster",
-            "float": 0.443,
-            "points": 1
-         }
-      ],
+   "384721168948527104": {
+      "balance": 0,
+      "items": [],
+      "packs": {},
       "powers": [],
-      "shares": {
-         "or": 4
-      },
+      "shares": {},
       "shield_active": false
    },
-   "384721168948527104": {
+   "439024609405435906": {
       "balance": 0,
       "items": [],
       "packs": {},

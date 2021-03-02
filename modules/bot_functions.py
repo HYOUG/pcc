@@ -1,8 +1,9 @@
-from time import strftime
-from json import loads, dumps
 from discord import Embed
 from discord.ext import commands
+from time import strftime
+from json import loads, dumps
 from modules.chat_effects import default_color, error_color, warning_color, admin_color
+from os import listdir
 
 """Generics and usual bot's functions"""
 
@@ -81,12 +82,14 @@ async def target_parser(ctx: commands.Context, target: str) -> tuple:
 
 
 def load_cogs(bot: commands.Bot, cog_name: str) -> None:
-    """Load all coags"""
+    """Load a cog"""
+    #assert cog_name in list(map(lambda filename: filename[:-5], listdir(".\cogs"))), "Invlaid cog name"
     bot.load_extension(f"cogs.{cog_name}")
 
 
 def unload_cog(bot: commands.Bot, cog_name: str) -> None:
     """Unload a cog"""
+    #assert cog_name in list(map(lambda filename: filename[:-5], listdir(".\cogs"))), "Invlaid cog name"
     bot.unload_extension(f"cogs.{cog_name}")
 
 

@@ -68,7 +68,7 @@ class Gambling(commands.Cog):
             else:
                 await gen_error("missing_money", ctx)
         else:
-            await gen_error("incorrect_value")
+            await gen_error("incorrect_value", ctx)
             
 
 def setup(client):

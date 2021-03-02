@@ -38,11 +38,11 @@ class UserInfo(commands.Cog):
                         for i in range(5 - len(str(item["float"]))):
                             showed_float += "0"
                         float_column += f" __{showed_float}__ • **{item['points']}**\n"
-                    embed.add_field(name = "Item (ID)",      value=name_column)
-                    embed.add_field(name = "Tier",           value=tier_column)
+                    embed.add_field(name = "Item (ID)", value=name_column)
+                    embed.add_field(name = "Tier", value=tier_column)
                     embed.add_field(name = "Float • Points", value=float_column)
                 else:
-                    embed.add_field(name = "Inventory",      value="`Vous n'avez pas d'items'`", inline=False)
+                    embed.add_field(name = "Inventory", value="`Vous n'avez pas d'items`", inline=False)
 
                 if inventories[str(target.id)]["powers"]:
                     powers = get_file("powers")
@@ -59,7 +59,7 @@ class UserInfo(commands.Cog):
                         share_column += f"• $**{key.upper()}** : `{inventories[str(ctx.author.id)]['shares'][key]}`\n"
                     embed.add_field(name="Actions", value=share_column, inline=False)
                 else:
-                    embed.add_field(name="Actions • Quantité", value="Vous n'avez pas d'actions")
+                    embed.add_field(name="Actions • Quantité", value="`Vous n'avez pas d'actions`")
 
                 embed = set_footer(embed, ctx)
                 await ctx.send(embed=embed)

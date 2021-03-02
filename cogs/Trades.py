@@ -169,9 +169,11 @@ class Trades(commands.Cog):
                         await trade.edit(embed=embed)
 
                     elif confimation_canceled:
-                        await trade.edit(embed=gen_error("trade_canceled", ctx))
+                        trade.delete()
+                        await gen_error("canceled", ctx)
                 elif trade_canceled:
-                    await trade.edit(embed=gen_error("trade_canceled", ctx))
+                    trade.delete()
+                    await gen_error("canceled", ctx)
             else:
                 await gen_error("self_trade", ctx)
         else:

@@ -54,22 +54,46 @@ class Account(commands.Cog):
 
 
         embed = discord.Embed(color=warning_color)
-        embed.set_author(name="🗑️ Supprimer son compte")
+        embed.set_author(name="🗑️ Suppression de compte")
         embed.add_field(name="Confirmation", value=confirmation_text)
-        embed = set_footer(embed)
+        embed = set_footer(embed, ctx)
         confirmation = await ctx.send(embed=embed)
 
         await confirmation.add_reaction("✅")
+        await confirmation.add_reaction("❌")
 
-        check = lambda reaction, user: reaction.emoji == "✅" and user.id == ctx.author.id
+        check = lambda reaction, reaction_user: reaction.emoji in ["✅", "❌"] and reaction_user.id == ctx.author.id
 
         try:
-            reaction = await self.bot.wait_for("reaction", check=check, timeout=10.0)
-        
+            reaction, reaction_user = await self.bot.wait_for("reaction_add", check=check, timeout=10.0)
+            
+            if reaction.emoji == "✅":
+                cooldowns = get_file("cooldowns")
+                inventories = get_file("inventories")
+                market = get_file("market")
+                
+                del cooldowns[str(ctx.author.id)]
+                del inventories[str(ctx.author.id)]
+                for offer in market["offers"]:
+                    if offer["seller"] == ctx.author.id:
+                        market["offers"].remove(offer)
+                        
+                update_file("cooldowns", cooldowns)
+                update_file("inventories", inventories)
+                update_file("market", market)
+                
+                embed.clear_fields()
+                embed.add_field(name="Conclusion", value=f"{ctx.author.mention} votre compte a été définitivement supprimé")
+                embed = set_footer(embed, ctx)
+                await confirmation.edit(embed=embed)
+                
+            elif reaction.emoji == "❌":
+                await confirmation.delete()
+                await gen_error("canceled", ctx)
+            
         except asyncio.TimeoutError:
-            pass
-
-
+            await confirmation.delete()
+            await gen_error("timeout", ctx)
 
 
 def setup(client):
