@@ -22,27 +22,32 @@ class GameInfo(commands.Cog):
     async def help(self, ctx, target: str = "*"):
         """Give a general help or a specified one"""
         help = get_file("help_draft")
-        if target == "*" or target in get_commands_list() or target in help.keys():
-            
+        if target == "*" or target in help.keys() or ("=" + target) in get_commands_list():            
             embed = discord.Embed(color=default_color)
             author_value = "❔ Aide"
 
             if target == "*":
                 for key in help.keys():
-                    embed.add_field(name=help[key]["display_name"], value=f"`=help {key}`", inline=True)
+                    embed.add_field(name=help[key]["display_name"],
+                                    value=f"`=help {key}`", inline=True)
 
             elif target in help.keys():
                 author_value += f" | {help[target]['display_name']}"
                 help_lines = list(help[target].keys())
                 help_lines.remove("display_name")
-                print(help_lines)
                 for key in help_lines:
-                    embed.add_field(name=f"🔹 {help[target][key]['title']}", value=f"{help[target][key]['desc']}", inline=False)
+                    embed.add_field(name=f"🔹 {help[target][key]['title']}",
+                                    value=f"{help[target][key]['desc']}", inline=False)
 
-            elif target in get_commands_list():
-                target = self.bot.get_user(ctx.author.id)
+            elif ("=" + target) in get_commands_list():
                 commands_dict = get_commands_dict()
-                embed.add_field(name=f"🔹 {help[commands_dict[target]]['title']}", value=help[commands_dict[target]]['desc'])
+                default_cmd_name = commands_dict[target]
+                for category in list(help.keys()):
+                    try:
+                        embed.add_field(name=f"🔹 {help[category][default_cmd_name]['title']}",
+                                        value=help[category][default_cmd_name]['desc'])
+                    except KeyError:
+                        pass
                 
             embed.set_author(name=author_value)
             embed = set_footer(embed, ctx)
