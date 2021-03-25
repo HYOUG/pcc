@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# script by "HYOUG"
-
-"""Main script of the PopCultureCollectibles project"""
+# script by HYOUG
                                                                     
 from os import listdir, chdir, path, system
 from discord.ext import commands
