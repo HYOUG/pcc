@@ -18,7 +18,7 @@ A simple **gacha-like discord bot** based on the Pop culture universe using the 
    > =help
 
 ## 🔧 Troubleshoot and Feedbacks
-Contact me on discord at `HYOUG#3643` or on twitter [`@HY0UG`](https://twitter.com/HY0UG).
+Contact me on discord at `HYOUG#3643` or on twitter [@HY0UG](https://twitter.com/HY0UG).
 
 ## 📜 License 
 [MIT](https://choosealicense.com/licenses/mit/) (2021) License protected project.
