@@ -2,18 +2,14 @@
 A simple **gacha-like discord bot** based on the Pop culture universe using the discord.py library.
 
 ## 🕹️ Features
-
 * Collect items
 * Sell and buy
 * Trade
 
-## 📦 invite and Play
-
+## 📦 Invite and Play
 * Invite the bot onto your server with this [**link**](https://discord.com/api/oauth2/authorize?client_id=718073137610227753&permissions=522304&scope=bot).
-
 * Create your game account :
    > =start
-
 * Eventually, get help and the commands :
    > =help
 
