@@ -1,13 +1,13 @@
 # Pop Culture Collectibles - Work In Progress
 A simple **gacha-like discord bot** based on the Pop culture universe using the discord.py library.
 
-## 🕹️ Key Features
+## 🕹️ Features
 
 * Collect items
 * Sell and buy
 * Trade
 
-## 📦 Install and Play
+## 📦 invite and Play
 
 * Invite the bot onto your server with this [**link**](https://discord.com/api/oauth2/authorize?client_id=718073137610227753&permissions=522304&scope=bot).
 
